@@ -1,0 +1,6 @@
+server:
+  port: 8002
+
+redis-properties:
+  host: localhost
+  port: 6379

@@ -1,0 +1,6 @@
+server:
+  port: 8002
+
+redis-properties:
+  host: { REDIS_HOST }
+  port: { REDIS_PORT:6379 }
