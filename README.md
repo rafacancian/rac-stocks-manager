@@ -1,2 +1,2 @@
 # rac-stocks
-RAC Stocks
+RAC Stocks manager
