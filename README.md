@@ -1,3 +1,2 @@
 # rac-stocks
-
-RAC Stocks project
+RAC Stocks frontend
