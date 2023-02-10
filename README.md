@@ -1,2 +1,3 @@
 # rac-stocks
-RAC Stocks manager
+
+RAC Stocks project
