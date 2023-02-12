@@ -51,6 +51,7 @@ public class StockRepositoryData {
     public static Stock IGTI11 = new Stock("Jereissati", "IGTI11", EXPLORACAO_DE_IMOVEIS, EXPLORACAO_DE_IMOVEIS);
     public static Stock IRBR3 = new Stock("IRB", "IRBR3", PREVIDENCIA_E_SEGUROS, SEGURADORAS);
     public static Stock ITSA4 = new Stock("Itausa", "ITSA4", FINANCEIRO_E_OUTROS, BANCOS);
+    public static Stock BBDC4 = new Stock("Bradesco", "BBDC4", FINANCEIRO_E_OUTROS, BANCOS);
     public static Stock LREN3 = new Stock("Lojas Renner", "LREN3", CONSUMO_CICLICO, TECIDOS_VESTUARIO_E_CALCADOS);
     public static Stock MGLU3 = new Stock("Magazine Luiza", "MGLU3", CONSUMO_CICLICO, "Eletrodomesticos");
     public static Stock NGRD3 = new Stock("Neogrid", "NGRD3", TECNOLOGIA_DA_INFORMACAO, PROGRAMAS_E_SERVIÇOS);
@@ -102,7 +103,7 @@ public class StockRepositoryData {
 
     public static Set<Stock> getAll() {
         return Set.of(ALSO3, AMAR3, AURA33, BBAS3, BBSE3, BLAU3, COGN3, CVCB3, EGIE3, ELET3,
-                ENBR3, EZTC3, FLRY3, GMAT3, IGTI11, IRBR3, ITSA4, KLBN11, LREN3, MGLU3,
+                ENBR3, EZTC3, FLRY3, GMAT3, IGTI11, IRBR3, ITSA4, BBDC4, KLBN11, LREN3, MGLU3,
                 NGRD3, OIBR4, PNVL3, SAPR4, SULA11, TAEE11, TIMS3, USIM5, VALE3, VIIA3,
                 VIVT3, WEGE3, WIZS3, SYNE3, BAZA3, TPIS3, MRFG3, BRKM5, PETR4, TASA4,
                 CSNA3, CCRO3, GRND3, CPLE6, TTEN3, BRBI11, MOVI3, CEAB3);
