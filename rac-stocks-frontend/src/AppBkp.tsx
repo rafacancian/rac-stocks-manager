@@ -59,6 +59,7 @@ const stocksMock = [
 ]
 
 useEffect(() => {
+  debugger;
     axios.get('http://localhost:8002/stocks/suno/dividends')
     //.headers: {"Access-Control-Allow-Origin": "*"}
     .then(response => {

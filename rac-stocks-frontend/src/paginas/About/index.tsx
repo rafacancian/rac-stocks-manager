@@ -1,4 +1,4 @@
-function App() {
+function About() {
     return (
         <>
             <h1>About Page</h1>
@@ -6,5 +6,5 @@ function App() {
     );
 }
 
-export default App;
+export default About;
 
