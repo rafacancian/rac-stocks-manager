@@ -18,7 +18,7 @@ const StockTable = (props) => {
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7">Rank</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ativo</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço Atual</th>
-                        <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Dividend Yeld</th>
+                        <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Dividend Yield</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valorização 12M</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço Teto</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Upsite</th>
@@ -26,17 +26,16 @@ const StockTable = (props) => {
                         <th></th>
                       </tr>
                     </thead>
-
                     <tbody>
-                      {props.stocks.map(stock =>
+                      {props.stocks?.map(stock =>
                         <tr>
                           <td>
-                            <p className="text-ms text-center font-weight-bold mb-0">{stock.rank}</p>
+                            <p className="text-ms text-center font-weight-bold mb-0">1</p>
                           </td>
                           <td>
                             <div className="d-flex px-2">
                               <div>
-                                <img src={`/images/small-logos/${stock.name}.png`} className="avatar-sm me-2" alt={stock.name}></img>
+                                <img src={`/images/small-logos/${stock.code}.png`} className="avatar-sm me-2" alt={stock.code}></img>
                               </div>
                               <div className="my-auto">
                                 <h6 className="mb-0 text-sm">{stock.name}</h6>
@@ -50,18 +49,18 @@ const StockTable = (props) => {
                             <p className="text-sm font-weight-bold mb-0">{stock.dividendYield}</p>
                           </td>
                           <td>
-                            <p className="text-sm font-weight-bold mb-0">{stock.valorization12Month}</p>
+                            <p className="text-sm font-weight-bold mb-0">{stock.valorization12M}</p>
                           </td>
                           <td>
-                            <p className="text-sm font-weight-bold mb-0">{stock.upsideValue}</p>
+                            <p className="text-sm font-weight-bold mb-0">{stock.maximumPrice}</p>
                           </td>
                           <td className="align-middle text-center">
                             <div className="d-flex align-items-center justify-content-center">
-                              <span className="me-2 text-xs font-weight-bold">{stock.upsidePercentage}</span>
+                              <span className="me-2 text-xs font-weight-bold">{stock.upside}</span>
                               <div>
                                 <div className="progress">
                                   <div className="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                    style={{ width: stock.upsidePercentage }}
+                                    style={{ width: stock.upside }}
                                   ></div>
                                 </div>
                               </div>
@@ -71,8 +70,6 @@ const StockTable = (props) => {
                             <span className="text-xs font-weight-bold">{stock.status}</span>
                           </td>
                         </tr>
-
-
                       )}
                     </tbody>
                   </table>

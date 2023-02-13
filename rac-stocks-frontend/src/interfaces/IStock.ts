@@ -4,8 +4,8 @@ export default interface IStock {
   name: string
   currentPrice: number
   dividendYield: string
-  valorization12Month: string
-  upsideValue: string
-  upsidePercentage: string
+  valorization12M: string
+  maximumValue: string
+  upside: string
   status: string
 }
