@@ -33,7 +33,10 @@ public class GrahamService {
                 .code(stockShort.code())
                 .name(stockShort.name())
                 .currentPrice(stockShort.currentValue())
+                .dividendYield(stockShort.dividendYield())
+                .valorization12M(stockShort.valorization12M())
                 .maximumPrice(stockShort.graham().maximumPrice())
-                .upside(stockShort.graham().upside()).build();
+                .upside(stockShort.graham().upside())
+                .status(stockShort.graham().isValid() ? "Buy" : "Waiting").build();
     }
 }

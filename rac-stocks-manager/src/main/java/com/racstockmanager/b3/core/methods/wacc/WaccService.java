@@ -34,7 +34,10 @@ public class WaccService {
                 .code(stockShort.code())
                 .name(stockShort.name())
                 .currentPrice(stockShort.currentValue())
+                .dividendYield(stockShort.dividendYield())
+                .valorization12M(stockShort.valorization12M())
                 .maximumPrice(stockShort.wacc().maximumPrice())
-                .upside(stockShort.wacc().upside()).build();
+                 .upside(stockShort.wacc().upside())
+                .status(stockShort.wacc().isValid() ? "Buy" : "Waiting").build();
     }
 }

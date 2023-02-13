@@ -31,8 +31,11 @@ public class BazinService {
         return StockShortDto.builder()
                 .code(stockShort.code())
                 .name(stockShort.name())
+                .dividendYield(stockShort.dividendYield())
+                .valorization12M(stockShort.valorization12M())
                 .currentPrice(stockShort.currentValue())
                 .maximumPrice(stockShort.bazin().maximumPrice())
-                .upside(stockShort.bazin().upside()).build();
+                .upside(stockShort.bazin().upside())
+                .status(stockShort.bazin().isValid() ? "Buy" : "Waiting").build();
     }
 }

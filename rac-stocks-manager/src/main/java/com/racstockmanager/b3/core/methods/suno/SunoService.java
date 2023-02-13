@@ -1,6 +1,7 @@
 package com.racstockmanager.b3.core.methods.suno;
 
 import com.racstockmanager.b3.adapters.rest.dto.stock.StockMethodDto;
+import com.racstockmanager.b3.adapters.rest.dto.stock.StockShortDto;
 import com.racstockmanager.b3.adapters.rest.dto.stock.StockShortSunoDto;
 import com.racstockmanager.b3.core.methods.general.stock.B3Service;
 import com.racstockmanager.b3.core.model.stock.Stock;
@@ -30,7 +31,7 @@ public class SunoService {
     public static Set<Stock> getTopsSunoDividends() {
         return Set.of(EGIE3, VALE3, ELET3, BBAS3, PETR4, TUPY3,
                 BBSE3, LEVE3, AGRO3, ENBR3, MRVE3, ALUP11, B3SA3,
-                CPLE6, VIVT3, GRND3, WIZS3, UNIP6);
+                CPLE6, VIVT3, GRND3, WIZC3, UNIP6);
     }
 
     public Set<StockShortSunoDto> getSunoValues() {

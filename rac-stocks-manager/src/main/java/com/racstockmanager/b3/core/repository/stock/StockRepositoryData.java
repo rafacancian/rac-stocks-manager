@@ -63,7 +63,7 @@ public class StockRepositoryData {
     public static Stock VALE3 = new Stock("VALE", "VALE3", "Materiais basicos", MINERAIS_METALICOS);
     public static Stock VIIA3 = new Stock("Via S.A", "VIIA3", CONSUMO_CICLICO, "Eletrodomesticos");
     public static Stock WEGE3 = new Stock("WEG", "WEGE3", "Bens industriais", "Motores, compressores e outros");
-    public static Stock WIZS3 = new Stock("WIZ", "WIZS3", "Previdencia e Seguros", "Corretoras de Seguros");
+    public static Stock WIZC3 = new Stock("WIZ", "WIZC3", "Previdencia e Seguros", "Corretoras de Seguros");
     public static Stock SYNE3 = new Stock("SYN Prop e Tech S.A", "SYNE3", FINANCEIRO_E_OUTROS, EXPLORACAO_DE_IMOVEIS);
     public static Stock BAZA3 = new Stock("Banco Amazonia", "BAZA3", FINANCEIRO_E_OUTROS, BANCOS);
     public static Stock TPIS3 = new Stock("TPI Triunfo Particip e Invest S.A", "TPIS3", BENS_INDUSTRIAIS, "Exploracao de Rodovias");
@@ -105,7 +105,7 @@ public class StockRepositoryData {
         return Set.of(ALSO3, AMAR3, AURA33, BBAS3, BBSE3, BLAU3, COGN3, CVCB3, EGIE3, ELET3,
                 ENBR3, EZTC3, FLRY3, GMAT3, IGTI11, IRBR3, ITSA4, BBDC4, KLBN11, LREN3, MGLU3,
                 NGRD3, OIBR4, PNVL3, SAPR4, SULA11, TAEE11, TIMS3, USIM5, VALE3, VIIA3,
-                VIVT3, WEGE3, WIZS3, SYNE3, BAZA3, TPIS3, MRFG3, BRKM5, PETR4, TASA4,
+                VIVT3, WEGE3, WIZC3, SYNE3, BAZA3, TPIS3, MRFG3, BRKM5, PETR4, TASA4,
                 CSNA3, CCRO3, GRND3, CPLE6, TTEN3, BRBI11, MOVI3, CEAB3);
     }
 
