@@ -22,8 +22,7 @@ function StocksGraham() {
     return (
         <>
             <div className="StockPage">
-                <h1>Stocks - Graham Paga</h1>
-                <StockTable stocks={stocks} />
+                <StockTable stocks={stocks} method="Graham" />
             </div>
         </>
     );

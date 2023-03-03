@@ -22,8 +22,7 @@ function StocksBazin() {
     return (
         <>
             <div className="StockPage">
-                <h1>Stocks - Bazin Page</h1>
-                <StockTable stocks={stocks} />
+                <StockTable stocks={stocks} method="Bazin" />
             </div>
         </>
     );

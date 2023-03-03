@@ -8,7 +8,7 @@ const StockTable = (props) => {
           <div className="col-12">
             <div className="card mb-4">
               <div className="card-header pb-0">
-                <h6>Stocks</h6>
+                <h6>{props.method}</h6>
               </div>
               <div className="card-body px-0 pt-0 pb-2">
                 <div className="table-responsive p-0">
@@ -27,10 +27,10 @@ const StockTable = (props) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {props.stocks?.map(stock =>
+                      {props.stocks?.map((stock, index) =>
                         <tr>
                           <td>
-                            <p className="text-ms text-center font-weight-bold mb-0">1</p>
+                            <p className="text-ms text-center font-weight-bold mb-0">{index+1}</p>
                           </td>
                           <td>
                             <div className="d-flex px-2">
