@@ -8,4 +8,5 @@ export default interface IStock {
   maximumValue: string
   upside: string
   status: string
+  toggleFunction: (param: any) => void
 }

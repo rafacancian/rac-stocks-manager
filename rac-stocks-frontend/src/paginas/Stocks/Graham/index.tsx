@@ -9,9 +9,7 @@ function StocksGraham() {
 
     useEffect(() => {
         axios.get('http://localhost:8002/stocks/graham/tops')
-            //.headers: {"Access-Control-Allow-Origin": "*"}
             .then(response => {
-                console.log(response)
                 setStocks(response.data)
             })
             .catch(error => {

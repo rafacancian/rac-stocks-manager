@@ -1,6 +1,6 @@
 import './StockTable.css'
 
-const StockTable = (props) => {
+const StockTable = (props, method) => {
   return (
     <div className="stock-table">
       <div className="container-fluid py-4">
@@ -30,7 +30,7 @@ const StockTable = (props) => {
                       {props.stocks?.map((stock, index) =>
                         <tr>
                           <td>
-                            <p className="text-ms text-center font-weight-bold mb-0">{index+1}</p>
+                            <p className="text-ms text-center font-weight-bold mb-0">{index + 1}</p>
                           </td>
                           <td>
                             <div className="d-flex px-2">

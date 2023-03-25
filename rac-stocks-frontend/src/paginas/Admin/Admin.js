@@ -8,10 +8,7 @@ import routesPath from "../../routesPath.js";
 
 import sidebarImage from "../../assets/img/sidebar-stocks.jpeg";
 import Header from "../../components/Navbars/AdminNavbar";
-import Dashboard from "../../components/views/Dashboard";
-import StocksBazin from "../Stocks/Bazin";
-import StocksGraham from "../Stocks/Graham";
-import StocksWacc from "../Stocks/Wacc";
+import StocksAll from "../Stocks/All";
 
 function Admin() {
   const [image, setImage] = React.useState(sidebarImage);
@@ -19,6 +16,7 @@ function Admin() {
   const [hasImage, setHasImage] = React.useState(true);
   const location = useLocation();
   const mainPanel = React.useRef(null);
+
   const getRoutes = (routesPath) => {
     return routesPath.map((prop) => {
       debugger;
@@ -38,6 +36,7 @@ function Admin() {
       }
     });
   };
+
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
@@ -51,17 +50,16 @@ function Admin() {
       element.parentNode.removeChild(element);
     }
   }, [location]);
+
   return (
     <>
       <div className="wrapper">
         <Sidebar color={color} image={hasImage ? image : ""} routes={routesPath} />
         <div className="main-panel" ref={mainPanel}>
           <Header />
-            <div className="content">
-              <StocksBazin></StocksBazin>
-              <StocksGraham></StocksGraham>
-              <StocksWacc></StocksWacc>
-            </div>
+          <div className="content">
+            <StocksAll></StocksAll>
+          </div>
           <Footer />
         </div>
       </div>

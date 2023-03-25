@@ -9,9 +9,7 @@ function StocksBazin() {
 
     useEffect(() => {
         axios.get('http://localhost:8002/stocks/bazin/tops')
-            //.headers: {"Access-Control-Allow-Origin": "*"}
             .then(response => {
-                console.log(response)
                 setStocks(response.data)
             })
             .catch(error => {

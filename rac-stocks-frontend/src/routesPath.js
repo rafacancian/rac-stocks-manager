@@ -30,13 +30,13 @@ const dashboardRoutes = [
   {
     path: "/",
     name: "Cheap Stocks",
-    icon: "nc-icon nc-chart-pie-35",
+    icon: "nc-icon nc-circle-09",
     component: Dashboard,
-    layout: "/admin"
+    layout: ""
   },
   {
     path: "/",
-    name: "Dividends",
+    name: "Cheap FIIs",
     icon: "nc-icon nc-circle-09",
     component: Dashboard,
     layout: "/admin"
