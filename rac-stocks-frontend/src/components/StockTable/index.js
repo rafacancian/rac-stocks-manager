@@ -28,7 +28,7 @@ const StockTable = (props, method) => {
                     </thead>
                     <tbody>
                       {props.stocks?.map((stock, index) =>
-                        <tr>
+                        <tr key={index +1}>
                           <td>
                             <p className="text-ms text-center font-weight-bold mb-0">{index + 1}</p>
                           </td>
