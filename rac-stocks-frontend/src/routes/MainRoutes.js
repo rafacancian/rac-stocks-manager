@@ -1,11 +1,7 @@
-import { lazy } from 'react';
 
-// project import
-import Loadable from '../components/new/Loadable';
 import MainLayout from '../layout/MainLayout';
+import Home from '../paginas/Home';
 
-// render - dashboard
-const DashboardDefault = Loadable(lazy(() => import('../paginas/Home/')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -15,14 +11,14 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <DashboardDefault />
+      element: <Home />
     },
     {
       path: 'dashboard',
       children: [
         {
           path: 'default',
-          element: <DashboardDefault />
+          element: <Home />
         }
       ]
     }
