@@ -1,0 +1,51 @@
+[?1049h[>4;2m[?1h=[?2004h[?1004h[1;24r[?12h[?12l[22;2t[22;1t[27m[29m[m[H[2J[?25l[24;1H"~/.npmrc" 166L, 3260B[1;1H;;;;
+; npm userconfig file: /Users/rafaelcancian/.npmrc
+; this is a simple ini-formatted file
+; lines that start with semi-colons are comments
+; run `npm help 7 config` for documentation of the various options
+;
+; Configs like `@scope:registry` map a scope to a given registry url.
+;
+; Configs like `//<hostname>/:_authToken` are auth that is restricted
+; to the registry host specified.
+
+registry=https://codeload.github.com/
+
+;;;;
+; all available options shown below with default values
+;;;;
+
+
+; _auth=null
+; access=null
+; all=false
+; allow-same-version=false
+; also=null[1;1H[?25h[?25l[24;1HType  :qa  and press <Enter> to exit Vim[1;1H[?25h[?25l[?25h[?25l[?25h
+
+[?25l[?25h[?25l[?25h[27m[29m[m[H[2J[?25l[1;1H;;;;
+; npm userconfig file: /Users/rafaelcancian/.npmrc
+; this is a simple ini-formatted file
+; lines that start with semi-colons are comments
+; run `npm help 7 config` for documentation of the various options
+;
+; Configs like `@scope:registry` map a scope to a given registry url.
+;
+; Configs like `//<hostname>/:_authToken` are auth that is restricted
+; to the registry host specified.
+
+registry=https://codeload.github.com/
+
+;;;;
+; all available options shown below with default values
+;;;;
+
+
+; _auth=null
+; access=null
+; all=false
+; allow-same-version=false
+; also=null
+; audit=true
+; audit-level=null[3;1H[?25h[26;1H[?1004l[?2004l[?1l>[>4;m[?1049lVim: Caught deadly signal HUP
+Vim: Finished.
+[26;1H[23;2t[23;1t
