@@ -21,8 +21,6 @@ import {
 // project import
 import MainCard from '../../../../../components/new/MainCard';
 import Transitions from '../../../../../components/new/@extended/Transitions';
-import ProfileTab from './ProfileTab';
-import SettingTab from './SettingTab';
 
 // assets
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
@@ -95,7 +93,7 @@ const Profile = () => {
         onClick={handleToggle}
       >
         <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
-          <Typography variant="subtitle1">John Doe</Typography>
+          <Typography variant="subtitle1">Rafael Cancian</Typography>
         </Stack>
       </ButtonBase>
       <Popper
@@ -174,11 +172,9 @@ const Profile = () => {
                           </Tabs>
                         </Box>
                         <TabPanel value={value} index={0} dir={theme.direction}>
-                          <ProfileTab handleLogout={handleLogout} />
-                        </TabPanel>
+                         </TabPanel>
                         <TabPanel value={value} index={1} dir={theme.direction}>
-                          <SettingTab />
-                        </TabPanel>
+                          </TabPanel>
                       </>
                     )}
                   </MainCard>

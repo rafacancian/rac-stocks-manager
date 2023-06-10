@@ -20,19 +20,19 @@ const icons = {
 
 // ==============================|| MENU ITEMS - UTILITIES ||============================== //
 
-const utilities = {
-  id: 'utilities',
-  title: 'Utilities',
+const general = {
+  id: 'general',
+  title: 'General',
   type: 'group',
   children: [
     {
-      id: 'util-typography',
+      id: 'general-dashboard',
       title: 'Dashboard',
       type: 'item',
-      url: '/typography',
+      url: '/',
       icon: icons.FontSizeOutlined
     }
   ]
 };
 
-export default utilities;
+export default general;

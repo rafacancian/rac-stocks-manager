@@ -13,8 +13,7 @@ const DrawerContent = () => (
       }
     }}
   >
-    <Navigation />
-
+  <Navigation />
   </SimpleBar>
 );
 

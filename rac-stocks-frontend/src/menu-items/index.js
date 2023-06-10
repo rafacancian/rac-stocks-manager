@@ -1,11 +1,12 @@
 // project import
-import utilities from './utilities';
-
+import general from './general';
+import others from './others';
+import stocks from "./stocks"
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-  items: [utilities]
+  items: [general, stocks, others]
 };
 
 export default menuItems;
