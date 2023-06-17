@@ -1,10 +1,10 @@
 
 import MainLayout from '../layout/MainLayout';
-import About from '../paginas/About';
-import Home from '../paginas/Home';
-import StocksBazin from '../paginas/Stocks/Bazin';
-import StocksGraham from '../paginas/Stocks/Graham';
-import StocksWacc from '../paginas/Stocks/Wacc';
+import About from '../pages/About';
+import Home from '../pages/Home';
+import StocksBazin from '../pages/Stocks/Bazin';
+import StocksGraham from '../pages/Stocks/Graham';
+import StocksWacc from '../pages/Stocks/Wacc';
 
 
 // ==============================|| MAIN ROUTING ||============================== //

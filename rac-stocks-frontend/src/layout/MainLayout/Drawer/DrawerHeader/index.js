@@ -1,22 +1,18 @@
 import PropTypes from 'prop-types';
-
-// material-ui
 import { useTheme } from '@mui/material/styles';
 import { Stack } from '@mui/material';
 
-// project import
 import DrawerHeaderStyled from './DrawerHeaderStyled';
 
-// ==============================|| DRAWER HEADER ||============================== //
+import logo from "../../../../assets/logo/logo_test.png"
 
 const DrawerHeader = ({ open }) => {
   const theme = useTheme();
 
   return (
-    // only available in paid version
     <DrawerHeaderStyled theme={theme} open={open}>
-      <Stack direction="row" spacing={1} alignItems="center">
-       <h1>LOGO</h1>
+      <Stack direction="row" spacing={5} alignItems="center">
+       <img src={logo} style={{height: "100%", width: "100%", alignContent: "center"}}></img>
       </Stack>
     </DrawerHeaderStyled>
   );

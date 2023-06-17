@@ -1,8 +1,5 @@
-// project import
 import Navigation from './Navigation';
 import SimpleBar from '../../../../components/new/third-party/SimpleBar';
-
-// ==============================|| DRAWER CONTENT ||============================== //
 
 const DrawerContent = () => (
   <SimpleBar

@@ -3,8 +3,8 @@ import { Box, IconButton, Link, useMediaQuery } from '@mui/material';
 import { GithubOutlined } from '@ant-design/icons';
 
 // project import
-
 import Profile from './Profile';
+import Notification from './Notification';
 
 // ==============================|| HEADER - CONTENT ||============================== //
 
@@ -15,6 +15,10 @@ const HeaderContent = () => {
     <>
       {matchesXs && <Box sx={{ width: '100%', ml: 1 }} />}
 
+      <Box sx={{ width: '100%', ml: { xs: 0, md: 1 } }}>
+      Menu
+      </Box>
+
       <IconButton
         component={Link}
         href="https://github.com/rafacancian"
@@ -24,8 +28,9 @@ const HeaderContent = () => {
         title="Github"
         sx={{ color: 'text.primary', bgcolor: 'grey.100' }}
       >
-      <GithubOutlined />
+        <GithubOutlined />
       </IconButton>
+      <Notification/>
       <Profile />
     </>
   );

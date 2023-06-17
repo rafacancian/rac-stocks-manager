@@ -30,7 +30,7 @@ const others = {
       title: 'About',
       type: 'item',
       url: '/about',
-      icon: icons.FontSizeOutlined
+      icon: icons.QuestionOutlined
     }
   ]
 };

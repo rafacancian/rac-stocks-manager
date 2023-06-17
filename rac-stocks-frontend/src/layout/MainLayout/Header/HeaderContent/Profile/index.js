@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 
+import avatar from '../../../../../assets/avatars/users/profile.jpeg';
+
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
+  Avatar,
   Box,
   ButtonBase,
   CardContent,
@@ -21,6 +24,8 @@ import {
 // project import
 import MainCard from '../../../../../components/new/MainCard';
 import Transitions from '../../../../../components/new/@extended/Transitions';
+import ProfileTab from './ProfileTab';
+import SettingTab from './SettingTab';
 
 // assets
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
@@ -93,6 +98,7 @@ const Profile = () => {
         onClick={handleToggle}
       >
         <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
+        <Avatar alt="profile user" src={avatar} sx={{ width: 32, height: 32 }} />
           <Typography variant="subtitle1">Rafael Cancian</Typography>
         </Stack>
       </ButtonBase>
@@ -128,11 +134,20 @@ const Profile = () => {
                   }
                 }}
               >
-                <ClickAwayListener onClickAway={handleClose}>
+                 <ClickAwayListener onClickAway={handleClose}>
                   <MainCard elevation={0} border={false} content={false}>
                     <CardContent sx={{ px: 2.5, pt: 3 }}>
                       <Grid container justifyContent="space-between" alignItems="center">
                         <Grid item>
+                          <Stack direction="row" spacing={1.25} alignItems="center">
+                            <Avatar alt="profile user" src={avatar} sx={{ width: 32, height: 32 }} />
+                            <Stack>
+                              <Typography variant="h6">Rafael Cancian</Typography>
+                              <Typography variant="body2" color="textSecondary">
+                                Software Engineer
+                              </Typography>
+                            </Stack>
+                          </Stack>
                         </Grid>
                         <Grid item>
                           <IconButton size="large" color="secondary" onClick={handleLogout}>
@@ -172,9 +187,11 @@ const Profile = () => {
                           </Tabs>
                         </Box>
                         <TabPanel value={value} index={0} dir={theme.direction}>
-                         </TabPanel>
+                          <ProfileTab handleLogout={handleLogout} />
+                        </TabPanel>
                         <TabPanel value={value} index={1} dir={theme.direction}>
-                          </TabPanel>
+                          <SettingTab />
+                        </TabPanel>
                       </>
                     )}
                   </MainCard>

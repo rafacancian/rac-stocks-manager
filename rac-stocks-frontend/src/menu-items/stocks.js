@@ -30,21 +30,21 @@ const stocks = {
       title: 'Bazin',
       type: 'item',
       url: '/stocks/bazin',
-      icon: icons.FontSizeOutlined
+      icon: icons.ProfileOutlined
     },
     {
       id: 'stocks-graham',
       title: 'Graham',
       type: 'item',
       url: '/stocks/graham',
-      icon: icons.FontSizeOutlined
+      icon: icons.ProfileOutlined
     },
     {
       id: 'stocks-wacc',
       title: 'Wacc',
       type: 'item',
       url: '/stocks/wacc',
-      icon: icons.FontSizeOutlined
+      icon: icons.ProfileOutlined
     }
   ]
 };

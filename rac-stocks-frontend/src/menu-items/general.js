@@ -30,7 +30,7 @@ const general = {
       title: 'Dashboard',
       type: 'item',
       url: '/',
-      icon: icons.FontSizeOutlined
+      icon: icons.DashboardOutlined
     }
   ]
 };
