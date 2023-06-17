@@ -44,443 +44,394 @@ function Home() {
         </Grid>
       </Grid>
 
+      <Grid container rowSpacing={1} columnSpacing={2.75}>
 
-      <Grid container rowSpacing={0} columnSpacing={2}>
-
-        <Grid item xs={12} md={7} lg={3}>
+        {/* STOCKS */}
+        <Grid item xs={12} sm={6} md={4} lg={6}>
           <MainCard sx={{ mt: 2 }} content={false}>
-            <Box sx={{ p: 3, pb: 3 }} >
-              <Stack spacing={2}>
-                <Typography variant="h5" color="green">
-                  <img src={`/images/stocks/stocks_up.png`} className="avatar-sm me-2" alt="stocks up logo"></img>
-                  Top Stocks
-                </Typography>
-                <MainCard sx={{ mt: 2 }} content={false}>
-                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 2 } }}>
+            <Grid item xs={12} md={7} lg={12}>
+              <Typography variant="h5" align={"center"} padding={"15px"}>
+                Stocks
+              </Typography>
+            </Grid>
+            <Grid container rowSpacing={2} columnSpacing={2} >
+              <Grid item xs={12} md={7} lg={6}>
+                <Box sx={{ p: 1, pb: 1 }} >
+                  <Typography variant="h5">
+                    <Box sx={{ p: 2, pb: 1 }} >
+                      Biggest highs
+                    </Box>
+                  </Typography>
+                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/petr4.png`} className="avatar-sm me-2" alt="Petrobras"></img>
-                      <ListItemText primary="Petrobras" style={{ width: "140px" }} />
+                      <ListItemText primary="PTBR4 (Petrobras)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$24,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+2,15%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/wege3.png`} className="avatar-sm me-2" alt="Weg"></img>
-                      <ListItemText primary="Weg" style={{ width: "140px" }} />
+                      <ListItemText primary="WEGE3 (Weg)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$39,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+3,23%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/bbsa3.png`} className="avatar-sm me-2" alt="Banco do Brasil"></img>
-                      <ListItemText primary="Banco do Brasil" style={{ width: "140px" }} />
+                      <ListItemText primary="BBAS3 (Banco do Brasil)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$42,22 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,40%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/gmat3.png`} className="avatar-sm me-2" alt="Grupo Mateus"></img>
-                      <ListItemText primary="Grupo mateus" style={{ width: "140px" }} />
+                      <ListItemText primary="GMAT3 (Grupo mateus)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 7,11 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,43%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/itsa4.png`} className="avatar-sm me-2" alt="Itausa"></img>
-                      <ListItemText primary="Itausa" style={{ width: "140px" }} />
+                      <ListItemText primary="ITSA4 (Itausa)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 9,37 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,64%</Typography>
                     </ListItemButton>
                   </List>
-                </MainCard>
-              </Stack>
-            </Box>
-          </MainCard>
-        </Grid>
+                </Box>
 
-        <Grid item xs={12} md={7} lg={3}>
-          <MainCard sx={{ mt: 2 }} content={false}>
-            <Box sx={{ p: 3, pb: 3 }} >
-              <Stack spacing={2}>
-                <Typography variant="h5" color="green">
-                  <img src={`/images/stocks/stocks_up.png`} className="avatar-sm me-2" alt="stocks up logo"></img>
-                  Top FIIs
-                </Typography>
-                <MainCard sx={{ mt: 2 }} content={false}>
-                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 2 } }}>
+              </Grid>
+              <Grid item xs={12} md={7} lg={6}>
+                <Box sx={{ p: 1, pb: 1 }} >
+                  <Typography variant="h5">
+                    <Box sx={{ p: 2, pb: 1 }} >
+                      Biggest casualies
+                    </Box>
+                  </Typography>
+                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/petr4.png`} className="avatar-sm me-2" alt="Petrobras"></img>
-                      <ListItemText primary="Petrobras" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$24,50 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+2,15%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/wege3.png`} className="avatar-sm me-2" alt="Weg"></img>
-                      <ListItemText primary="Weg" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$39,50 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+3,23%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/bbsa3.png`} className="avatar-sm me-2" alt="Banco do Brasil"></img>
-                      <ListItemText primary="Banco do Brasil" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$42,22 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,40%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/gmat3.png`} className="avatar-sm me-2" alt="Grupo Mateus"></img>
-                      <ListItemText primary="Grupo mateus" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$ 7,11 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,43%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/itsa4.png`} className="avatar-sm me-2" alt="Itausa"></img>
-                      <ListItemText primary="Itausa" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$ 9,37 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,64%</Typography>
-                    </ListItemButton>
-                  </List>
-                </MainCard>
-              </Stack>
-            </Box>
-          </MainCard>
-        </Grid>
-
-        <Grid item xs={12} md={7} lg={3}>
-          <MainCard sx={{ mt: 2 }} content={false}>
-            <Box sx={{ p: 3, pb: 3 }} >
-              <Stack spacing={2}>
-                <Typography variant="h5" color="green">
-                  <img src={`/images/stocks/stocks_up.png`} className="avatar-sm me-2" alt="stocks up logo"></img>
-                  Top BDRs
-                </Typography>
-                <MainCard sx={{ mt: 2 }} content={false}>
-                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 2 } }}>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/petr4.png`} className="avatar-sm me-2" alt="Petrobras"></img>
-                      <ListItemText primary="Petrobras" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$24,50 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+2,15%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/wege3.png`} className="avatar-sm me-2" alt="Weg"></img>
-                      <ListItemText primary="Weg" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$39,50 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+3,23%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/bbsa3.png`} className="avatar-sm me-2" alt="Banco do Brasil"></img>
-                      <ListItemText primary="Banco do Brasil" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$42,22 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,40%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/gmat3.png`} className="avatar-sm me-2" alt="Grupo Mateus"></img>
-                      <ListItemText primary="Grupo mateus" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$ 7,11 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,43%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/itsa4.png`} className="avatar-sm me-2" alt="Itausa"></img>
-                      <ListItemText primary="Itausa" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$ 9,37 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,64%</Typography>
-                    </ListItemButton>
-                  </List>
-                </MainCard>
-              </Stack>
-            </Box>
-          </MainCard>
-        </Grid>
-
-        <Grid item xs={12} md={7} lg={3}>
-          <MainCard sx={{ mt: 2 }} content={false}>
-            <Box sx={{ p: 3, pb: 3 }} >
-              <Stack spacing={2}>
-                <Typography variant="h5" color="green">
-                  <img src={`/images/stocks/stocks_up.png`} className="avatar-sm me-2" alt="stocks up logo"></img>
-                  Top ETFs</Typography>
-                <MainCard sx={{ mt: 2 }} content={false}>
-                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 2 } }}>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/petr4.png`} className="avatar-sm me-2" alt="Petrobras"></img>
-                      <ListItemText primary="Petrobras" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$24,50 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+2,15%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/wege3.png`} className="avatar-sm me-2" alt="Weg"></img>
-                      <ListItemText primary="Weg" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$39,50 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+3,23%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/bbsa3.png`} className="avatar-sm me-2" alt="Banco do Brasil"></img>
-                      <ListItemText primary="Banco do Brasil" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$42,22 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,40%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/gmat3.png`} className="avatar-sm me-2" alt="Grupo Mateus"></img>
-                      <ListItemText primary="Grupo mateus" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$ 7,11 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,43%</Typography>
-                    </ListItemButton>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/itsa4.png`} className="avatar-sm me-2" alt="Itausa"></img>
-                      <ListItemText primary="Itausa" style={{ width: "140px" }} />
-                      <Typography variant="h6">R$ 9,37 </Typography>
-                      <ListItemText />
-                      <Typography variant="h6">+ 3,64%</Typography>
-                    </ListItemButton>
-                  </List>
-                </MainCard>
-              </Stack>
-            </Box>
-          </MainCard>
-        </Grid>
-
-        {/* ------------ Down ------------*/}
-        <Grid item xs={12} md={7} lg={3}>
-          <MainCard sx={{ mt: 2 }} content={false}>
-            <Box sx={{ p: 3, pb: 3 }} >
-              <Stack spacing={2}>
-                <Typography variant="h5" color="red">
-                  <img src={`/images/stocks/stocks_down.png`} className="avatar-sm me-2" alt="stocks down logo"></img>
-                  Down Stocks
-                </Typography>
-                <MainCard sx={{ mt: 2 }} content={false}>
-                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 2 } }}>
-                    <ListItemButton divider>
-                      <img src={`/images/small-logos/oibr4.png`} className="avatar-sm me-2" alt="Oi telefonia"></img>
-                      <ListItemText primary="Oi" style={{ width: "140px" }} />
+                      <ListItemText primary="OIBR4 (Oi)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$3,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">-2,15%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/amar3.png`} className="avatar-sm me-2" alt="Marisa"></img>
-                      <ListItemText primary="Marisa" style={{ width: "140px" }} />
+                      <ListItemText primary="AMAR3 (Lojas Marisa)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$39,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">-3,23%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/cogn3.png`} className="avatar-sm me-2" alt="Cogna"></img>
-                      <ListItemText primary="Cogna" style={{ width: "140px" }} />
+                      <ListItemText primary="CGNA4 (Cogna Educacional)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$42,22 </Typography>
                       <ListItemText />
                       <Typography variant="h6">- 3,40%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/irbr3.png`} className="avatar-sm me-2" alt="IRB Seguros"></img>
-                      <ListItemText primary="IRB Seguros" style={{ width: "140px" }} />
+                      <ListItemText primary="IRBR4 (IRB Seguros)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 21,11 </Typography>
                       <ListItemText />
                       <Typography variant="h6">- 3,43%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/cvcb3.png`} className="avatar-sm me-2" alt="CVC viagens"></img>
-                      <ListItemText primary="CVC" style={{ width: "140px" }} />
+                      <ListItemText primary="CVCB3 (CVC Viagens)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 5,37 </Typography>
                       <ListItemText />
                       <Typography variant="h6">- 3,64%</Typography>
                     </ListItemButton>
                   </List>
-                </MainCard>
-              </Stack>
-            </Box>
+                </Box>
+              </Grid>
+            </Grid>
           </MainCard>
         </Grid>
 
-        <Grid item xs={12} md={7} lg={3}>
+        {/* FIIs */}
+        <Grid item xs={12} sm={6} md={4} lg={6}>
           <MainCard sx={{ mt: 2 }} content={false}>
-            <Box sx={{ p: 3, pb: 3 }} >
-              <Stack spacing={2}>
-                <Typography variant="h5" color="red">
-                  <img src={`/images/stocks/stocks_down.png`} className="avatar-sm me-2" alt="stocks down logo"></img>
-                  Down FIIs
-                </Typography>
-                <MainCard sx={{ mt: 2 }} content={false}>
-                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 2 } }}>
+            <Grid item xs={12} md={7} lg={12}>
+              <Typography variant="h5" align={"center"} padding={"15px"}>
+                FIIs
+              </Typography>
+            </Grid>
+            <Grid container rowSpacing={2} columnSpacing={2} >
+              <Grid item xs={12} md={7} lg={6}>
+                <Box sx={{ p: 1, pb: 1 }} >
+                  <Typography variant="h5">
+                    <Box sx={{ p: 2, pb: 1 }} >
+                      Biggest highs
+                    </Box>
+                  </Typography>
+                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/petr4.png`} className="avatar-sm me-2" alt="Petrobras"></img>
-                      <ListItemText primary="Petrobras" style={{ width: "140px" }} />
+                      <ListItemText primary="PTBR4 (Petrobras)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$24,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+2,15%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/wege3.png`} className="avatar-sm me-2" alt="Weg"></img>
-                      <ListItemText primary="Weg" style={{ width: "140px" }} />
+                      <ListItemText primary="WEGE3 (Weg)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$39,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+3,23%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/bbsa3.png`} className="avatar-sm me-2" alt="Banco do Brasil"></img>
-                      <ListItemText primary="Banco do Brasil" style={{ width: "140px" }} />
+                      <ListItemText primary="BBAS3 (Banco do Brasil)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$42,22 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,40%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/gmat3.png`} className="avatar-sm me-2" alt="Grupo Mateus"></img>
-                      <ListItemText primary="Grupo mateus" style={{ width: "140px" }} />
+                      <ListItemText primary="GMAT3 (Grupo mateus)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 7,11 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,43%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/itsa4.png`} className="avatar-sm me-2" alt="Itausa"></img>
-                      <ListItemText primary="Itausa" style={{ width: "140px" }} />
+                      <ListItemText primary="ITSA4 (Itausa)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 9,37 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,64%</Typography>
                     </ListItemButton>
                   </List>
-                </MainCard>
-              </Stack>
-            </Box>
+                </Box>
+
+              </Grid>
+              <Grid item xs={12} md={7} lg={6}>
+                <Box sx={{ p: 1, pb: 1 }} >
+                  <Typography variant="h5">
+                    <Box sx={{ p: 2, pb: 1 }} >
+                      Biggest casualies
+                    </Box>
+                  </Typography>
+                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
+                    <ListItemButton divider>
+                      <ListItemText primary="OIBR4 (Oi)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$3,50 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">-2,15%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="AMAR3 (Lojas Marisa)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$39,50 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">-3,23%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="CGNA4 (Cogna Educacional)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$42,22 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,40%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="IRBR4 (IRB Seguros)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$ 21,11 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,43%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="CVCB3 (CVC Viagens)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$ 5,37 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,64%</Typography>
+                    </ListItemButton>
+                  </List>
+                </Box>
+              </Grid>
+            </Grid>
           </MainCard>
         </Grid>
 
-        <Grid item xs={12} md={7} lg={3}>
+        {/* BDRs */}
+        <Grid item xs={12} sm={6} md={4} lg={6}>
           <MainCard sx={{ mt: 2 }} content={false}>
-            <Box sx={{ p: 3, pb: 3 }} >
-              <Stack spacing={2}>
-                <Typography variant="h5" color="red">
-                  <img src={`/images/stocks/stocks_down.png`} className="avatar-sm me-2" alt="stocks down logo"></img>
-                  Down BDRs
-                </Typography>
-                <MainCard sx={{ mt: 2 }} content={false}>
-                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 2 } }}>
+            <Grid item xs={12} md={7} lg={12}>
+              <Typography variant="h5" align={"center"} padding={"15px"}>
+                BDRs
+              </Typography>
+            </Grid>
+            <Grid container rowSpacing={2} columnSpacing={2} >
+              <Grid item xs={12} md={7} lg={6}>
+                <Box sx={{ p: 1, pb: 1 }} >
+                  <Typography variant="h5">
+                    <Box sx={{ p: 2, pb: 1 }} >
+                      Biggest highs
+                    </Box>
+                  </Typography>
+                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/petr4.png`} className="avatar-sm me-2" alt="Petrobras"></img>
-                      <ListItemText primary="Petrobras" style={{ width: "140px" }} />
+                      <ListItemText primary="PTBR4 (Petrobras)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$24,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+2,15%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/wege3.png`} className="avatar-sm me-2" alt="Weg"></img>
-                      <ListItemText primary="Weg" style={{ width: "140px" }} />
+                      <ListItemText primary="WEGE3 (Weg)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$39,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+3,23%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/bbsa3.png`} className="avatar-sm me-2" alt="Banco do Brasil"></img>
-                      <ListItemText primary="Banco do Brasil" style={{ width: "140px" }} />
+                      <ListItemText primary="BBAS3 (Banco do Brasil)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$42,22 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,40%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/gmat3.png`} className="avatar-sm me-2" alt="Grupo Mateus"></img>
-                      <ListItemText primary="Grupo mateus" style={{ width: "140px" }} />
+                      <ListItemText primary="GMAT3 (Grupo mateus)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 7,11 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,43%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/itsa4.png`} className="avatar-sm me-2" alt="Itausa"></img>
-                      <ListItemText primary="Itausa" style={{ width: "140px" }} />
+                      <ListItemText primary="ITSA4 (Itausa)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 9,37 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,64%</Typography>
                     </ListItemButton>
                   </List>
-                </MainCard>
-              </Stack>
-            </Box>
+                </Box>
+
+              </Grid>
+              <Grid item xs={12} md={7} lg={6}>
+                <Box sx={{ p: 1, pb: 1 }} >
+                  <Typography variant="h5">
+                    <Box sx={{ p: 2, pb: 1 }} >
+                      Biggest casualies
+                    </Box>
+                  </Typography>
+                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
+                    <ListItemButton divider>
+                      <ListItemText primary="OIBR4 (Oi)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$3,50 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">-2,15%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="AMAR3 (Lojas Marisa)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$39,50 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">-3,23%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="CGNA4 (Cogna Educacional)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$42,22 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,40%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="IRBR4 (IRB Seguros)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$ 21,11 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,43%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="CVCB3 (CVC Viagens)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$ 5,37 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,64%</Typography>
+                    </ListItemButton>
+                  </List>
+                </Box>
+              </Grid>
+            </Grid>
           </MainCard>
         </Grid>
 
-        <Grid item xs={12} md={7} lg={3}>
+        {/* ETFs */}
+        <Grid item xs={12} sm={6} md={4} lg={6}>
           <MainCard sx={{ mt: 2 }} content={false}>
-            <Box sx={{ p: 3, pb: 3 }} >
-              <Stack spacing={2}>
-                <Typography variant="h5" color="red">
-                  <img src={`/images/stocks/stocks_down.png`} className="avatar-sm me-" alt="stocks down logo"></img>
-                  Down ETFs
-                </Typography>
-                <MainCard sx={{ mt: 2 }} content={false}>
-                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 2 } }}>
+            <Grid item xs={12} md={7} lg={12}>
+              <Typography variant="h5" align={"center"} padding={"15px"}>
+                ETFs
+              </Typography>
+            </Grid>
+            <Grid container rowSpacing={2} columnSpacing={2} >
+              <Grid item xs={12} md={7} lg={6}>
+                <Box sx={{ p: 1, pb: 1 }} >
+                  <Typography variant="h5">
+                    <Box sx={{ p: 2, pb: 1 }} >
+                      Biggest highs
+                    </Box>
+                  </Typography>
+                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/petr4.png`} className="avatar-sm me-2" alt="Petrobras"></img>
-                      <ListItemText primary="Petrobras" style={{ width: "140px" }} />
+                      <ListItemText primary="PTBR4 (Petrobras)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$24,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+2,15%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/wege3.png`} className="avatar-sm me-2" alt="Weg"></img>
-                      <ListItemText primary="Weg" style={{ width: "140px" }} />
+                      <ListItemText primary="WEGE3 (Weg)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$39,50 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+3,23%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/bbsa3.png`} className="avatar-sm me-2" alt="Banco do Brasil"></img>
-                      <ListItemText primary="Banco do Brasil" style={{ width: "140px" }} />
+                      <ListItemText primary="BBAS3 (Banco do Brasil)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$42,22 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,40%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/gmat3.png`} className="avatar-sm me-2" alt="Grupo Mateus"></img>
-                      <ListItemText primary="Grupo mateus" style={{ width: "140px" }} />
+                      <ListItemText primary="GMAT3 (Grupo mateus)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 7,11 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,43%</Typography>
                     </ListItemButton>
                     <ListItemButton divider>
-                      <img src={`/images/small-logos/itsa4.png`} className="avatar-sm me-2" alt="Itausa"></img>
-                      <ListItemText primary="Itausa" style={{ width: "140px" }} />
+                      <ListItemText primary="ITSA4 (Itausa)" style={{ width: "160px" }} />
                       <Typography variant="h6">R$ 9,37 </Typography>
                       <ListItemText />
                       <Typography variant="h6">+ 3,64%</Typography>
                     </ListItemButton>
                   </List>
-                </MainCard>
-              </Stack>
-            </Box>
+                </Box>
+
+              </Grid>
+              <Grid item xs={12} md={7} lg={6}>
+                <Box sx={{ p: 1, pb: 1 }} >
+                  <Typography variant="h5">
+                    <Box sx={{ p: 2, pb: 1 }} >
+                      Biggest casualies
+                    </Box>
+                  </Typography>
+                  <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
+                    <ListItemButton divider>
+                      <ListItemText primary="OIBR4 (Oi)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$3,50 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">-2,15%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="AMAR3 (Lojas Marisa)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$39,50 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">-3,23%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="CGNA4 (Cogna Educacional)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$42,22 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,40%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="IRBR4 (IRB Seguros)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$ 21,11 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,43%</Typography>
+                    </ListItemButton>
+                    <ListItemButton divider>
+                      <ListItemText primary="CVCB3 (CVC Viagens)" style={{ width: "160px" }} />
+                      <Typography variant="h6">R$ 5,37 </Typography>
+                      <ListItemText />
+                      <Typography variant="h6">- 3,64%</Typography>
+                    </ListItemButton>
+                  </List>
+                </Box>
+              </Grid>
+            </Grid>
           </MainCard>
         </Grid>
 
       </Grid>
 
-
-      {/* row 3 */}
-      <Grid container rowSpacing={4.5} columnSpacing={2.75}>
-        <Grid item xs={12} md={7} lg={12}>
-          <Grid container alignItems="center" justifyContent="space-between">
-            <MainCard sx={{ mt: 2 }} content={false}>
-              <Box sx={{ p: 3, pb: 0 }}>
-                <Stack spacing={2}>
-                  <Typography variant="h6" color="textSecondary"> Recomendations</Typography>
-                </Stack>
-              </Box>
-              <StocksAll />
-            </MainCard>
-          </Grid>
-        </Grid>
-      </Grid>
     </>
   );
 }
