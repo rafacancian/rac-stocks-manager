@@ -1,14 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import StockTable from "../../../components/StockTable";
 import IStock from "../../../interfaces/IStock";
+import { http } from "../../../api/axios/http";
 
 function StocksGraham() {
 
     const [stocks, setStocks] = useState<IStock[]>();
 
     useEffect(() => {
-        axios.get('http://localhost:8002/stocks/graham/tops')
+        http.get('/stocks/graham/tops')
             .then(response => {
                 setStocks(response.data)
             })

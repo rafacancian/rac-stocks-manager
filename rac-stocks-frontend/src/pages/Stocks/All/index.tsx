@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import StockTable from "../../../components/StockTable";
 import IStock from "../../../interfaces/IStock";
+import { http } from "../../../api/axios/http";
 
 function StocksAll() {
 
@@ -11,7 +11,7 @@ function StocksAll() {
     const [stocksWacc, setStocksWacc] = useState<IStock[]>();
 
     useEffect(() => {
-        axios.get('http://localhost:8002/stocks')
+        http.get('/stocks')
             .then(response => {
                 setStocks(response.data)
                 getBazinStocks();
@@ -22,7 +22,7 @@ function StocksAll() {
     }, [])
 
     function getBazinStocks() {
-        axios.get('http://localhost:8002/stocks/bazin/tops')
+        http.get('/stocks/bazin/tops')
             .then(response => {
                 setStocksBazin(response.data)
                 getStocksGraham();
@@ -33,7 +33,7 @@ function StocksAll() {
     }
 
     function getStocksGraham() {
-        axios.get('http://localhost:8002/stocks/graham/tops')
+        http.get('/stocks/graham/tops')
             .then(response => {
                 setStocksGraham(response.data)
                 getStocksWacc();
@@ -44,7 +44,7 @@ function StocksAll() {
     }
 
     function getStocksWacc() {
-        axios.get('http://localhost:8002/stocks/wacc/tops')
+        http.get('/stocks/wacc/tops')
             .then(response => {
                 setStocksWacc(response.data)
             })

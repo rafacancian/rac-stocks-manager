@@ -26,6 +26,8 @@ import MainCard from '../../../../../components/new/MainCard';
 import Transitions from '../../../../../components/new/@extended/Transitions';
 import ProfileTab from './ProfileTab';
 import SettingTab from './SettingTab';
+import { useNavigate } from "react-router-dom"
+
 
 // assets
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
@@ -55,10 +57,13 @@ function a11yProps(index) {
 // ==============================|| HEADER CONTENT - PROFILE ||============================== //
 
 const Profile = () => {
+
+  const navigate = useNavigate();
   const theme = useTheme();
 
   const handleLogout = async () => {
-    // logout
+    sessionStorage.removeItem("token")
+    navigate("/auth/login")
   };
 
   const anchorRef = useRef(null);
@@ -98,7 +103,7 @@ const Profile = () => {
         onClick={handleToggle}
       >
         <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
-        <Avatar alt="profile user" src={avatar} sx={{ width: 32, height: 32 }} />
+          <Avatar alt="profile user" src={avatar} sx={{ width: 32, height: 32 }} />
           <Typography variant="subtitle1">Rafael Cancian</Typography>
         </Stack>
       </ButtonBase>
@@ -134,7 +139,7 @@ const Profile = () => {
                   }
                 }}
               >
-                 <ClickAwayListener onClickAway={handleClose}>
+                <ClickAwayListener onClickAway={handleClose}>
                   <MainCard elevation={0} border={false} content={false}>
                     <CardContent sx={{ px: 2.5, pt: 3 }}>
                       <Grid container justifyContent="space-between" alignItems="center">

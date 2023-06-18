@@ -1,14 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import StockTable from "../../../components/StockTable";
 import IStock from "../../../interfaces/IStock";
+import { http } from "../../../api/axios/http";
 
 function StocksWacc() {
 
     const [stocks, setStocks] = useState<IStock[]>();
 
     useEffect(() => {
-        axios.get('http://localhost:8002/stocks/wacc/tops')
+        http.get('/stocks/wacc/tops')
             .then(response => {
                 setStocks(response.data)
             })
