@@ -6,15 +6,19 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Stack,
   Typography
 } from '@mui/material';
+
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+
+import TrendingDownIcon from '@mui/icons-material/TrendingDown';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+
 
 // project import
 import MainCard from '../../components/new/MainCard';
 import AnalyticEcommerce from '../../components/new/cards/statistics/AnalyticEcommerce';
-import StocksAll from '../Stocks/All';
-
 
 function Home() {
   return (
@@ -59,6 +63,7 @@ function Home() {
                 <Box sx={{ p: 1, pb: 1 }} >
                   <Typography variant="h5">
                     <Box sx={{ p: 2, pb: 1 }} >
+                      <ArrowUpwardIcon color="success" />
                       Biggest highs
                     </Box>
                   </Typography>
@@ -101,6 +106,7 @@ function Home() {
                 <Box sx={{ p: 1, pb: 1 }} >
                   <Typography variant="h5">
                     <Box sx={{ p: 2, pb: 1 }} >
+                      <ArrowDownwardIcon color='error' />
                       Biggest casualies
                     </Box>
                   </Typography>
@@ -155,6 +161,7 @@ function Home() {
                 <Box sx={{ p: 1, pb: 1 }} >
                   <Typography variant="h5">
                     <Box sx={{ p: 2, pb: 1 }} >
+                    <ArrowUpwardIcon color="success" />
                       Biggest highs
                     </Box>
                   </Typography>
@@ -197,6 +204,7 @@ function Home() {
                 <Box sx={{ p: 1, pb: 1 }} >
                   <Typography variant="h5">
                     <Box sx={{ p: 2, pb: 1 }} >
+                    <ArrowDownwardIcon color='error' />
                       Biggest casualies
                     </Box>
                   </Typography>
@@ -251,6 +259,7 @@ function Home() {
                 <Box sx={{ p: 1, pb: 1 }} >
                   <Typography variant="h5">
                     <Box sx={{ p: 2, pb: 1 }} >
+                    <ArrowUpwardIcon color="success" />
                       Biggest highs
                     </Box>
                   </Typography>
@@ -293,6 +302,7 @@ function Home() {
                 <Box sx={{ p: 1, pb: 1 }} >
                   <Typography variant="h5">
                     <Box sx={{ p: 2, pb: 1 }} >
+                    <ArrowDownwardIcon color='error' />
                       Biggest casualies
                     </Box>
                   </Typography>
@@ -347,6 +357,7 @@ function Home() {
                 <Box sx={{ p: 1, pb: 1 }} >
                   <Typography variant="h5">
                     <Box sx={{ p: 2, pb: 1 }} >
+                    <ArrowUpwardIcon color="success" />
                       Biggest highs
                     </Box>
                   </Typography>
@@ -389,6 +400,7 @@ function Home() {
                 <Box sx={{ p: 1, pb: 1 }} >
                   <Typography variant="h5">
                     <Box sx={{ p: 2, pb: 1 }} >
+                    <ArrowDownwardIcon color='error' />
                       Biggest casualies
                     </Box>
                   </Typography>

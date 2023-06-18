@@ -14,7 +14,7 @@ const MainRoutes = {
   element: <MainLayout />,
   children: [
     {
-      path: '/',
+      path: '/dashboard',
       element: <Home />
     },
     {
@@ -32,15 +32,6 @@ const MainRoutes = {
     {
       path: '/about',
       element: <About />
-    },
-    {
-      path: 'dashboard',
-      children: [
-        {
-          path: 'default',
-          element: <Home />
-        }
-      ]
     }
   ]
 };

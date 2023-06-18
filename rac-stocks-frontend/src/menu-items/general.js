@@ -29,7 +29,7 @@ const general = {
       id: 'general-dashboard',
       title: 'Dashboard',
       type: 'item',
-      url: '/',
+      url: '/dashboard',
       icon: icons.DashboardOutlined
     }
   ]
