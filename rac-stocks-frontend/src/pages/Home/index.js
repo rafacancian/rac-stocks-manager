@@ -1,8 +1,5 @@
-
-// material-ui
 import {
   Box,
-  Button,
   Grid,
   List,
   ListItemButton,
@@ -12,43 +9,25 @@ import {
 
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-
-
-// project import
 import MainCard from '../../components/new/MainCard';
 import AnalyticEcommerce from '../../components/new/cards/statistics/AnalyticEcommerce';
-import { useNavigate } from "react-router-dom"
+import UserForbidden from '../../components/Auth/UserForbidden';
 
 function Home() {
 
-  const navigate = useNavigate();
   const userLogged = sessionStorage.getItem("token")
-
-
-  const redirectToLogin = () => {
-    navigate("/auth/login")
-  }
 
   return (
 
     <>
       {!userLogged && (<>
-        <form>
-          <Typography variant="h5" align={"center"} padding={"15px"}>
-            User not logged
-            <Button onClick={redirectToLogin}>
-              Go to login page
-            </Button>
-          </Typography>
-        </form>
+        <UserForbidden />
       </>)}
 
       {userLogged && (<>
-        {/* row 1 */}
+        
+        {/* Mainly topics 1 */}
         <Grid container rowSpacing={4.5} columnSpacing={2.75}>
-          {/*<Grid item xs={12} sx={{ mb: -2.25 }}>
-          <Typography variant="h5">Dashboard</Typography>
-        </Grid>*/}
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <AnalyticEcommerce title="Ibovespa" count="117.019 pts" percentage={1.5} color="success" extra="119.900 pts, max of 52 weeks" />
           </Grid>
