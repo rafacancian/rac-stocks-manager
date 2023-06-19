@@ -1,21 +1,67 @@
 import {
-  Box,
   Grid,
-  List,
-  ListItemButton,
-  ListItemText,
-  Typography
 } from '@mui/material';
 
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import MainCard from '../../components/new/MainCard';
 import AnalyticEcommerce from '../../components/new/cards/statistics/AnalyticEcommerce';
 import UserForbidden from '../../components/Auth/UserForbidden';
+import AnalyticGrid from '../../components/AnalyticGrid';
 
 function Home() {
 
   const userLogged = sessionStorage.getItem("token")
+
+  const mockDataStocks = [
+    {
+      items: [
+        {
+          name: "PETR4 (Petrobras)",
+          value: "R$24,30",
+          percentage: "2,34%"
+        }, {
+          name: "WEGE3 (Weg)",
+          value: "R$39,10",
+          percentage: "1,22%"
+        }, {
+          name: "BBAS3 (Banco do Brasil)",
+          value: "R$48,90",
+          percentage: "4,01%"
+        }, {
+          name: "GMAT3 (Grupo mateus)",
+          value: "R$8,52",
+          percentage: "1,11%"
+        }, {
+          name: "ITSA4 (Itausa)",
+          value: "R$9,30",
+          percentage: "2,04%"
+        }
+      ]
+    },
+    {
+      items: [
+        {
+          name: "OIBR4 (Oi)",
+          value: "R$4,30",
+          percentage: "-1,34%"
+        }, {
+          name: "AMAR3 (Lojas Marisa)",
+          value: "R$0,89",
+          percentage: "-2,25%"
+        }, {
+          name: "CGNA4 (Cogna Educacional)",
+          value: "R$4,90",
+          percentage: "-4,01%"
+        }, {
+          name: "IRBR4 (IRB Seguros)",
+          value: "R$38,52",
+          percentage: "-1,56%"
+        }, {
+          name: "CVCB3 (CVC Viagens)",
+          value: "R$9,30",
+          percentage: "-2,04%"
+        }
+      ]
+    }
+  ]
 
   return (
 
@@ -25,7 +71,7 @@ function Home() {
       </>)}
 
       {userLogged && (<>
-        
+
         {/* Mainly topics 1 */}
         <Grid container rowSpacing={4.5} columnSpacing={2.75}>
           <Grid item xs={12} sm={6} md={4} lg={2}>
@@ -51,396 +97,16 @@ function Home() {
         <Grid container rowSpacing={1} columnSpacing={2.75}>
 
           {/* STOCKS */}
-          <Grid item xs={12} sm={6} md={4} lg={6}>
-            <MainCard sx={{ mt: 2 }} content={false}>
-              <Grid item xs={12} md={7} lg={12}>
-                <Typography variant="h5" align={"center"} padding={"15px"}>
-                  Stocks
-                </Typography>
-              </Grid>
-              <Grid container rowSpacing={2} columnSpacing={2} >
-                <Grid item xs={12} md={7} lg={6}>
-                  <Box sx={{ p: 1, pb: 1 }} >
-                    <Typography variant="h5">
-                      <Box sx={{ p: 2, pb: 1 }} >
-                        <ArrowUpwardIcon color="success" />
-                        Biggest highs
-                      </Box>
-                    </Typography>
-                    <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
-                      <ListItemButton divider>
-                        <ListItemText primary="PTBR4 (Petrobras)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$24,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+2,15%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="WEGE3 (Weg)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$39,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+3,23%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="BBAS3 (Banco do Brasil)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$42,22 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,40%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="GMAT3 (Grupo mateus)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 7,11 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,43%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="ITSA4 (Itausa)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 9,37 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,64%</Typography>
-                      </ListItemButton>
-                    </List>
-                  </Box>
-
-                </Grid>
-                <Grid item xs={12} md={7} lg={6}>
-                  <Box sx={{ p: 1, pb: 1 }} >
-                    <Typography variant="h5">
-                      <Box sx={{ p: 2, pb: 1 }} >
-                        <ArrowDownwardIcon color='error' />
-                        Biggest casualies
-                      </Box>
-                    </Typography>
-                    <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
-                      <ListItemButton divider>
-                        <ListItemText primary="OIBR4 (Oi)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$3,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">-2,15%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="AMAR3 (Lojas Marisa)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$39,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">-3,23%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="CGNA4 (Cogna Educacional)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$42,22 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,40%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="IRBR4 (IRB Seguros)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 21,11 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,43%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="CVCB3 (CVC Viagens)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 5,37 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,64%</Typography>
-                      </ListItemButton>
-                    </List>
-                  </Box>
-                </Grid>
-              </Grid>
-            </MainCard>
-          </Grid>
+          <AnalyticGrid title="Stocks" data={mockDataStocks} />
 
           {/* FIIs */}
-          <Grid item xs={12} sm={6} md={4} lg={6}>
-            <MainCard sx={{ mt: 2 }} content={false}>
-              <Grid item xs={12} md={7} lg={12}>
-                <Typography variant="h5" align={"center"} padding={"15px"}>
-                  FIIs
-                </Typography>
-              </Grid>
-              <Grid container rowSpacing={2} columnSpacing={2} >
-                <Grid item xs={12} md={7} lg={6}>
-                  <Box sx={{ p: 1, pb: 1 }} >
-                    <Typography variant="h5">
-                      <Box sx={{ p: 2, pb: 1 }} >
-                        <ArrowUpwardIcon color="success" />
-                        Biggest highs
-                      </Box>
-                    </Typography>
-                    <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
-                      <ListItemButton divider>
-                        <ListItemText primary="PTBR4 (Petrobras)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$24,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+2,15%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="WEGE3 (Weg)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$39,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+3,23%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="BBAS3 (Banco do Brasil)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$42,22 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,40%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="GMAT3 (Grupo mateus)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 7,11 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,43%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="ITSA4 (Itausa)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 9,37 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,64%</Typography>
-                      </ListItemButton>
-                    </List>
-                  </Box>
-
-                </Grid>
-                <Grid item xs={12} md={7} lg={6}>
-                  <Box sx={{ p: 1, pb: 1 }} >
-                    <Typography variant="h5">
-                      <Box sx={{ p: 2, pb: 1 }} >
-                        <ArrowDownwardIcon color='error' />
-                        Biggest casualies
-                      </Box>
-                    </Typography>
-                    <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
-                      <ListItemButton divider>
-                        <ListItemText primary="OIBR4 (Oi)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$3,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">-2,15%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="AMAR3 (Lojas Marisa)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$39,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">-3,23%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="CGNA4 (Cogna Educacional)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$42,22 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,40%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="IRBR4 (IRB Seguros)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 21,11 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,43%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="CVCB3 (CVC Viagens)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 5,37 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,64%</Typography>
-                      </ListItemButton>
-                    </List>
-                  </Box>
-                </Grid>
-              </Grid>
-            </MainCard>
-          </Grid>
+          <AnalyticGrid title="Stocks" data={mockDataStocks} />
 
           {/* BDRs */}
-          <Grid item xs={12} sm={6} md={4} lg={6}>
-            <MainCard sx={{ mt: 2 }} content={false}>
-              <Grid item xs={12} md={7} lg={12}>
-                <Typography variant="h5" align={"center"} padding={"15px"}>
-                  BDRs
-                </Typography>
-              </Grid>
-              <Grid container rowSpacing={2} columnSpacing={2} >
-                <Grid item xs={12} md={7} lg={6}>
-                  <Box sx={{ p: 1, pb: 1 }} >
-                    <Typography variant="h5">
-                      <Box sx={{ p: 2, pb: 1 }} >
-                        <ArrowUpwardIcon color="success" />
-                        Biggest highs
-                      </Box>
-                    </Typography>
-                    <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
-                      <ListItemButton divider>
-                        <ListItemText primary="PTBR4 (Petrobras)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$24,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+2,15%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="WEGE3 (Weg)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$39,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+3,23%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="BBAS3 (Banco do Brasil)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$42,22 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,40%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="GMAT3 (Grupo mateus)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 7,11 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,43%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="ITSA4 (Itausa)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 9,37 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,64%</Typography>
-                      </ListItemButton>
-                    </List>
-                  </Box>
-
-                </Grid>
-                <Grid item xs={12} md={7} lg={6}>
-                  <Box sx={{ p: 1, pb: 1 }} >
-                    <Typography variant="h5">
-                      <Box sx={{ p: 2, pb: 1 }} >
-                        <ArrowDownwardIcon color='error' />
-                        Biggest casualies
-                      </Box>
-                    </Typography>
-                    <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
-                      <ListItemButton divider>
-                        <ListItemText primary="OIBR4 (Oi)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$3,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">-2,15%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="AMAR3 (Lojas Marisa)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$39,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">-3,23%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="CGNA4 (Cogna Educacional)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$42,22 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,40%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="IRBR4 (IRB Seguros)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 21,11 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,43%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="CVCB3 (CVC Viagens)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 5,37 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,64%</Typography>
-                      </ListItemButton>
-                    </List>
-                  </Box>
-                </Grid>
-              </Grid>
-            </MainCard>
-          </Grid>
+          <AnalyticGrid title="Stocks" data={mockDataStocks} />
 
           {/* ETFs */}
-          <Grid item xs={12} sm={6} md={4} lg={6}>
-            <MainCard sx={{ mt: 2 }} content={false}>
-              <Grid item xs={12} md={7} lg={12}>
-                <Typography variant="h5" align={"center"} padding={"15px"}>
-                  ETFs
-                </Typography>
-              </Grid>
-              <Grid container rowSpacing={2} columnSpacing={2} >
-                <Grid item xs={12} md={7} lg={6}>
-                  <Box sx={{ p: 1, pb: 1 }} >
-                    <Typography variant="h5">
-                      <Box sx={{ p: 2, pb: 1 }} >
-                        <ArrowUpwardIcon color="success" />
-                        Biggest highs
-                      </Box>
-                    </Typography>
-                    <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
-                      <ListItemButton divider>
-                        <ListItemText primary="PTBR4 (Petrobras)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$24,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+2,15%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="WEGE3 (Weg)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$39,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+3,23%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="BBAS3 (Banco do Brasil)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$42,22 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,40%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="GMAT3 (Grupo mateus)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 7,11 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,43%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="ITSA4 (Itausa)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 9,37 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">+ 3,64%</Typography>
-                      </ListItemButton>
-                    </List>
-                  </Box>
-
-                </Grid>
-                <Grid item xs={12} md={7} lg={6}>
-                  <Box sx={{ p: 1, pb: 1 }} >
-                    <Typography variant="h5">
-                      <Box sx={{ p: 2, pb: 1 }} >
-                        <ArrowDownwardIcon color='error' />
-                        Biggest casualies
-                      </Box>
-                    </Typography>
-                    <List sx={{ p: 0, '& .MuiListItemButton-root': { py: 1 } }}>
-                      <ListItemButton divider>
-                        <ListItemText primary="OIBR4 (Oi)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$3,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">-2,15%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="AMAR3 (Lojas Marisa)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$39,50 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">-3,23%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="CGNA4 (Cogna Educacional)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$42,22 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,40%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="IRBR4 (IRB Seguros)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 21,11 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,43%</Typography>
-                      </ListItemButton>
-                      <ListItemButton divider>
-                        <ListItemText primary="CVCB3 (CVC Viagens)" style={{ width: "160px" }} />
-                        <Typography variant="h6">R$ 5,37 </Typography>
-                        <ListItemText />
-                        <Typography variant="h6">- 3,64%</Typography>
-                      </ListItemButton>
-                    </List>
-                  </Box>
-                </Grid>
-              </Grid>
-            </MainCard>
-          </Grid>
+          <AnalyticGrid title="Stocks" data={mockDataStocks} />
 
         </Grid>
       </>)}
