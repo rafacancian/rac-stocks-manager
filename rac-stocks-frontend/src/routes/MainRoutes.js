@@ -1,5 +1,5 @@
 
-import MainLayout from '../layout/MainLayout';
+import MainLayout from '../components/MainLayout';
 import About from '../pages/About';
 import Home from '../pages/Home';
 import StocksBazin from '../pages/Stocks/Bazin';

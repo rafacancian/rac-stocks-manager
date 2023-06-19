@@ -22,8 +22,8 @@ import {
 } from '@mui/material';
 
 // project import
-import MainCard from '../../../../../components/new/MainCard';
-import Transitions from '../../../../../components/new/@extended/Transitions';
+import MainCard from '../../../../new/MainCard';
+import Transitions from '../../../../new/@extended/Transitions';
 import ProfileTab from './ProfileTab';
 import SettingTab from './SettingTab';
 import { useNavigate } from "react-router-dom"

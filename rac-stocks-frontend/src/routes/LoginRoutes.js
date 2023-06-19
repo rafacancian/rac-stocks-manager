@@ -1,7 +1,7 @@
 
 import AuthLogin from '../pages/Authentication/auth-forms/AuthLogin';
 import AuthRegister from '../pages/Authentication/auth-forms/AuthRegister';
-import MainLayout from '../layout/MainLayout';
+import MainLayout from '../components/MainLayout';
 import { Outlet } from 'react-router-dom';
 
 const LoginRoutes = {

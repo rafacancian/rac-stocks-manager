@@ -6,7 +6,7 @@ import DrawerHeaderStyled from './DrawerHeaderStyled';
 
 import logo from "../../../../assets/logo/logo_test.png"
 
-const DrawerHeader = ({ open }) => {
+const MenuHeader = ({ open }) => {
   const theme = useTheme();
 
   return (
@@ -18,8 +18,8 @@ const DrawerHeader = ({ open }) => {
   );
 };
 
-DrawerHeader.propTypes = {
+MenuHeader.propTypes = {
   open: PropTypes.bool
 };
 
-export default DrawerHeader;
+export default MenuHeader;
