@@ -2,8 +2,10 @@
 import MainLayout from '../components/MainLayout';
 import About from '../pages/About';
 import Home from '../pages/Home';
+import Stock from '../pages/Stock';
 import StocksBazin from '../pages/Stocks/Bazin';
 import StocksGraham from '../pages/Stocks/Graham';
+import GridStocks from '../pages/Stocks/GridStocks';
 import StocksWacc from '../pages/Stocks/Wacc';
 
 
@@ -30,8 +32,12 @@ const MainRoutes = {
       element: <StocksWacc />
     },
     {
-      path: '/about',
-      element: <About />
+      path: '/stock/select',
+      element: <Stock />
+    },
+    {
+      path: '/stocks/grid',
+      element: <GridStocks />
     }
   ]
 };

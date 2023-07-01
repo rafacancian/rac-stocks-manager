@@ -10,3 +10,7 @@ export const http = axios.create({
         //Access-Control-Allow-Headers: "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
     }
 })
+
+export const httpAuth = axios.create({
+    baseURL: "http://localhost:8081",
+})

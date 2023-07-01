@@ -1,6 +1,11 @@
+import IStock from '../../interfaces/IStock'
 import './StockTable.css'
 
-const StockTable = (props, method) => {
+
+const StockTableSingle = (props, method) => {
+
+  const stock = props.stock;
+
   return (
     <div className="stock-table">
       <div className="container-fluid py-4">
@@ -27,10 +32,9 @@ const StockTable = (props, method) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {props?.stocks?.map((stock, index) =>
-                        <tr key={index +1}>
+                        <tr key={1}>
                           <td>
-                            <p className="text-ms text-center font-weight-bold mb-0">{index + 1}</p>
+                            <p className="text-ms text-center font-weight-bold mb-0">{1}</p>
                           </td>
                           <td>
                             <div className="d-flex px-2">
@@ -70,7 +74,6 @@ const StockTable = (props, method) => {
                             <span className="text-xs font-weight-bold">{stock.status}</span>
                           </td>
                         </tr>
-                      )}
                     </tbody>
                   </table>
                 </div>
@@ -83,4 +86,4 @@ const StockTable = (props, method) => {
   )
 }
 
-export default StockTable
+export default StockTableSingle

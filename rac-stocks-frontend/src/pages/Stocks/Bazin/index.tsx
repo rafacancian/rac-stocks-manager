@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import StockTable from "../../../components/StockTable";
 import IStock from "../../../interfaces/IStock";
 import { http } from "../../../api/axios/http";
+import Loader from "../../../components/Loader";
 
 function StocksBazin() {
 
@@ -16,6 +17,12 @@ function StocksBazin() {
                 console.log(error)
             })
     }, [])
+
+    if (stocks == null) {
+        return (<>
+            <Loader />
+        </>)
+    }
 
     return (
         <>

@@ -1,7 +1,7 @@
 
 import Router from './routes';
 import ThemeCustomization from './components/new/themes';
-import ScrollTop from './components/new/ScrollTop';
+import ScrollTop from './components/ScrollTop/ScrollTop';
 
 function App() {
 

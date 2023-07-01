@@ -45,6 +45,20 @@ const stocks = {
       type: 'item',
       url: '/stocks/wacc',
       icon: icons.ProfileOutlined
+    },
+    {
+      id: 'stock',
+      title: 'Stock',
+      type: 'item',
+      url: '/stock/select',
+      icon: icons.ProfileOutlined
+    },
+    {
+      id: 'stockGrid',
+      title: 'Stock Grid',
+      type: 'item',
+      url: '/stocks/grid',
+      icon: icons.ProfileOutlined
     }
   ]
 };

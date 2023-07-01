@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import axios from "axios";
+
 import {
   Alert,
   Box,
@@ -15,7 +17,7 @@ import {
 
 import FirebaseSocial from './FirebaseSocial';
 import AuthLayout from './AuthLayout';
-import { http } from '../../../api/axios/http';
+import { httpAuth } from '../../../api/axios/http';
 
 const AuthLogin = () => {
 
@@ -42,16 +44,22 @@ const AuthLogin = () => {
         .required('Password is required')
     }),
     onSubmit: async (values, helpers) => {
-      try {
 
+      try {
         const user = {
           email: values.email,
           password: values.password
         }
         console.log("[AuthLogin] onSubmit: " + user);
-        http.get("/auth/login", user)
-          .then(response => {
-            if (response.data == null || response.data.token == null) {
+
+        httpAuth.get("/authenticator/login", {
+          params: {
+            email: values.email,
+            password: values.password,
+          }
+        },).then(response => {
+          debugger
+             if (response.data == null || response.data.token == null) {
               setUserLogged(false)
               setAlertMessage("Login failed, try again")
             } else {
@@ -60,10 +68,14 @@ const AuthLogin = () => {
               setUserLogged(true)
               navigate("/dashboard")
             }
-
           })
+          .catch(erro => {
+            console.log(erro.response);
+          });
+
 
       } catch (err) {
+        debugger
         helpers.setStatus({ success: false });
         helpers.setErrors({ submit: err.message });
         helpers.setSubmitting(false);

@@ -5,16 +5,7 @@ import menuItem from '../../../../menu-items';
 
 const Navigation = () => {
   const navGroups = menuItem.items.map((item) => {
-    switch (item.type) {
-      case 'group':
         return <NavGroup key={item.id} item={item} />;
-      default:
-        return (
-          <Typography key={item.id} variant="h6" color="error" align="center">
-             <h1>TODO</h1>
-          </Typography>
-        );
-    }
   });
 
   return <Box sx={{ pt: 2 }}>{navGroups}</Box>;

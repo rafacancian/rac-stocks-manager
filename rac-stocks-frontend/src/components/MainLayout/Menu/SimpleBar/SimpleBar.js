@@ -12,7 +12,8 @@ import { BrowserView, MobileView } from 'react-device-detect';
 const RootStyle = styled(BrowserView)({
   flexGrow: 1,
   height: '100%',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  border: "1px solid red"
 });
 
 // scroll bar wrapper

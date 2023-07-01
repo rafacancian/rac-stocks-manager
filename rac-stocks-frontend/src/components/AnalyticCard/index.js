@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Chip, Grid, Stack, Typography } from '@mui/material';
 
 // project import
-import MainCard from '../../MainCard';
+import MainCard from '../MainCard';
 
 // assets
 import { RiseOutlined, FallOutlined } from '@ant-design/icons';
@@ -12,7 +12,7 @@ import { RiseOutlined, FallOutlined } from '@ant-design/icons';
 // ==============================|| STATISTICS - ECOMMERCE CARD  ||============================== //
 
 const AnalyticEcommerce = ({ color, title, count, percentage, isLoss, extra }) => (
-  <MainCard contentSX={{ p: 2.25 }}>
+  <MainCard  sx={{ mt: 2 }} content={true} border={true} boxShadow={true}>
     <Stack spacing={0.5}>
       <Typography variant="h6" color="textSecondary">
         {title}
