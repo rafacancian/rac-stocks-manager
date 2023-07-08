@@ -28,4 +28,9 @@ public class FiiRepositoryData {
         return Set.of(BCFF11, BTLG11, HFOF11, HSML11, IRDM11, MCCI11, MXRF11, PVBI11, RBRP11, RECR11,
                 SDIL11, SNFF11, VGIP11, VILG11, VISC11);
     }
+
+    public static Set<Fii> getSunoFIIs() {
+        return Set.of(BCFF11, BTLG11, HFOF11, HSML11, IRDM11, MCCI11, MXRF11, PVBI11, RBRP11, RECR11,
+                SDIL11, SNFF11, VGIP11, VILG11, VISC11);
+    }
 }

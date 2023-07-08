@@ -8,9 +8,19 @@ import java.util.Set;
 @Service
 public class StockRepository {
 
-    //Set<Stock> allStocks = getAllStocks();
-
-    public Set<Stock> getAllStocks() {
+    public Set<Stock> getAll() {
         return StockRepositoryData.getAll();
+    }
+
+    public Set<Stock> getAllRelevant() {
+        return StockRepositoryData.getRelevents();
+    }
+
+    public Set<Stock> getTopsSunoValues() {
+        return StockRepositoryData.getTopsSunoValues();
+    }
+
+    public Set<Stock> getTopsSunoDividends() {
+        return StockRepositoryData.getTopsSunoDividends();
     }
 }

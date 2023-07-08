@@ -1,57 +1,49 @@
 package com.racstockmanager.b3.core.methods.suno;
 
 import com.racstockmanager.b3.adapters.rest.dto.stock.StockMethodDto;
-import com.racstockmanager.b3.adapters.rest.dto.stock.StockShortDto;
 import com.racstockmanager.b3.adapters.rest.dto.stock.StockShortSunoDto;
-import com.racstockmanager.b3.core.methods.general.stock.B3Service;
+import com.racstockmanager.b3.core.methods.general.stock.StockService;
 import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
 import com.racstockmanager.b3.core.model.stock.StockShort;
+import com.racstockmanager.b3.core.repository.stock.StockRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.racstockmanager.b3.core.repository.stock.StockRepositoryData.*;
 
 @Service
+@Slf4j
 public class SunoService {
 
     @Autowired
-    private B3Service b3Service;
-
-    public static Set<Stock> getTopsSunoValues() {
-        return Set.of(EZTC3, BLAU3, PNVL3, TTEN3, BRBI11, MOVI3, GMAT3, VIVA3,
-                IGTI11, KLBN11, NEOE3, TIMS3, BRKM5, VAMO3, MYPK3, RAIL3, CCRO3,
-                TFCO4, CVCB3, SULA11);
-    }
-
-    public static Set<Stock> getTopsSunoDividends() {
-        return Set.of(EGIE3, VALE3, ELET3, BBAS3, PETR4, TUPY3,
-                BBSE3, LEVE3, AGRO3, ENBR3, MRVE3, ALUP11, B3SA3,
-                CPLE6, VIVT3, GRND3, WIZC3, UNIP6);
-    }
+    private StockRepository repository;
+    @Autowired
+    private StockService stockService;
 
     public Set<StockShortSunoDto> getSunoValues() {
+        log.debug("[B3 Suno Service] Get Suno recommendation for stocks values");
+        Set<StockShort> stocks = stockService.getAll();
+        Set<Stock> sunoStocks = repository.getTopsSunoValues();
 
-        Set<StockShort> stockShorts = b3Service.getAll();
-
-        return stockShorts.stream()
-                .filter(stockShort -> getTopsSunoDividends().toString().contains(stockShort.code()))
+        return stocks.stream()
+                .filter(stock -> sunoStocks.stream().anyMatch(sunoStock -> sunoStock.getCode().equalsIgnoreCase(stock.code())))
                 .map(this::stockShortBuild)
-                .collect(Collectors.toCollection(LinkedHashSet::new));
+                .collect(Collectors.toSet());
     }
 
     public Set<StockShortSunoDto> getSunoDividends() {
+        log.debug("[B3 Suno Service] Get Suno recommendation for stocks dividends");
+        Set<StockShort> stocks = stockService.getAll();
+        Set<Stock> sunoStocks = repository.getTopsSunoDividends();
 
-        Set<StockShort> stockShorts = b3Service.getAll();
-
-        return stockShorts.stream()
-                .filter(stockShort -> getTopsSunoDividends().toString().contains(stockShort.code()))
+        return stocks.stream()
+                .filter(stock -> sunoStocks.stream().anyMatch(sunoStock -> sunoStock.getCode().equalsIgnoreCase(stock.code())))
                 .map(this::stockShortBuild)
-                .collect(Collectors.toCollection(LinkedHashSet::new));
+                .collect(Collectors.toSet());
     }
 
     private StockShortSunoDto stockShortBuild(StockShort stockShort) {

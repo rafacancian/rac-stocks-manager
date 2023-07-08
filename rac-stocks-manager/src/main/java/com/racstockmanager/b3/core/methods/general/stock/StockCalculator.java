@@ -2,6 +2,7 @@ package com.racstockmanager.b3.core.methods.general.stock;
 
 import com.racstockmanager.b3.core.builders.stock.StockIndicatorsBuilder;
 import com.racstockmanager.b3.core.builders.stock.StockValuationBuilder;
+import com.racstockmanager.b3.core.exceptions.StockNotFoundException;
 import com.racstockmanager.b3.core.methods.barsi.BarsiCalculation;
 import com.racstockmanager.b3.core.methods.bazin.BazinCalculation;
 import com.racstockmanager.b3.core.methods.bazin.BazinParams;
@@ -11,6 +12,8 @@ import com.racstockmanager.b3.core.model.stock.Indicators;
 import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
 import com.racstockmanager.b3.core.model.stock.Valuations;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,25 +23,24 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
-public class B3Calculations {
+@Slf4j
+public class StockCalculator {
 
     @Autowired
     BarsiCalculation barsiCalculation;
-
     @Autowired
     BazinCalculation bazinCalculation;
-
     @Autowired
     GrahamCalculation grahamCalculation;
-
     @Autowired
     WaccCalculation waccCalculation;
 
+    @SneakyThrows
     public Indicators execute(Stock stock) {
 
         try {
+            //log.info("[Stock Calculator] Collecting values for " + stock.getCode());
             Document document = Jsoup.connect("https://statusinvest.com.br/acoes/" + stock.getCode()).get();
-
             //https://www.youtube.com/watch?v=skb_I6OlVrk
             // IPCA + https://www.tesourodireto.com.br/titulos/precos-e-taxas.htm
             // pegar todas as taxas e faz a média
@@ -58,7 +60,7 @@ public class B3Calculations {
 
             BazinParams bazinParams = BazinParams.builder()
                     .currentPrice(valuations.currentValue())
-                    .sector(stock.getSector())
+                    .sector(stock.getSector().getName())
                     .dy(valuations.dy())
                     .dividendYield12Month(valuations.dividendYield12Month())
                     .divLiquidEbitda(valuations.divLiquidEbitda())
@@ -71,7 +73,8 @@ public class B3Calculations {
             return StockIndicatorsBuilder.build(valuations, barsiValue, bazinValue, grahamValue, waccValue);
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            log.error("[Stock Calculator] Unexpected error for " + stock.getCode() + " | Error: " + e.getMessage());
+            throw new StockNotFoundException(stock);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.racstockmanager.b3.core.builders.stock;
 
 import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockShort;
-import com.racstockmanager.b3.core.utils.B3CalculationUtils;
+import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,7 @@ public class StockBuilder {
         return StockShort.builder()
                 .name(stock.getName())
                 .code(stock.getCode())
-                .dividendYield(B3CalculationUtils.convertDoubleToPercentage(stock.getIndicators().getValuations().dividendYield12Month()))
+                .dividendYield(CalculatorUtils.convertDoubleToPercentage(stock.getIndicators().getValuations().dividendYield12Month()))
                 .valorization12M(stock.getIndicators().getValuations().valorization12Month())
                 .currentValue(CurrencyUtils.convertDoubleToBRL(stock.getIndicators().getValuations().currentValue()))
                 .graham(stock.getIndicators().getGraham())

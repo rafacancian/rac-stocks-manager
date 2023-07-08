@@ -1,10 +1,12 @@
 package com.racstockmanager.b3.core.utils;
 
 import com.racstockmanager.b3.core.model.stock.Valuations;
+import lombok.extern.slf4j.Slf4j;
 
 import java.text.DecimalFormat;
 
-public class B3CalculationUtils {
+@Slf4j
+public class CalculatorUtils {
 
 
     protected static double calculateUpside(Double currentPrice, double maximumPrice) {
@@ -52,10 +54,16 @@ public class B3CalculationUtils {
     public static double convertStringToDoubleRegex(String stringValue) {
         try {
             //Matcher matcher = Pattern.compile("\\d+\\.\\d+").matcher(stringValue);
-            stringValue = stringValue.replace(".", "");
-            //stringValue = stringValue.replace(String.valueOf(stringValue.charAt(0) - 3), ".");
-            return Double.parseDouble(stringValue);
-        } catch (NumberFormatException e) {
+            if (stringValue.matches("-?[0-9.]+")) {
+                stringValue = stringValue.replace(".", "");
+                //stringValue = stringValue.replace(String.valueOf(stringValue.charAt(0) - 3), ".");
+                return Double.parseDouble(stringValue);
+            }
+            //log.warn("Not a number to convert: " + stringValue);
+            return 0.0;
+
+        } catch (Exception e) {
+            log.error("Error to convert value: " + stringValue);
             return 0.0;
         }
     }

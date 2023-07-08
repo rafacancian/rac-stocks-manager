@@ -3,15 +3,14 @@ package com.racstockmanager.b3.core.methods.graham;
 import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
 import com.racstockmanager.b3.core.model.stock.Valuations;
-import com.racstockmanager.b3.core.utils.B3CalculationUtils;
+import com.racstockmanager.b3.core.model.stock.Sector;
+import com.racstockmanager.b3.core.model.stock.Segment;
+import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
 
-import static com.racstockmanager.b3.core.repository.stock.StockRepositoryData.TECNOLOGIA_DA_INFORMACAO;
-import static com.racstockmanager.b3.core.repository.stock.StockRepositoryData.VAREJO;
-
 @Service
-public class GrahamCalculation extends B3CalculationUtils {
+public class GrahamCalculation extends CalculatorUtils {
 
     /* Graham Calculation
       Video: https://www.youtube.com/watch?v=HyBDDcanroE
@@ -26,7 +25,7 @@ public class GrahamCalculation extends B3CalculationUtils {
         if (validateNegativeValues(valuations)) {
             return StockMethod.builder()
                     .isValid(false)
-                    .description("No safety margin")
+                    .description("No safety margin: LPA / VPA less than zero")
                     .maximumPrice(CurrencyUtils.convertDoubleToBRL(0.0))
                     .upside(convertDoubleToPercentage(0.0))
                     .build();
@@ -37,40 +36,47 @@ public class GrahamCalculation extends B3CalculationUtils {
 
         //final Double upside = (intrinsicValue / valuations.currentValue() - 1) * 100;
         final String upsideFormatted = calculateUpsideFormatted(valuations.currentValue(), intrinsicValue);
-
-        if (isValid(stock, valuations, intrinsicValue)) {
-            return StockMethod.builder()
-                    .isValid(true)
-                    .description("Maximum price below of current value")
-                    .maximumPrice(intrinsicValueFormatted)
-                    .upside(upsideFormatted)
-                    .build();
-        }
-
+        GrahamValidation grahamValidation = isValid(stock, valuations, intrinsicValue);
         return StockMethod.builder()
-                .isValid(false)
-                .description("No safety margin")
+                .isValid(grahamValidation.isValid())
+                .description(grahamValidation.message())
                 .maximumPrice(intrinsicValueFormatted)
                 .upside(upsideFormatted)
                 .build();
+
     }
 
-    private Boolean isValid(Stock stock, Valuations valuations, Double intrinsicValue) {
-        return validateSafetyMargin(stock, valuations) && validatePriceIsPositive(valuations.currentValue(), intrinsicValue);
+    private GrahamValidation isValid(Stock stock, Valuations valuations, Double intrinsicValue) {
+        return validateSafetyMargin(stock, valuations);
+        //GrahamValidation grahamValidation = validatePriceIsPositive(valuations.currentValue(), intrinsicValue);
     }
 
-    public Boolean validateSafetyMargin(Stock stock, Valuations valuations) {
-        if (containsSegment(stock, TECNOLOGIA_DA_INFORMACAO) || containsSegment(stock, VAREJO)) {
-            return valuations.pl() > 20.00 || valuations.pVp() > 3.5;
+    public GrahamValidation validateSafetyMargin(Stock stock, Valuations valuations) {
+        if (containsSegment(stock, Sector.TECNOLOGIA_DA_INFORMACAO.getName()) || containsSegment(stock, Segment.VAREJO.name())) {
+            Boolean isValid = valuations.pl() > 20.00 || valuations.pVp() > 3.5;
+            if (isValid) {
+                return new GrahamValidation(true, "Maximum price below of current value");
+            }
+            return new GrahamValidation(false, "Segment of Technology/Varejo with PL or pVp not safety");
         }
-        return valuations.pl() > 15.00 || valuations.pVp() > 3.0;
+        Boolean isValid = valuations.pl() > 15.00 || valuations.pVp() > 3.0;
+        if (isValid) {
+            return new GrahamValidation(true, "Maximum price below of current value");
+        }
+        return new GrahamValidation(false, "PL or pVp not safety");
+
+
     }
 
-    private Boolean validatePriceIsPositive(Double currentPrice, double maximumPrice) {
-        return maximumPrice > currentPrice;
+    private GrahamValidation validatePriceIsPositive(Double currentPrice, double maximumPrice) {
+        if (maximumPrice > currentPrice) {
+            return new GrahamValidation(true, "Maximum price below of current value");
+        } else {
+            return new GrahamValidation(false, "Current price below of maximum value");
+        }
     }
 
     private boolean containsSegment(Stock stock, String segment) {
-        return stock.getSector().toLowerCase().contains(segment);
+        return stock.getSector().getName().contains(segment);
     }
 }

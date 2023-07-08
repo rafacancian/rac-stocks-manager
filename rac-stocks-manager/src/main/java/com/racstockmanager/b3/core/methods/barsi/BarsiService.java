@@ -1,7 +1,7 @@
 package com.racstockmanager.b3.core.methods.barsi;
 
 import com.racstockmanager.b3.adapters.rest.dto.stock.StockShortDto;
-import com.racstockmanager.b3.core.methods.general.stock.B3Service;
+import com.racstockmanager.b3.core.methods.general.stock.StockService;
 import com.racstockmanager.b3.core.model.stock.StockShort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +15,11 @@ import java.util.stream.Collectors;
 public class BarsiService {
 
     @Autowired
-    private B3Service b3Service;
+    private StockService stockService;
 
     public Set<StockShortDto> getTops() {
 
-        Set<StockShort> stockShorts = b3Service.getAll();
+        Set<StockShort> stockShorts = stockService.getAll();
 
         return stockShorts.stream()
                 .filter(stock -> stock.barsi().isValid())

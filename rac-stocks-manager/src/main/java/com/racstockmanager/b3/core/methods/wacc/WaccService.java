@@ -1,7 +1,7 @@
 package com.racstockmanager.b3.core.methods.wacc;
 
 import com.racstockmanager.b3.adapters.rest.dto.stock.StockShortDto;
-import com.racstockmanager.b3.core.methods.general.stock.B3Service;
+import com.racstockmanager.b3.core.methods.general.stock.StockService;
 import com.racstockmanager.b3.core.model.stock.StockShort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +15,11 @@ import java.util.stream.Collectors;
 public class WaccService {
 
     @Autowired
-    private B3Service b3Service;
+    private StockService stockService;
 
     public Set<StockShortDto> getTops() {
 
-        Set<StockShort> stockShorts = b3Service.getAll();
+        Set<StockShort> stockShorts = stockService.getAll();
 
         return stockShorts.stream()
                 .filter(stock -> stock.wacc().isValid())
@@ -37,7 +37,7 @@ public class WaccService {
                 .dividendYield(stockShort.dividendYield())
                 .valorization12M(stockShort.valorization12M())
                 .maximumPrice(stockShort.wacc().maximumPrice())
-                 .upside(stockShort.wacc().upside())
+                .upside(stockShort.wacc().upside())
                 .status(stockShort.wacc().isValid() ? "Buy" : "Waiting").build();
     }
 }

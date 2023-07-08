@@ -13,4 +13,6 @@ public interface Repository {
     void insert(String localDate, Fiis fiis);
 
     Fiis getFiis(String localDate);
+
+    void clear();
 }

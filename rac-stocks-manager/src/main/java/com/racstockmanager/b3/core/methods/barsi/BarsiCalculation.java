@@ -3,12 +3,12 @@ package com.racstockmanager.b3.core.methods.barsi;
 import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
 import com.racstockmanager.b3.core.model.stock.Valuations;
-import com.racstockmanager.b3.core.utils.B3CalculationUtils;
+import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BarsiCalculation extends B3CalculationUtils {
+public class BarsiCalculation extends CalculatorUtils {
 
     public StockMethod execute(Stock stock, Valuations valuations) {
         //https:www.youtube.com/watch?v=0X_pg3rG1Wg&list=WL&index=25

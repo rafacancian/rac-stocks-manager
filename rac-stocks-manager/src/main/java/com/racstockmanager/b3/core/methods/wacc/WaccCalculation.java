@@ -3,12 +3,12 @@ package com.racstockmanager.b3.core.methods.wacc;
 import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
 import com.racstockmanager.b3.core.model.stock.Valuations;
-import com.racstockmanager.b3.core.utils.B3CalculationUtils;
+import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WaccCalculation extends B3CalculationUtils {
+public class WaccCalculation extends CalculatorUtils {
 
     /* WACC = custo medio ponderado do capital */
     public StockMethod execute(Stock stock, Valuations valuations) {

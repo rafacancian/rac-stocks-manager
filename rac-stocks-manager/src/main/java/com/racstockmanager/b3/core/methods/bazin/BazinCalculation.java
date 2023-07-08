@@ -2,14 +2,14 @@ package com.racstockmanager.b3.core.methods.bazin;
 
 import com.racstockmanager.b3.core.builders.stock.StockValuationBuilder;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
-import com.racstockmanager.b3.core.utils.B3CalculationUtils;
+import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
 
 import static com.racstockmanager.b3.core.builders.stock.StockValuationBuilder.IPCA;
 
 @Service
-public class BazinCalculation extends B3CalculationUtils {
+public class BazinCalculation extends CalculatorUtils {
 
     public static final String SECTOR_BANK = "Bank";
 

@@ -11,4 +11,8 @@ public class FiiRepository {
     public Set<Fii> getAll() {
         return FiiRepositoryData.getAll();
     }
+
+    public Set<Fii> getSunoFIIs() {
+        return FiiRepositoryData.getSunoFIIs();
+    }
 }

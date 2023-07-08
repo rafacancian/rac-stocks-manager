@@ -4,7 +4,7 @@ import com.racstockmanager.b3.core.model.fii.FiiValuations;
 
 import java.util.List;
 
-import static com.racstockmanager.b3.core.utils.B3CalculationUtils.*;
+import static com.racstockmanager.b3.core.utils.CalculatorUtils.*;
 
 public class FiiValuationBuilder {
 
