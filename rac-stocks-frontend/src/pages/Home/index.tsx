@@ -5,7 +5,6 @@ import {
 import AnalyticCard from '../../components/AnalyticCard';
 import UserForbidden from '../../components/Auth/UserForbidden';
 import AnalyticGrid from '../../components/AnalyticGrid';
-import { http } from '../../api/axios/http';
 import { useState, useEffect } from 'react';
 import IHighlight from '../../interfaces/IHighlight';
 import { getBDRsHighlights, getCriptosHighlights, getFIIsHighlights, getStocksHighlights, getTopicsHighlights } from '../../api/axios/hooks';
@@ -90,13 +89,12 @@ const Home = () => {
           {/* FIIs */}
           <AnalyticGrid title="FIIs" items={fiis} />
 
-          {/*   BDRs */}
+          {/* BDRs */}
           <AnalyticGrid title="BDRs" items={bdrs} />
 
-          {/*  ETFs */}
+          {/* ETFs */}
           <AnalyticGrid title="Criptomoedas" items={criptos} />
          
-
         </Grid>
       </>)}
 
@@ -105,11 +103,4 @@ const Home = () => {
 }
 
 export default Home;
-function useQuery(arg0: any[], arg1: () => any): { data: any; isLoading: any; error: any; } {
-  throw new Error('Function not implemented.');
-}
-
-function getCategoryBySlud(arg0: any) {
-  throw new Error('Function not implemented.');
-}
 

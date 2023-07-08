@@ -20,7 +20,7 @@ function StocksWacc() {
     return (
         <>
             <div className="StockPage">
-                <StockTable stocks={stocks} method="WACC" />
+                <StockTable stocks={stocks} method="WACC"/>
             </div>
         </>
     );

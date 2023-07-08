@@ -2,10 +2,11 @@ export default interface IStock {
   id: number
   rank: number
   name: string
+  code: string
   currentPrice: number
   dividendYield: string
   valorization12M: string
-  maximumValue: string
+  maximumPrice: string
   upside: string
   status: string
 }
