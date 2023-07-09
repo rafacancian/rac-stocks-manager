@@ -6,5 +6,6 @@ import lombok.Builder;
 public record StockMethod(Boolean isValid,
                           String description,
                           String maximumPrice,
-                          String upside) {
+                          String upsideFormatted,
+                          Double upside) {
 }

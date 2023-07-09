@@ -34,6 +34,8 @@ public class BarsiService {
                 .name(stockShort.name())
                 .currentPrice(stockShort.currentValue())
                 .maximumPrice(stockShort.barsi().maximumPrice())
-                .upside(stockShort.barsi().upside()).build();
+                .upsideFormatted(stockShort.barsi().upsideFormatted())
+                .upside(stockShort.barsi().upside())
+                .status(stockShort.graham().isValid() ? "Buy" : "Waiting").build();
     }
 }

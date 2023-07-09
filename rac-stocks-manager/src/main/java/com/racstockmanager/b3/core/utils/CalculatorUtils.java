@@ -13,11 +13,6 @@ public class CalculatorUtils {
         return (maximumPrice / currentPrice - 1) * 100;
     }
 
-    protected static String calculateUpsideFormatted(Double currentPrice, double maximumPrice) {
-        double upside = calculateUpside(currentPrice, maximumPrice);
-        return convertDoubleToPercentage(upside);
-    }
-
     public static double convertStringToDouble(String stringValue) {
         try {
             return Double.parseDouble(stringValue.replace(",", "."));

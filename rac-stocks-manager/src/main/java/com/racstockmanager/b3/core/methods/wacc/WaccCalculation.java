@@ -44,14 +44,16 @@ public class WaccCalculation extends CalculatorUtils {
                     .isValid(true)
                     .description("Maximum price below of current value")
                     .maximumPrice(CurrencyUtils.convertDoubleToBRL(maximumPrice))
-                    .upside(convertDoubleToPercentage(wacc))
+                    .upside(wacc)
+                    .upsideFormatted(convertDoubleToPercentage(wacc))
                     .build();
         }
         return StockMethod.builder()
                 .isValid(false)
                 .description("No safely range price")
                 .maximumPrice(CurrencyUtils.convertDoubleToBRL(maximumPrice))
-                .upside(convertDoubleToPercentage(wacc))
+                .upside(wacc)
+                .upsideFormatted(convertDoubleToPercentage(wacc))
                 .build();
 
 

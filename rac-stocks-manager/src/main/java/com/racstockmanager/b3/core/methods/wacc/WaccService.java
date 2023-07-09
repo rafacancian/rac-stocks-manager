@@ -26,7 +26,6 @@ public class WaccService {
                 .map(this::stockShortWaccBuild)
                 .sorted(Comparator.comparing(StockShortDto::upside).reversed())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
-
     }
 
     private StockShortDto stockShortWaccBuild(StockShort stockShort) {
@@ -38,6 +37,7 @@ public class WaccService {
                 .valorization12M(stockShort.valorization12M())
                 .maximumPrice(stockShort.wacc().maximumPrice())
                 .upside(stockShort.wacc().upside())
+                .upsideFormatted(stockShort.wacc().upsideFormatted())
                 .status(stockShort.wacc().isValid() ? "Buy" : "Waiting").build();
     }
 }

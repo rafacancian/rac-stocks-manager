@@ -62,6 +62,6 @@ public class SunoService {
                 .isValid(stockMethod.isValid())
                 .description(stockMethod.description())
                 .maximumPrice(stockMethod.maximumPrice())
-                .upside(stockMethod.upside()).build();
+                .upside(stockMethod.upsideFormatted()).build();
     }
 }

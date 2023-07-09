@@ -35,6 +35,7 @@ public class BazinService {
                 .valorization12M(stockShort.valorization12M())
                 .currentPrice(stockShort.currentValue())
                 .maximumPrice(stockShort.bazin().maximumPrice())
+                .upsideFormatted(stockShort.bazin().upsideFormatted())
                 .upside(stockShort.bazin().upside())
                 .status(stockShort.bazin().isValid() ? "Buy" : "Waiting").build();
     }

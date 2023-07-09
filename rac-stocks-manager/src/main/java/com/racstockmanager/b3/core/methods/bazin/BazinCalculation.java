@@ -29,14 +29,15 @@ public class BazinCalculation extends CalculatorUtils {
         final Double maximumPrice = bazinParams.getDividendYield12Month() * (100 / IPCA);
         final String maximumPriceFormatted = CurrencyUtils.convertDoubleToBRL(maximumPrice);
 
-        final String upsideFormatted = calculateUpsideFormatted(bazinParams.getCurrentPrice(), maximumPrice);
+        Double upside = calculateUpside(bazinParams.getCurrentPrice(), maximumPrice);
 
         if (isValid(bazinParams, maximumPrice)) {
             return StockMethod.builder()
                     .isValid(true)
                     .description("Maximum price below of current value")
                     .maximumPrice(maximumPriceFormatted)
-                    .upside(upsideFormatted)
+                    .upside(upside)
+                    .upsideFormatted(convertDoubleToPercentage(upside))
                     .build();
         }
 
@@ -44,7 +45,8 @@ public class BazinCalculation extends CalculatorUtils {
                 .isValid(false)
                 .description("No safely range price")
                 .maximumPrice(maximumPriceFormatted)
-                .upside(upsideFormatted)
+                .upside(upside)
+                .upsideFormatted(convertDoubleToPercentage(upside))
                 .build();
 
     }

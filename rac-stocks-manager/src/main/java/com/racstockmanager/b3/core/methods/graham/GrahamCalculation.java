@@ -1,10 +1,6 @@
 package com.racstockmanager.b3.core.methods.graham;
 
-import com.racstockmanager.b3.core.model.stock.Stock;
-import com.racstockmanager.b3.core.model.stock.StockMethod;
-import com.racstockmanager.b3.core.model.stock.Valuations;
-import com.racstockmanager.b3.core.model.stock.Sector;
-import com.racstockmanager.b3.core.model.stock.Segment;
+import com.racstockmanager.b3.core.model.stock.*;
 import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
@@ -27,7 +23,8 @@ public class GrahamCalculation extends CalculatorUtils {
                     .isValid(false)
                     .description("No safety margin: LPA / VPA less than zero")
                     .maximumPrice(CurrencyUtils.convertDoubleToBRL(0.0))
-                    .upside(convertDoubleToPercentage(0.0))
+                    .upside(0.0)
+                    .upsideFormatted("0%")
                     .build();
         }
 
@@ -35,13 +32,15 @@ public class GrahamCalculation extends CalculatorUtils {
         final String intrinsicValueFormatted = CurrencyUtils.convertDoubleToBRL(intrinsicValue);
 
         //final Double upside = (intrinsicValue / valuations.currentValue() - 1) * 100;
-        final String upsideFormatted = calculateUpsideFormatted(valuations.currentValue(), intrinsicValue);
+        Double upside = calculateUpside(valuations.currentValue(), intrinsicValue);
+
         GrahamValidation grahamValidation = isValid(stock, valuations, intrinsicValue);
         return StockMethod.builder()
                 .isValid(grahamValidation.isValid())
                 .description(grahamValidation.message())
                 .maximumPrice(intrinsicValueFormatted)
-                .upside(upsideFormatted)
+                .upside(upside)
+                .upsideFormatted(convertDoubleToPercentage(upside))
                 .build();
 
     }

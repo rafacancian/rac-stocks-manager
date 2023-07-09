@@ -20,21 +20,23 @@ public class BarsiCalculation extends CalculatorUtils {
         final Double maximumPrice = valuations.dividendYield12Month() / 0.06;
         final String maximumPriceFormatted = CurrencyUtils.convertDoubleToBRL(maximumPrice);
 
-        final String upsideFormatted = calculateUpsideFormatted(valuations.currentValue(), maximumPrice);
+        double upside = calculateUpside(valuations.currentValue(), maximumPrice);
 
         if (isValid(valuations, maximumPrice)) {
             return StockMethod.builder()
                     .isValid(true)
                     .description("Maximum price below of current value")
                     .maximumPrice(maximumPriceFormatted)
-                    .upside(upsideFormatted)
+                    .upsideFormatted(convertDoubleToPercentage(upside))
+                    .upside(upside)
                     .build();
         }
         return StockMethod.builder()
                 .isValid(false)
                 .description("No safely range price")
                 .maximumPrice(maximumPriceFormatted)
-                .upside(upsideFormatted)
+                .upsideFormatted(convertDoubleToPercentage(upside))
+                .upside(upside)
                 .build();
     }
 

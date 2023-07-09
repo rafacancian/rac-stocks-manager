@@ -36,6 +36,7 @@ public class GrahamService {
                 .dividendYield(stockShort.dividendYield())
                 .valorization12M(stockShort.valorization12M())
                 .maximumPrice(stockShort.graham().maximumPrice())
+                .upsideFormatted(stockShort.graham().upsideFormatted())
                 .upside(stockShort.graham().upside())
                 .status(stockShort.graham().isValid() ? "Buy" : "Waiting").build();
     }
