@@ -76,11 +76,11 @@ const StockTable = (item: StockProps) => {
                           </td>
                           <td className="align-middle text-center">
                             <div className="d-flex align-items-center justify-content-center">
-                              <span className="me-2 text-xs font-weight-bold">{stock.upside}</span>
+                              <span className="me-2 text-xs font-weight-bold">{stock.upsideFormatted}</span>
                               <div>
                                 <div className="progress">
                                   <div className="progress-bar bg-gradient-success" role="progressbar" aria-valuenow={60} aria-valuemin={0} aria-valuemax={100}
-                                    style={{ width: stock.upside }}
+                                    style={{ width: stock.upsideFormatted }}
                                   ></div>
                                 </div>
                               </div>

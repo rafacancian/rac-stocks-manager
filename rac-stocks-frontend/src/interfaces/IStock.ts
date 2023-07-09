@@ -7,6 +7,7 @@ export default interface IStock {
   dividendYield: string
   valorization12M: string
   maximumPrice: string
-  upside: string
+  upside: number
+  upsideFormatted: string
   status: string
 }
