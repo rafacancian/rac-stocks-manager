@@ -22,7 +22,7 @@ public class WaccService {
         Set<StockShort> stockShorts = stockService.getAll();
 
         return stockShorts.stream()
-                .filter(stock -> stock.wacc().isValid())
+                //.filter(stock -> stock.wacc().isValid())
                 .map(this::stockShortWaccBuild)
                 .sorted(Comparator.comparing(StockShortDto::upside).reversed())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
@@ -38,6 +38,8 @@ public class WaccService {
                 .maximumPrice(stockShort.wacc().maximumPrice())
                 .upside(stockShort.wacc().upside())
                 .upsideFormatted(stockShort.wacc().upsideFormatted())
-                .status(stockShort.wacc().isValid() ? "Buy" : "Waiting").build();
+                .description(stockShort.wacc().description())
+                .errors(stockShort.wacc().errors())
+                .status(stockShort.wacc().isValid() ? "Buy" : "Wait").build();
     }
 }

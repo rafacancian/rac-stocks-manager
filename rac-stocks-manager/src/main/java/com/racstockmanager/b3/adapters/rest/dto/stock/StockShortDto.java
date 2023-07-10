@@ -1,8 +1,10 @@
 package com.racstockmanager.b3.adapters.rest.dto.stock;
 
+import com.racstockmanager.b3.core.methods.bazin.ValidateError;
 import lombok.Builder;
 
 import java.util.Comparator;
+import java.util.List;
 
 @Builder
 public record StockShortDto(String code,
@@ -13,7 +15,9 @@ public record StockShortDto(String code,
                             String maximumPrice,
                             String upsideFormatted,
                             Double upside,
-                            String status) implements Comparator<StockShortDto> {
+                            String status,
+                            String description,
+                            List<ValidateError> errors) implements Comparator<StockShortDto> {
     @Override
     public int compare(StockShortDto o1, StockShortDto o2) {
         return Double.compare(o1.upside(), o2.upside());

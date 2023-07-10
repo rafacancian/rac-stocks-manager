@@ -85,7 +85,7 @@ function GridStocks() {
                             }
                             {stocks !== null && stocks?.map((item) => 
                                 <Grid item xs={6} sm={4} md={3} lg={1.7} margin={2}>
-                                    <BoxItem item={item} key={item.code}/>
+                                    <BoxItem item={item}/>
                                 </Grid>
                             )}
                         </Grid>

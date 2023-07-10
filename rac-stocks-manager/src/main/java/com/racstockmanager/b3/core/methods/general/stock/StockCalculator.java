@@ -56,8 +56,6 @@ public class StockCalculator {
 
             Valuations valuations = StockValuationBuilder.build(htmlIndicators, htmlIndicatorsDebt, topInfoValues, topInfoSubValues, topInfoPatrimonios);
 
-            StockMethod barsiValue = barsiCalculation.execute(stock, valuations);
-
             BazinParams bazinParams = BazinParams.builder()
                     .currentPrice(valuations.currentValue())
                     .sector(stock.getSector().getName())
@@ -65,8 +63,9 @@ public class StockCalculator {
                     .dividendYield12Month(valuations.dividendYield12Month())
                     .divLiquidEbitda(valuations.divLiquidEbitda())
                     .build();
-            StockMethod bazinValue = bazinCalculation.execute(bazinParams);
 
+            StockMethod barsiValue = barsiCalculation.execute(stock, valuations);
+            StockMethod bazinValue = bazinCalculation.execute(bazinParams);
             StockMethod grahamValue = grahamCalculation.execute(stock, valuations);
             StockMethod waccValue = waccCalculation.execute(stock, valuations);
 

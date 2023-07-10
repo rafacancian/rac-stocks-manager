@@ -1,3 +1,6 @@
+import IValidationError from "./IValidationError"
+
+
 export default interface IStock {
   id: number
   rank: number
@@ -10,4 +13,6 @@ export default interface IStock {
   upside: number
   upsideFormatted: string
   status: string
+  description: string
+  errors: IValidationError[]
 }

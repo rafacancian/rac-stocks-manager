@@ -22,7 +22,7 @@ public class BarsiService {
         Set<StockShort> stockShorts = stockService.getAll();
 
         return stockShorts.stream()
-                .filter(stock -> stock.barsi().isValid())
+                //.filter(stock -> stock.barsi().isValid())
                 .map(this::stockShortBarsiBuild)
                 .sorted(Comparator.comparing(StockShortDto::maximumPrice).reversed())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
@@ -36,6 +36,7 @@ public class BarsiService {
                 .maximumPrice(stockShort.barsi().maximumPrice())
                 .upsideFormatted(stockShort.barsi().upsideFormatted())
                 .upside(stockShort.barsi().upside())
-                .status(stockShort.graham().isValid() ? "Buy" : "Waiting").build();
+                .description(stockShort.barsi().description())
+                .status(stockShort.barsi().isValid() ? "Buy" : "Wait").build();
     }
 }

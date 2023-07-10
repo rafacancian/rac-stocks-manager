@@ -22,7 +22,7 @@ public class GrahamService {
         Set<StockShort> stockShorts = stockService.getAll();
 
         return stockShorts.stream()
-                .filter(stock -> stock.graham().isValid())
+                //.filter(stock -> stock.graham().isValid())
                 .map(this::stockShortGrahamBuild)
                 .sorted(Comparator.comparing(StockShortDto::upside).reversed())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
@@ -38,6 +38,8 @@ public class GrahamService {
                 .maximumPrice(stockShort.graham().maximumPrice())
                 .upsideFormatted(stockShort.graham().upsideFormatted())
                 .upside(stockShort.graham().upside())
-                .status(stockShort.graham().isValid() ? "Buy" : "Waiting").build();
+                .description(stockShort.graham().description())
+                .status(stockShort.graham().isValid() ? "Buy" : "Wait")
+                .errors(stockShort.graham().errors()).build();
     }
 }

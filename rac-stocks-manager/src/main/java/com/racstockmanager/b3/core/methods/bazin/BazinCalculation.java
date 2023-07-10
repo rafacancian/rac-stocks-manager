@@ -1,10 +1,14 @@
 package com.racstockmanager.b3.core.methods.bazin;
 
 import com.racstockmanager.b3.core.builders.stock.StockValuationBuilder;
+import com.racstockmanager.b3.core.model.IndicatorDescription;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
 import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.racstockmanager.b3.core.builders.stock.StockValuationBuilder.IPCA;
 
@@ -28,42 +32,52 @@ public class BazinCalculation extends CalculatorUtils {
 
         final Double maximumPrice = bazinParams.getDividendYield12Month() * (100 / IPCA);
         final String maximumPriceFormatted = CurrencyUtils.convertDoubleToBRL(maximumPrice);
-
-        Double upside = calculateUpside(bazinParams.getCurrentPrice(), maximumPrice);
-
-        if (isValid(bazinParams, maximumPrice)) {
-            return StockMethod.builder()
-                    .isValid(true)
-                    .description("Maximum price below of current value")
-                    .maximumPrice(maximumPriceFormatted)
-                    .upside(upside)
-                    .upsideFormatted(convertDoubleToPercentage(upside))
-                    .build();
-        }
+        final Double upside = calculateUpside(bazinParams.getCurrentPrice(), maximumPrice);
+        final List<ValidateError> validationErrors = validation(bazinParams, maximumPrice);
 
         return StockMethod.builder()
-                .isValid(false)
-                .description("No safely range price")
+                .isValid(validationErrors.isEmpty())
                 .maximumPrice(maximumPriceFormatted)
                 .upside(upside)
                 .upsideFormatted(convertDoubleToPercentage(upside))
+                .description("deprecated")
+                .errors(validationErrors)
                 .build();
+    }
+    
+    protected List<ValidateError> validation(BazinParams bazinParams, double maximumPrice) {
+        List<ValidateError> errors = new ArrayList<>();
+        validateSafetyMargin(bazinParams, errors);
+        validatePriceIsPositive(bazinParams.getCurrentPrice(), maximumPrice, errors);
+        return errors;
+    }
+
+    protected void validateSafetyMargin(BazinParams bazinParams, List<ValidateError> errors) {
+        if (!dividendYealdGreatThenSelic(bazinParams.getDy())) {
+            errors.add(new ValidateError(
+                    "No safely range price",
+                    "Dividend Yeald must to be great then selic" +
+                            "\n Dividend Yeald: " + bazinParams.getCurrentPrice() +
+                            "\n" + "Selic: " + StockValuationBuilder.SELIC,
+                    IndicatorDescription.IPCA.getDescription()));
+        }
+        if (!lowDivLiquidEbitda(bazinParams.getDivLiquidEbitda())) {
+            errors.add(new ValidateError(
+                    "Divida liquida Ebitda must to be less then 3",
+                    "Ebitda: " + bazinParams.getDivLiquidEbitda(),
+                    IndicatorDescription.EBITDA.getDescription()));
+
+        }
 
     }
 
-
-    protected Boolean isValid(BazinParams bazinParams, double maximumPrice) {
-        return validateSafetyMargin(bazinParams) && validatePriceIsPositive(bazinParams.getCurrentPrice(), maximumPrice);
-    }
-
-    protected Boolean validateSafetyMargin(BazinParams bazinParams) {
-        return isNotBank(bazinParams.getSector()) &&
-                dividendYealdGreatThenSelic(bazinParams.getDy()) &&
-                lowDivLiquidEbitda(bazinParams.getDivLiquidEbitda());
-    }
-
-    private Boolean validatePriceIsPositive(Double currentPrice, double maximumPrice) {
-        return maximumPrice > currentPrice;
+    private void validatePriceIsPositive(Double currentPrice, double maximumPrice, List<ValidateError> errors) {
+        if (currentPrice > maximumPrice) {
+            errors.add(new ValidateError(
+                    "No safely margin",
+                    "The maximum price " + maximumPrice + " is below than current value: " + currentPrice,
+                    null));
+        }
     }
 
     protected boolean isNotBank(String sector) {

@@ -10,7 +10,7 @@ const MenuContent = () => (
       }
     }}
   >
-  <Navigation />
+    <Navigation />
   </SimpleBar>
 );
 

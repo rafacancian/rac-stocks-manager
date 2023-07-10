@@ -21,9 +21,9 @@ public class BazinService {
         Set<StockShort> stockShorts = stockService.getAll();
 
         return stockShorts.stream()
-                .filter(stock -> stock.bazin().isValid())
+                //.filter(stock -> stock.bazin().isValid())
                 .map(this::stockShortBazinBuild)
-                .sorted(Comparator.comparing(StockShortDto::maximumPrice).reversed())
+                .sorted(Comparator.comparing(StockShortDto::upside).reversed())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
@@ -37,6 +37,8 @@ public class BazinService {
                 .maximumPrice(stockShort.bazin().maximumPrice())
                 .upsideFormatted(stockShort.bazin().upsideFormatted())
                 .upside(stockShort.bazin().upside())
-                .status(stockShort.bazin().isValid() ? "Buy" : "Waiting").build();
+                .description(stockShort.bazin().description())
+                .errors(stockShort.bazin().errors())
+                .status(stockShort.bazin().isValid() ? "Buy" : "Wait").build();
     }
 }
