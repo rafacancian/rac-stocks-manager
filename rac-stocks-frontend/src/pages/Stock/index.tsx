@@ -38,6 +38,7 @@ function Stock() {
     useEffect(() => {
         getStocks().then(response => {
             setStocks(response)
+            debugger
         });
         setLoading(false)
     }, [stock, stockSelected]);
@@ -89,13 +90,13 @@ function Stock() {
                             </Grid>
 
                             <Grid container >
-                                <Grid item xs={6} sm={4} md={3} lg={7}>
+                                <Grid item xs={6} sm={4} md={3} lg={6}>
                                     <StockTableSingle stock={stock} key={stock.code} method="Graham" />
                                 </Grid>
-                                <Grid item xs={12} sm={6} md={4} lg={7}>
+                                <Grid item xs={12} sm={6} md={3} lg={6}>
                                     <StockTableSingle stock={stock} key={stock.code} method="Bazin" />
                                 </Grid>
-                                <Grid item xs={12} sm={6} md={4} lg={7}>
+                                <Grid item xs={12} sm={6} md={3} lg={6}>
                                     <StockTableSingle stock={stock} key={stock.code} method="Wacc" />
                                 </Grid>
                             </Grid>
