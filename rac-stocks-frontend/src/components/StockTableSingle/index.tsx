@@ -36,6 +36,8 @@ const StockTableSingle = (item: StockTableProps) => {
       setStockMethod(item.stock.bazin);
     } else if (item.method.toLowerCase() === "wacc") {
       setStockMethod(item.stock.wacc);
+    } else if (item.method.toLowerCase() === "barsi") {
+      setStockMethod(item.stock.barsi);
     }
   }
 

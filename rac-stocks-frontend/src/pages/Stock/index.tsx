@@ -10,6 +10,9 @@ import * as React from 'react';
 import { SelectChangeEvent } from '@mui/material/Select';
 import IStockSimple from "../../interfaces/IStockSimple";
 import IStockMethods from "../../interfaces/IStockMethods";
+import MonthlyBarChart from "../../components/MonthlyBarChart";
+import AreaChart from "../../components/AreaChart";
+import MonthlyAreaChart from "../../components/MonthlyAreaChart";
 
 function Stock() {
 
@@ -27,7 +30,6 @@ function Stock() {
         setStockSelected(code);
         getStockByCode(code).then(response => {
             setLoading(false)
-            debugger
             if (response !== null && response !== undefined) {
                 console.log("new stock selected: " + response);
                 setStock(response!)
@@ -81,10 +83,29 @@ function Stock() {
                             <Grid container padding={5}>
                                 <Grid container rowSpacing={4.5} columnSpacing={2.75}>
                                     <Grid item xs={6} sm={4} md={3} lg={2} margin={2}>
-                                        <Box shadow="1" name={stock.name} code={stock.code} key={stock.code}/>
+                                        <Box shadow="1" name={stock.name} code={stock.code} key={stock.code} />
                                     </Grid>
-                                    <Grid item xs={12} sm={6} md={4} lg={2}>
-                                        <AnalyticCard title={stock.name} count={stock.currentValue} percentage={null} color="success" extra={stock.valorization12M} key={stock.code} />
+                                    <Grid item xs={12} sm={6} md={4} lg={1.5}>
+                                        <AnalyticCard title="Valor atual" count={stock.currentValue} percentage={null} color="success" />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={4} lg={1.5}>
+                                        <AnalyticCard title={"Min. 52 semanas"} count={"R$ 22,45"} percentage={null} color="success" />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={4} lg={1.5}>
+                                        <AnalyticCard title={"Max. 52 semanas"} count={"R$ 30,24"} percentage={null} color="success" />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={4} lg={1.5}>
+                                        <AnalyticCard title={"Dividend Yield"} count={"5,45%"} percentage={null} color="success" />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={4} lg={1.5}>
+                                        <AnalyticCard title={"Valorização no ano"} count={"18,70%"} percentage={null} color="success" />
+                                    </Grid>
+
+                                    <Grid item xs={12} sm={6} md={4} lg={8}>
+                                        <MonthlyAreaChart />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={4} lg={4}>
+                                        <MonthlyBarChart />
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -98,6 +119,9 @@ function Stock() {
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={3} lg={6}>
                                     <StockTableSingle stock={stock} key={stock.code} method="Wacc" />
+                                </Grid>
+                                <Grid item xs={12} sm={6} md={3} lg={6}>
+                                    <StockTableSingle stock={stock} key={stock.code} method="Barsi" />
                                 </Grid>
                             </Grid>
                         </div>

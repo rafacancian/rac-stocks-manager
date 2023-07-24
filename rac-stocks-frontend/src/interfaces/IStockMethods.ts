@@ -8,5 +8,6 @@ export default interface IStockMethods {
   valorization12M: string
   graham : IMethod,
   bazin: IMethod,
-  wacc : IMethod
+  wacc : IMethod,
+  barsi : IMethod
 }

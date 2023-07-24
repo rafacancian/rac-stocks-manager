@@ -47,6 +47,20 @@ const stocks = {
       icon: icons.ProfileOutlined
     },
     {
+      id: 'stocks-barsi',
+      title: 'Barsi',
+      type: 'item',
+      url: '/stocks/barsi',
+      icon: icons.ProfileOutlined
+    },
+    {
+      id: 'stocks-cheaper',
+      title: 'Cheaper',
+      type: 'item',
+      url: '/stocks/cheaper',
+      icon: icons.ProfileOutlined
+    },
+    {
       id: 'stock',
       title: 'Stock',
       type: 'item',

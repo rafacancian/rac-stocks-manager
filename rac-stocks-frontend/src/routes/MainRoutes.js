@@ -3,7 +3,9 @@ import MainLayout from '../components/MainLayout';
 import About from '../pages/About';
 import Home from '../pages/Home';
 import Stock from '../pages/Stock';
+import StocksBarsi from '../pages/Stocks/Barsi';
 import StocksBazin from '../pages/Stocks/Bazin';
+import StocksCheaper from '../pages/Stocks/Cheaper';
 import StocksGraham from '../pages/Stocks/Graham';
 import GridStocks from '../pages/Stocks/GridStocks';
 import StocksWacc from '../pages/Stocks/Wacc';
@@ -30,6 +32,14 @@ const MainRoutes = {
     {
       path: '/stocks/Wacc',
       element: <StocksWacc />
+    },
+    {
+      path: '/stocks/Barsi',
+      element: <StocksBarsi />
+    },
+    {
+      path: '/stocks/Cheaper',
+      element: <StocksCheaper />
     },
     {
       path: '/stock/select',
