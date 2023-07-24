@@ -62,4 +62,14 @@ public class StockController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/noredis/stock/{code}")
+    public ResponseEntity<?> singleCalculationForTest(@PathVariable String code) {
+        log.info("[B3 Controller Test] Get stock by code " + code);
+        StockShort stockShorts = service.getBySingleCalculationForTest(code);
+        if (stockShorts != null) {
+            return ResponseEntity.ok().body(stockShorts);
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

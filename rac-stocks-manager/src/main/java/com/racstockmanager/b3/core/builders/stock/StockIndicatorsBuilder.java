@@ -1,18 +1,21 @@
 package com.racstockmanager.b3.core.builders.stock;
 
 import com.racstockmanager.b3.core.model.stock.Indicators;
+import com.racstockmanager.b3.core.model.stock.IndicatorsValuations;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
-import com.racstockmanager.b3.core.model.stock.Valuations;
 
 public class StockIndicatorsBuilder {
 
-    public static Indicators build(Valuations valuations, StockMethod barsi, StockMethod bazin, StockMethod graham, StockMethod wacc) {
+    public static Indicators build(IndicatorsValuations indicatorsValuations, boolean isJudicialRecovery, StockMethod barsi,
+                                   StockMethod bazin, StockMethod graham, StockMethod wacc, StockMethod cheaper) {
         return Indicators.builder()
-                .valuations(valuations)
+                .indicatorsValuations(indicatorsValuations)
+                .isJuridicalRecovery(isJudicialRecovery)
                 .barsi(barsi)
                 .bazin(bazin)
                 .graham(graham)
                 .wacc(wacc)
+                .cheaper(cheaper)
                 .build();
     }
 }

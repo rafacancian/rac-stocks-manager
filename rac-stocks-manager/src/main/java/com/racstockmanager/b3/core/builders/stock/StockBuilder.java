@@ -25,13 +25,14 @@ public class StockBuilder {
         return StockShort.builder()
                 .name(stock.getName())
                 .code(stock.getCode())
-                .dividendYield(CalculatorUtils.convertDoubleToPercentage(stock.getIndicators().getValuations().dividendYield12Month()))
-                .valorization12M(stock.getIndicators().getValuations().valorization12Month())
-                .currentValue(CurrencyUtils.convertDoubleToBRL(stock.getIndicators().getValuations().currentValue()))
+                .dividendYield(CalculatorUtils.convertDoubleToPercentage(stock.getIndicators().getIndicatorsValuations().dividendYield12Month()))
+                .valorization12M(stock.getIndicators().getIndicatorsValuations().valorization12Month())
+                .currentValue(CurrencyUtils.convertDoubleToBRL(stock.getIndicators().getIndicatorsValuations().currentValue()))
                 .graham(stock.getIndicators().getGraham())
                 .bazin(stock.getIndicators().getBazin())
                 .wacc(stock.getIndicators().getWacc())
                 .barsi(stock.getIndicators().getBarsi())
+                .cheaper(stock.getIndicators().getCheaper())
                 .build();
     }
 }

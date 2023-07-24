@@ -1,11 +1,7 @@
 package com.racstockmanager.b3.core.methods.graham;
 
 import com.racstockmanager.b3.core.methods.bazin.ValidateError;
-import com.racstockmanager.b3.core.model.IndicatorDescription;
-import com.racstockmanager.b3.core.model.stock.Sector;
-import com.racstockmanager.b3.core.model.stock.Stock;
-import com.racstockmanager.b3.core.model.stock.StockMethod;
-import com.racstockmanager.b3.core.model.stock.Valuations;
+import com.racstockmanager.b3.core.model.stock.*;
 import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
@@ -24,9 +20,9 @@ public class GrahamCalculation extends CalculatorUtils {
       P/L até 15x safety margin
       P/VP até 1,5 safety margin
    */
-    public StockMethod execute(Stock stock, Valuations valuations) {
+    public StockMethod execute(Stock stock, IndicatorsValuations indicatorsValuations) {
 
-        if (validateNegativeValues(valuations)) {
+        if (validateNegativeValues(indicatorsValuations)) {
             return StockMethod.builder()
                     .isValid(false)
                     .description("No safety margin: LPA / VPA less than zero")
@@ -36,10 +32,10 @@ public class GrahamCalculation extends CalculatorUtils {
                     .build();
         }
 
-        final Double intrinsicValue = Math.sqrt(22.5 * (valuations.lpa() * valuations.vpa()));
+        final Double intrinsicValue = Math.sqrt(22.5 * (indicatorsValuations.lpa() * indicatorsValuations.vpa()));
         final String intrinsicValueFormatted = CurrencyUtils.convertDoubleToBRL(intrinsicValue);
-        final Double upside = calculateUpside(valuations.currentValue(), intrinsicValue);
-        final List<ValidateError> validationErrors = validation(stock, valuations, intrinsicValue);
+        final Double upside = calculateUpside(indicatorsValuations.currentValue(), intrinsicValue);
+        final List<ValidateError> validationErrors = validation(stock, indicatorsValuations, intrinsicValue);
 
         return StockMethod.builder()
                 .isValid(validationErrors.isEmpty())
@@ -51,28 +47,29 @@ public class GrahamCalculation extends CalculatorUtils {
                 .build();
     }
 
-    private List<ValidateError> validation(Stock stock, Valuations valuations, Double intrinsicValue) {
+    private List<ValidateError> validation(Stock stock, IndicatorsValuations indicatorsValuations, Double intrinsicValue) {
         List<ValidateError> errors = new ArrayList<>();
-        validatePLandPVP(stock, valuations, errors);
-        validatePriceIsPositive(valuations.currentValue(), intrinsicValue, errors);
+        validatePLandPVP(stock, indicatorsValuations, errors);
+        validatePriceIsPositive(indicatorsValuations.currentValue(), intrinsicValue, errors);
         return errors;
     }
 
-    public void validatePLandPVP(Stock stock, Valuations valuations, List<ValidateError> errors) {
+    public void validatePLandPVP(Stock stock, IndicatorsValuations indicatorsValuations, List<ValidateError> errors) {
         if (isTechnologie(stock) || isVarejo(stock)) {
-            if (valuations.pl() > 20.00 || valuations.pVp() > 3.5) {
+            if (indicatorsValuations.pl() > 20.00 || indicatorsValuations.pVp() > 3.5) {
                 errors.add(new ValidateError(
                         "Segment of Technology/Varejo with PL or pVp not safety",
-                        "PL: " + valuations.pl() + "e PVP: " + valuations.pVp(),
+                        "PL: " + indicatorsValuations.pl() + "e PVP: " + indicatorsValuations.pVp(),
                         "Para açoes de tecnologia ou Varejo é recomendatdo o Preço sobre o lucro (PL) e o preço sobre "
-                                + "valor patrimonial (PVP) ter uma margem de segurança, que são eles: PL < 20 e PVP < 3.5"
+                                +
+                                "valor patrimonial (PVP) ter uma margem de segurança, que são eles: PL < 20 e PVP < 3.5"
                                 + "\n " + IndicatorDescription.PL.getDescription()
                                 + "\n | " + IndicatorDescription.PVP.getDescription()));
             }
-        } else if (valuations.pl() > 15.00 || valuations.pVp() > 3.0) {
+        } else if (indicatorsValuations.pl() > 15.00 || indicatorsValuations.pVp() > 3.0) {
             errors.add(new ValidateError(
                     "PL or pVp not safety",
-                    "PL: " + valuations.pl() + "e PVP: " + valuations.pVp(),
+                    "PL: " + indicatorsValuations.pl() + "e PVP: " + indicatorsValuations.pVp(),
                     "Para o modelo Graham é recomendado o Preço sobre o lucro (PL) e o preço sobre "
                             + "valor patrimonial (PVP) ter uma margem de segurança, que esão elas: PL < 15 e PVP < 3"
                             + "\n " + IndicatorDescription.PL.getDescription()

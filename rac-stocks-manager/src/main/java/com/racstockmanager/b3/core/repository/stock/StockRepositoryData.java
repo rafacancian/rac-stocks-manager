@@ -8,12 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.racstockmanager.b3.core.repository.stock.sectors.BasicMaterials.*;
-import static com.racstockmanager.b3.core.repository.stock.sectors.FinancialAndOthers.*;
-import static com.racstockmanager.b3.core.repository.stock.sectors.Health.BLAU3;
-import static com.racstockmanager.b3.core.repository.stock.sectors.Health.PNVL3;
-import static com.racstockmanager.b3.core.repository.stock.sectors.NoCyclicConsumption.*;
-import static com.racstockmanager.b3.core.repository.stock.sectors.OilGasFuels.PETR4;
+import static com.racstockmanager.b3.core.repository.stock.sectors.BasicMaterials.BRKM5;
 import static com.racstockmanager.b3.core.repository.stock.sectors.PublicUtility.*;
 
 @Service
@@ -80,7 +75,15 @@ public class StockRepositoryData {
                 CyclicConsumption.getStockByCode("TFCO4"),
                 CyclicConsumption.getStockByCode("CVCB3"),
                 CyclicConsumption.getStockByCode("VIVA3"),
-                BLAU3, PNVL3, TTEN3, BRBI11, SULA11, GMAT3, IGTI11, KLBN11, NEOE3, BRKM5);
+                Health.getStockByCode("BLAU3"),
+                Health.getStockByCode("PNVL3"),
+                BasicMaterials.getStockByCode("KLBN11"),
+                FinancialAndOthers.getStockByCode("BRBI11"),
+                FinancialAndOthers.getStockByCode("SULA11"),
+                FinancialAndOthers.getStockByCode("IGTI11"),
+                NoCyclicConsumption.getStockByCode("GMAT3"),
+                NoCyclicConsumption.getStockByCode("TTEN3"),
+                NEOE3, BRKM5);
     }
 
     public static Set<Stock> getTopsSunoDividends() {
@@ -89,6 +92,14 @@ public class StockRepositoryData {
                 CyclicConsumption.getStockByCode("LEVE3"),
                 CyclicConsumption.getStockByCode("MRVE3"),
                 CyclicConsumption.getStockByCode("GRND3"),
-                EGIE3, VALE3, ELET3, BBAS3, PETR4, BBSE3, AGRO3, ENBR3, ALUP11, B3SA3, CPLE6, WIZC3, UNIP6);
+                OilGasFuels.getStockByCode("PETR4"),
+                BasicMaterials.getStockByCode("UNIP6"),
+                BasicMaterials.getStockByCode("VALE3"),
+                FinancialAndOthers.getStockByCode("BBAS3"),
+                FinancialAndOthers.getStockByCode("BBSE3"),
+                FinancialAndOthers.getStockByCode("B3SA3"),
+                FinancialAndOthers.getStockByCode("WIZC3"),
+                NoCyclicConsumption.getStockByCode("AGRO3"),
+                EGIE3, ELET3, ENBR3, ALUP11, CPLE6);
     }
 }

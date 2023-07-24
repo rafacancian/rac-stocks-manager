@@ -1,6 +1,6 @@
 package com.racstockmanager.b3.core.builders.stock;
 
-import com.racstockmanager.b3.core.model.stock.Valuations;
+import com.racstockmanager.b3.core.model.stock.IndicatorsValuations;
 
 import java.util.List;
 
@@ -16,10 +16,11 @@ public class StockValuationBuilder {
     // produtos e serviços consumidos pelas famílias
     public static final double IPCA = 12.0;
 
-    public static Valuations build(List<String> htmlIndicators, List<String> htmlIndicatorsDebt,
-                                   List<String> topInfoValues, List<String> topInfoSubValues, List<String> topInfoPatrimonios) {
+    public static IndicatorsValuations build(List<String> htmlIndicators, List<String> htmlIndicatorsDebt,
+                                             List<String> topInfoValues, List<String> topInfoSubValues, List<String> topInfoPatrimonios,
+                                             List<String> topInfoParticipation) {
 
-        return Valuations.builder()
+        return IndicatorsValuations.builder()
                 .ipca(IPCA)
                 .selic(SELIC)
                 .currentValue(convertStringToDouble(topInfoValues.get(0)))
@@ -43,6 +44,7 @@ public class StockValuationBuilder {
                 .pCapGiro(convertStringToDouble(htmlIndicators.get(12)))
                 .pAtivoCircLiq(convertStringToDouble(htmlIndicators.get(13)))
 
+                // TODO refactor to a new class
                 .patrimonioLiquido(convertStringToDoubleRegex(topInfoPatrimonios.get(0)))
                 .ativo(convertStringToDoubleRegex(topInfoPatrimonios.get(1)))
                 .ativocirculante(convertStringToDoubleRegex(topInfoPatrimonios.get(2)))
@@ -55,6 +57,8 @@ public class StockValuationBuilder {
                 .nroTotalPapeis(convertStringToDoubleRegex(topInfoPatrimonios.get(9)))
                 //.segmentoMercado(convertStringToDouble(topInfoPatrimonios.get(10)))
                 //.freeFloat(topInfoPatrimonios.get(11))
+
+                .dailyLiquidity(convertStringBigNumberToDoubleRegex(topInfoParticipation.get(2)))
                 .build();
     }
 }

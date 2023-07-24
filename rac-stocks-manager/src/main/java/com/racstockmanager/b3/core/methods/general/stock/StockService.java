@@ -2,12 +2,14 @@ package com.racstockmanager.b3.core.methods.general.stock;
 
 import com.racstockmanager.b3.adapters.repository.RedisRepository;
 import com.racstockmanager.b3.core.builders.stock.StockBuilder;
+import com.racstockmanager.b3.core.exceptions.StockNotFoundException;
 import com.racstockmanager.b3.core.model.stock.Indicators;
 import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockShort;
 import com.racstockmanager.b3.core.model.stock.Stocks;
 import com.racstockmanager.b3.core.repository.stock.StockRepository;
 import com.racstockmanager.b3.core.utils.ShowPercentageProgress;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -95,15 +97,40 @@ public class StockService {
         }
         log.info("[B3 Service] Stocks empty. Starting calculation process");
         ShowPercentageProgress.execute(stocksDB, stocksResult);
-        stocksDB.forEach(s -> {
-            Indicators indicators = stockCalculator.execute(s);
-            s.setIndicators(indicators);
-            stocksResult.add(s);
-            ShowPercentageProgress.execute(stocksDB, stocksResult);
-        });
+        try {
+            stocksDB.forEach(s -> {
+                //log.info("[Stock Service calculating] code: " + s.getCode());
+                Indicators indicators = stockCalculator.execute(s);
+                s.setIndicators(indicators);
+                stocksResult.add(s);
+                ShowPercentageProgress.execute(stocksDB, stocksResult);
+            });
+        } catch (IndexOutOfBoundsException e) {
+            log.error("[Stock Service error]");
+        }
+
         log.info("\n[B3 Service] Stocks calculation process completed");
         Stocks stocks = new Stocks(LocalDate.now(), stocksResult);
         redisRepository.insert(LocalDate.now().toString(), stocks);
         return stocks;
+    }
+
+    public StockShort getBySingleCalculationForTest(String code) {
+        log.debug("[B3 Service] Get stock by code");
+        Stock stock = startCalculationProcessNoRedis(code);
+        return stockBuilder.parseToShortInformation(stock);
+    }
+
+    @SneakyThrows
+    private Stock startCalculationProcessNoRedis(String code) {
+        Stock stockFound = repository.getAllRelevant()
+                .stream()
+                .filter(stock -> stock.getCode().equalsIgnoreCase(code))
+                .findFirst()
+                .orElseThrow(() -> new StockNotFoundException("Stock " + code + " not found"));
+
+        Indicators indicators = stockCalculator.execute(stockFound);
+        stockFound.setIndicators(indicators);
+        return stockFound;
     }
 }

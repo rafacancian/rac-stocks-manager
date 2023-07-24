@@ -1,9 +1,9 @@
 package com.racstockmanager.b3.core.methods.wacc;
 
 import com.racstockmanager.b3.core.methods.bazin.ValidateError;
+import com.racstockmanager.b3.core.model.stock.IndicatorsValuations;
 import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
-import com.racstockmanager.b3.core.model.stock.Valuations;
 import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
 import org.springframework.stereotype.Service;
@@ -15,15 +15,15 @@ import java.util.List;
 public class WaccCalculation extends CalculatorUtils {
 
     /* WACC = custo medio ponderado do capital */
-    public StockMethod execute(Stock stock, Valuations valuations) {
+    public StockMethod execute(Stock stock, IndicatorsValuations indicatorsValuations) {
 
         // KE = RF (taxa selic) + B (beta?) * (RM(retorno medio do mercado) - RF)
         // KE = 0,12 + 0,23 * (0,10 - 0,12)
         // KE = 6,92%
 
-        Double KE = valuations.ipca() + 0.23 * (0.10 - 0.12);
-        Double E = valuations.patrimonioLiquido();
-        Double D = valuations.dividabruta();
+        Double KE = indicatorsValuations.ipca() + 0.23 * (0.10 - 0.12);
+        Double E = indicatorsValuations.patrimonioLiquido();
+        Double D = indicatorsValuations.dividabruta();
         Double Kd = 5.0;
 
         // E = patrimonio liquido = 13.413.944.000
@@ -41,8 +41,8 @@ public class WaccCalculation extends CalculatorUtils {
         // Result 5,45%
 
         final Double wacc = KE * (E / (D + E)) + Kd * (D / (D + E));
-        final Double maximumPrice = valuations.currentValue() + (valuations.currentValue() * (wacc / 100));
-        final List<ValidateError> validationErrors = validation(valuations, maximumPrice);
+        final Double maximumPrice = indicatorsValuations.currentValue() + (indicatorsValuations.currentValue() * (wacc / 100));
+        final List<ValidateError> validationErrors = validation(indicatorsValuations, maximumPrice);
 
         return StockMethod.builder()
                 .isValid(validationErrors.isEmpty())
@@ -54,9 +54,9 @@ public class WaccCalculation extends CalculatorUtils {
                 .build();
     }
 
-    private List<ValidateError> validation(Valuations valuations, Double maximumPrice) {
+    private List<ValidateError> validation(IndicatorsValuations indicatorsValuations, Double maximumPrice) {
         List<ValidateError> errors = new ArrayList<>();
-        validatePriceIsPositive(valuations.currentValue(), maximumPrice, errors);
+        validatePriceIsPositive(indicatorsValuations.currentValue(), maximumPrice, errors);
         return errors;
     }
 

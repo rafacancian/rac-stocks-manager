@@ -14,7 +14,7 @@ public class StockPrints {
         DecimalFormat fmt = new DecimalFormat("0.00");
         stocks.stream().forEach(stock -> {
 
-            System.out.print(stock.getCode() + " | R$" + stock.getIndicators().getValuations().currentValue());
+            System.out.print(stock.getCode() + " | R$" + stock.getIndicators().getIndicatorsValuations().currentValue());
             if (stock.getIndicators().getGraham() != null && stock.getIndicators().getGraham().isValid()) {
                 System.out.print(" | Graham R$" + fmt.format(stock.getIndicators().getGraham().maximumPrice())
                         + ", Upside " + stock.getIndicators().getGraham().upside());

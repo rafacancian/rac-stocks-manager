@@ -3,7 +3,6 @@ package com.racstockmanager.b3.core.methods.general.fii;
 import com.racstockmanager.b3.core.builders.fii.FiiIndicatorsBuilder;
 import com.racstockmanager.b3.core.builders.fii.FiiValuationBuilder;
 import com.racstockmanager.b3.core.methods.bazin.BazinFiiCalculation;
-import com.racstockmanager.b3.core.methods.bazin.BazinParams;
 import com.racstockmanager.b3.core.model.fii.Fii;
 import com.racstockmanager.b3.core.model.fii.FiiIndicators;
 import com.racstockmanager.b3.core.model.fii.FiiValuations;
@@ -34,13 +33,7 @@ public class B3FiiCalculations {
 
             FiiValuations valuations = FiiValuationBuilder.build(topInfoValues, topInfoSubValues, topInfoPatrimonios);
 
-            BazinParams bazinParams = BazinParams.builder()
-                    .currentPrice(valuations.currentValue())
-                    .sector(fii.getSector())
-                    .dy(valuations.dy())
-                    .dividendYield12Month(valuations.dividendYield12Month()).build();
-
-            StockMethod bazinValue = bazinFiiCalculation.execute(bazinParams);
+            StockMethod bazinValue = bazinFiiCalculation.execute(fii, valuations);
 
             return FiiIndicatorsBuilder.build(valuations, bazinValue);
         } catch (IOException e) {

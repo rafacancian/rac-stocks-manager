@@ -11,5 +11,6 @@ public record StockShort(String name,
                          StockMethod graham,
                          StockMethod bazin,
                          StockMethod wacc,
-                         StockMethod barsi) {
+                         StockMethod barsi,
+                         StockMethod cheaper) {
 }

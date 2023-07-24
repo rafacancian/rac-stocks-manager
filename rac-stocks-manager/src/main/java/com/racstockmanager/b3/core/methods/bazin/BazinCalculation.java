@@ -1,7 +1,10 @@
 package com.racstockmanager.b3.core.methods.bazin;
 
+import com.racstockmanager.b3.core.builders.stock.StockBazinBuilder;
 import com.racstockmanager.b3.core.builders.stock.StockValuationBuilder;
-import com.racstockmanager.b3.core.model.IndicatorDescription;
+import com.racstockmanager.b3.core.model.stock.IndicatorDescription;
+import com.racstockmanager.b3.core.model.stock.IndicatorsValuations;
+import com.racstockmanager.b3.core.model.stock.Stock;
 import com.racstockmanager.b3.core.model.stock.StockMethod;
 import com.racstockmanager.b3.core.utils.CalculatorUtils;
 import com.racstockmanager.b3.core.utils.CurrencyUtils;
@@ -17,7 +20,7 @@ public class BazinCalculation extends CalculatorUtils {
 
     public static final String SECTOR_BANK = "Bank";
 
-    public StockMethod execute(BazinParams bazinParams) {
+    public StockMethod execute(Stock stock, IndicatorsValuations indicatorsValuations) {
 
         // reference https://www.youtube.com/watch?v=0gx-mV_U-Xw
         // O preço da ação não deve ultrapassar o preço da taxa basica de remuneração
@@ -29,6 +32,8 @@ public class BazinCalculation extends CalculatorUtils {
         // P = D / (K / 100)   => P = D x (100/K)
 
         // final boolean isValid = checkStockIsValidByFilters(stock, valuations);
+
+        BazinParams bazinParams = StockBazinBuilder.build(stock, indicatorsValuations);
 
         final Double maximumPrice = bazinParams.getDividendYield12Month() * (100 / IPCA);
         final String maximumPriceFormatted = CurrencyUtils.convertDoubleToBRL(maximumPrice);
@@ -44,7 +49,7 @@ public class BazinCalculation extends CalculatorUtils {
                 .errors(validationErrors)
                 .build();
     }
-    
+
     protected List<ValidateError> validation(BazinParams bazinParams, double maximumPrice) {
         List<ValidateError> errors = new ArrayList<>();
         validateSafetyMargin(bazinParams, errors);

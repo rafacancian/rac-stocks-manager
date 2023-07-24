@@ -14,27 +14,27 @@ public class Technologies {
     public static final String PROGRAMACAO_E_SERVICO = "Programas e Serviços";
     public static final String COMPUTADORES_E_EQUIPAMENTOS = "Computadores e Equipamentos";
 
-    private static final Stock BMOB3 = new Stock("BEMOBI MOBILE TECH S.A", "BMOB3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
-    private static final Stock BRQB3 = new Stock("BRQ SOLUCOES EM INFORMATICA S.A", "BRQB3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
-    private static final Stock CASH3 = new Stock("MÉLIUZ S.A", "CASH3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
-    private static final Stock CLSA3 = new Stock("CLEAR SALE S.A", "CLSA3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
-    private static final Stock DOTZ3 = new Stock("DOTZ S.A.", "DOTZ3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
-    private static final Stock ENJU3 = new Stock("ENJOEI.COM.BR ATIVIDADES DE INTERNET S.A", "ENJU3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
-    private static final Stock IFCM3 = new Stock("INFRACOMMERCE CXAAS S.A.", "IFCM3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
-    private static final Stock INTB3 = new Stock("INTELBRAS S.A. IND DE TELEC ELETRONICA BRASILEIRA", "INTB3", TECNOLOGIA_DA_INFORMACAO, COMPUTADORES_E_EQUIPAMENTOS, true);
-    private static final Stock ITEC3 = new Stock("ITAUTEC", "ITEC3", TECNOLOGIA_DA_INFORMACAO, COMPUTADORES_E_EQUIPAMENTOS, true);
-    private static final Stock LINX3 = new Stock("LINX", "LINX3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
-    private static final Stock LVTC3 = new Stock("LIVETECH DA BAHIA INDUSTRIA E COMERCIO S.A", "LVTC3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
-    private static final Stock LWSA3 = new Stock("LOCAWEB SERVIÇOS DE INTERNET S.A", "LWSA3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
-    private static final Stock MLAS3 = new Stock("MULTILASER INDUSTRIAL S.A", "MLAS3", TECNOLOGIA_DA_INFORMACAO, COMPUTADORES_E_EQUIPAMENTOS, true);
-    private static final Stock MOSI3 = new Stock("MOSAICO TECNOLOGIA AO CONSUMIDOR S.A", "MOSI3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock BMOB3 = new Stock("Bemobi mobile tech S.A", "BMOB3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock BRQB3 = new Stock("BRQ soluções em informatica S.A", "BRQB3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock CASH3 = new Stock("Méliuz S.A", "CASH3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
+    private static final Stock CLSA3 = new Stock("Clear sale S.A", "CLSA3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock DOTZ3 = new Stock("Dotz S.A.", "DOTZ3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock ENJU3 = new Stock("Enjoei atividade de internet S.A", "ENJU3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
+    private static final Stock IFCM3 = new Stock("Infracommerce CXAAS S.A.", "IFCM3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock INTB3 = new Stock("Intelbras S.A", "INTB3", TECNOLOGIA_DA_INFORMACAO, COMPUTADORES_E_EQUIPAMENTOS, true);
+    private static final Stock ITEC3 = new Stock("Itautec", "ITEC3", TECNOLOGIA_DA_INFORMACAO, COMPUTADORES_E_EQUIPAMENTOS, true);
+    private static final Stock LINX3 = new Stock("Linx", "LINX3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
+    private static final Stock LVTC3 = new Stock("Livetech da bahia industria e comercio", "LVTC3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock LWSA3 = new Stock("Locaweb serviços de internet", "LWSA3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
+    private static final Stock MLAS3 = new Stock("Multilaser industrial S.A", "MLAS3", TECNOLOGIA_DA_INFORMACAO, COMPUTADORES_E_EQUIPAMENTOS, true);
+    private static final Stock MOSI3 = new Stock("Mosaico tecnologia ao consumidor", "MOSI3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
     private static final Stock NGRD3 = new Stock("Neogrid", "NGRD3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
-    private static final Stock NINJ3 = new Stock("GETNINJAS", "NINJ3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
-    private static final Stock POSI3 = new Stock("POSITIVO", "POSI3", TECNOLOGIA_DA_INFORMACAO, COMPUTADORES_E_EQUIPAMENTOS, true);
-    private static final Stock QUSW3 = new Stock("QUALITY SOFTWARE S.A.", "QUSW3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
-    private static final Stock SQIA3 = new Stock("SINQIA", "SQIA3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
-    private static final Stock TOTS3 = new Stock("TOTVS", "TOTS3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
-    private static final Stock TRAD3 = new Stock("TC TRADERS CLUB S.A", "TRAD3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock NINJ3 = new Stock("Getninjas", "NINJ3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock POSI3 = new Stock("Positivo", "POSI3", TECNOLOGIA_DA_INFORMACAO, COMPUTADORES_E_EQUIPAMENTOS, true);
+    private static final Stock QUSW3 = new Stock("Quality software", "QUSW3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
+    private static final Stock SQIA3 = new Stock("Sinquia", "SQIA3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
+    private static final Stock TOTS3 = new Stock("Totvs", "TOTS3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO, true);
+    private static final Stock TRAD3 = new Stock("TC traders club", "TRAD3", TECNOLOGIA_DA_INFORMACAO, PROGRAMACAO_E_SERVICO);
 
     private static final Set<Stock> stocks = new HashSet<>();
 

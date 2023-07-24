@@ -1,6 +1,6 @@
 package com.racstockmanager.b3.core.utils;
 
-import com.racstockmanager.b3.core.model.stock.Valuations;
+import com.racstockmanager.b3.core.model.stock.IndicatorsValuations;
 import lombok.extern.slf4j.Slf4j;
 
 import java.text.DecimalFormat;
@@ -63,12 +63,22 @@ public class CalculatorUtils {
         }
     }
 
+    public static double convertStringBigNumberToDoubleRegex(String stringValue) {
+        try {
+            String valorFormatado = stringValue.replaceAll("\\.", "").replace(",", ".");
+            return Double.parseDouble(valorFormatado);
+        } catch (Exception e) {
+            log.error("Error to convert value: " + stringValue);
+            return 0.0;
+        }
+    }
+
     public static String convertDoubleToPercentage(Double upside) {
         return new DecimalFormat("#.##").format(upside) + "%";
     }
 
-    public boolean validateNegativeValues(Valuations valuations) {
-        return valuations.lpa() < 0.0 || valuations.vpa() < 0.0;
+    public boolean validateNegativeValues(IndicatorsValuations indicatorsValuations) {
+        return indicatorsValuations.lpa() < 0.0 || indicatorsValuations.vpa() < 0.0;
     }
 
 }

@@ -1,17 +1,13 @@
 package com.racstockmanager.b3.core.methods.general.stock;
 
-import com.racstockmanager.b3.core.builders.stock.StockIndicatorsBuilder;
-import com.racstockmanager.b3.core.builders.stock.StockValuationBuilder;
+import com.racstockmanager.b3.core.builders.stock.*;
 import com.racstockmanager.b3.core.exceptions.StockNotFoundException;
 import com.racstockmanager.b3.core.methods.barsi.BarsiCalculation;
 import com.racstockmanager.b3.core.methods.bazin.BazinCalculation;
-import com.racstockmanager.b3.core.methods.bazin.BazinParams;
+import com.racstockmanager.b3.core.methods.cheaper.CheaperCalculation;
 import com.racstockmanager.b3.core.methods.graham.GrahamCalculation;
 import com.racstockmanager.b3.core.methods.wacc.WaccCalculation;
-import com.racstockmanager.b3.core.model.stock.Indicators;
-import com.racstockmanager.b3.core.model.stock.Stock;
-import com.racstockmanager.b3.core.model.stock.StockMethod;
-import com.racstockmanager.b3.core.model.stock.Valuations;
+import com.racstockmanager.b3.core.model.stock.*;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
@@ -34,6 +30,8 @@ public class StockCalculator {
     GrahamCalculation grahamCalculation;
     @Autowired
     WaccCalculation waccCalculation;
+    @Autowired
+    CheaperCalculation cheaperCalculation;
 
     @SneakyThrows
     public Indicators execute(Stock stock) {
@@ -51,25 +49,31 @@ public class StockCalculator {
 
             List<String> topInfoPatrimonios = document.getElementsByClass("top-info").get(4).getElementsByClass("value").eachText();
 
+            List<String> topInfoParticipation = document.getElementsByClass("top-info").get(1).getElementsByClass("value").eachText();
+
             List<String> htmlIndicators = document.getElementsByClass("indicators").get(0).getElementsByClass("value").eachText();
             List<String> htmlIndicatorsDebt = document.getElementsByClass("indicators").get(1).getElementsByClass("value").eachText();
+            List<String> htmlIndicatorsEfficiency = document.getElementsByClass("indicators").get(2).getElementsByClass("value").eachText();
+            List<String> htmlIndicatorsProfitability = document.getElementsByClass("indicators").get(3).getElementsByClass("value").eachText();
+            List<String> htmlIndicatorsGrowth = document.getElementsByClass("indicators").get(4).getElementsByClass("value").eachText();
 
-            Valuations valuations = StockValuationBuilder.build(htmlIndicators, htmlIndicatorsDebt, topInfoValues, topInfoSubValues, topInfoPatrimonios);
+            IndicatorsValuations indicatorsValuations = StockValuationBuilder.build(htmlIndicators, htmlIndicatorsDebt, topInfoValues, topInfoSubValues, topInfoPatrimonios, topInfoParticipation);
+            IndicatorsEfficiency indicatorsEfficiency = StockEfficiencyBuilder.build(htmlIndicatorsEfficiency);
+            IndicatorsProfitability indicatorsProfitability = StockProfitabilityBuilder.build(htmlIndicatorsProfitability);
+            IndicatorsGrowth indicatorsGrowth = StockGrowthBuilder.build(htmlIndicatorsGrowth);
 
-            BazinParams bazinParams = BazinParams.builder()
-                    .currentPrice(valuations.currentValue())
-                    .sector(stock.getSector().getName())
-                    .dy(valuations.dy())
-                    .dividendYield12Month(valuations.dividendYield12Month())
-                    .divLiquidEbitda(valuations.divLiquidEbitda())
-                    .build();
+            boolean isJudicialRecovery = !document.getElementsContainingText("RECUPERAÇÃO JUDICIAL").isEmpty();
 
-            StockMethod barsiValue = barsiCalculation.execute(stock, valuations);
-            StockMethod bazinValue = bazinCalculation.execute(bazinParams);
-            StockMethod grahamValue = grahamCalculation.execute(stock, valuations);
-            StockMethod waccValue = waccCalculation.execute(stock, valuations);
+            // TODO refactor
 
-            return StockIndicatorsBuilder.build(valuations, barsiValue, bazinValue, grahamValue, waccValue);
+            StockMethod barsiValue = barsiCalculation.execute(stock, indicatorsValuations);
+            StockMethod bazinValue = bazinCalculation.execute(stock, indicatorsValuations);
+            StockMethod grahamValue = grahamCalculation.execute(stock, indicatorsValuations);
+            StockMethod waccValue = waccCalculation.execute(stock, indicatorsValuations);
+            StockMethod cheaper = cheaperCalculation.execute(stock, indicatorsValuations, indicatorsEfficiency,
+                    indicatorsProfitability, indicatorsGrowth, isJudicialRecovery);
+
+            return StockIndicatorsBuilder.build(indicatorsValuations, isJudicialRecovery, barsiValue, bazinValue, grahamValue, waccValue, cheaper);
 
         } catch (IOException e) {
             log.error("[Stock Calculator] Unexpected error for " + stock.getCode() + " | Error: " + e.getMessage());

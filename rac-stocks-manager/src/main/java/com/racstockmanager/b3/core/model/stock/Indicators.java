@@ -8,11 +8,14 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class Indicators {
-    Valuations valuations;
+    IndicatorsValuations indicatorsValuations;
+    Boolean isJuridicalRecovery;
     StockMethod graham;
     StockMethod bazin;
     StockMethod wacc;
     StockMethod barsi;
+    StockMethod cheaper;
+
 }
 
 
