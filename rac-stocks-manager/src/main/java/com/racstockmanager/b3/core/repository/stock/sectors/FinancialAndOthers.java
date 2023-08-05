@@ -74,7 +74,7 @@ public class FinancialAndOthers {
     private static final Stock CRIV4 = new Stock("Financeira alfa", "CRIV4", FINANCEIRO_E_OUTROS, null);
     private static final Stock CSAB3 = new Stock("Cia seguros aliança da bahia", "CSAB3", FINANCEIRO_E_OUTROS, null);
     private static final Stock CSAB4 = new Stock("Cia seguros aliança da bahia", "CSAB4", FINANCEIRO_E_OUTROS, null);
-    private static final Stock CXSE3 = new Stock("Caixa seguridade participações", "CXSE3", FINANCEIRO_E_OUTROS, null);
+    private static final Stock CXSE3 = new Stock("Caixa seguridade participações", "CXSE3", FINANCEIRO_E_OUTROS, null, true);
     private static final Stock EPAR3 = new Stock("embpar participações", "EPAR3", FINANCEIRO_E_OUTROS, null);
     private static final Stock FIGE3 = new Stock("Investimentos bemge", "FIGE3", FINANCEIRO_E_OUTROS, null);
     private static final Stock FIGE4 = new Stock("Investimentos bemge", "FIGE4", FINANCEIRO_E_OUTROS, null);
