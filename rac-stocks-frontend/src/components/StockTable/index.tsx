@@ -2,20 +2,9 @@ import { useState } from 'react';
 
 import './StockTable.css'
 import IStock from '../../interfaces/IStock';
-import CircleIcon from '@mui/icons-material/Circle';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import ErrorIcon from '@mui/icons-material/Error';
-import OpenInNewSharpIcon from '@mui/icons-material/OpenInNewSharp';
-import SmsSharpIcon from '@mui/icons-material/SmsSharp';
-import { Margin, Padding } from '@mui/icons-material';
 import Tooltip from '@mui/material/Tooltip';
-import ConfirmationDialog from '../Dialog';
 import DraggableDialog from '../Dialog';
-import React from 'react';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import IValidationError from '../../interfaces/IValidationError';
-
 
 interface StockProps {
   stocks: IStock[] | undefined,
@@ -75,18 +64,21 @@ const StockTable = (item: StockProps) => {
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Code</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ativo</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço Atual</th>
-                        {item != null && item.stocks != null && item.stocks[0].upside != null && 
-                        <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Upsite</th>
+                        {item != null && item.stocks != null && item.stocks[0].upside != null &&
+                          <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Upsite</th>
                         }
-                        {item != null && item.stocks != null && item.stocks[0].maximumPrice != null && 
-                        <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço Teto</th>
+                        {item != null && item.stocks != null && item.stocks[0].maximumPrice != null &&
+                          <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço Teto</th>
                         }
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Dividend Yield</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valorização 12M</th>
-                        <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Score</th>
-                        <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                        {item != null && item.stocks != null && item.stocks[0].score != null &&
+                          <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Score</th>
+                        }
+                        {item != null && item.stocks != null && item.stocks[0].status != null &&
+                          <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                        }
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Details</th>
-                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -117,31 +109,31 @@ const StockTable = (item: StockProps) => {
                               <p className="text-sm font-weight-bold mb-0">{stock.currentPrice}</p>
                             </td>
 
-                            {stock.upside != null && 
-                            <td className="align-middle">
-                              <div className="d-flex align-items-center justify-content-center">
-                                <span className="me-2 text-xs font-weight-bold">{stock.upsideFormatted}</span>
-                                <div>
-                                  <div className="progress">
-                                    {stock.upside < 0 &&
-                                      <div className="progress-bar bg-gradient-warning" role="progressbar" aria-valuemin={-100} aria-valuemax={0}
-                                        style={{ width: Math.abs(stock.upside) }}
-                                      ></div>
-                                    }
-                                    {stock.upside >= 0 &&
-                                      <div className="progress-bar bg-gradient-success" role="progressbar" aria-valuemin={0} aria-valuemax={100}
-                                        style={{ width: stock.upside }}
-                                      ></div>
-                                    }
+                            {stock.upside != null &&
+                              <td className="align-middle">
+                                <div className="d-flex align-items-center justify-content-center">
+                                  <span className="me-2 text-xs font-weight-bold">{stock.upsideFormatted}</span>
+                                  <div>
+                                    <div className="progress">
+                                      {stock.upside < 0 &&
+                                        <div className="progress-bar bg-gradient-warning" role="progressbar" aria-valuemin={-100} aria-valuemax={0}
+                                          style={{ width: Math.abs(stock.upside) }}
+                                        ></div>
+                                      }
+                                      {stock.upside >= 0 &&
+                                        <div className="progress-bar bg-gradient-success" role="progressbar" aria-valuemin={0} aria-valuemax={100}
+                                          style={{ width: stock.upside }}
+                                        ></div>
+                                      }
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </td>
+                              </td>
                             }
-                            {stock.maximumPrice != null && 
-                            <td>
-                              <p className="text-sm font-weight-bold mb-0 ms-2">{stock.maximumPrice}</p>
-                            </td>
+                            {stock.maximumPrice != null &&
+                              <td>
+                                <p className="text-sm font-weight-bold mb-0 ms-2">{stock.maximumPrice}</p>
+                              </td>
                             }
                             <td>
                               <p className="text-sm font-weight-bold mb-0 ms-4">{stock.dividendYield}</p>
@@ -149,24 +141,28 @@ const StockTable = (item: StockProps) => {
                             <td>
                               <p className="text-sm font-weight-bold mb-0 ms-4">{stock.valorization12M}</p>
                             </td>
-                            <td>
-                              <p className="text-sm font-weight-bold mb-0 ms-2">{stock.score}</p>
-                            </td>
-                            <td>
-                              {stock.status == "Buy" && <div>
-                                <FiberManualRecordIcon color='success' fontSize='small' />
-                                <span className="text-xs font-weight-bold">{stock.status}</span>
-
-                              </div>
-                              }
-                              {stock.status == "Wait" &&
-                                <div>
-                                  <FiberManualRecordIcon color='warning' fontSize='small' />
+                            {stock.score != null &&
+                              <td>
+                                <p className="text-sm font-weight-bold mb-0 ms-2">{stock.score}</p>
+                              </td>
+                            }
+                            {stock.status != null &&
+                              <td>
+                                {stock.status == "Buy" && <div>
+                                  <FiberManualRecordIcon color='success' fontSize='small' />
                                   <span className="text-xs font-weight-bold">{stock.status}</span>
 
                                 </div>
-                              }
-                            </td>
+                                }
+                                {stock.status == "Wait" &&
+                                  <div>
+                                    <FiberManualRecordIcon color='warning' fontSize='small' />
+                                    <span className="text-xs font-weight-bold">{stock.status}</span>
+
+                                  </div>
+                                }
+                              </td>
+                            }
                             <td>
                               {stock.errors != null && stock.errors.length > 0 &&
                                 <div style={{ display: "flex" }} >

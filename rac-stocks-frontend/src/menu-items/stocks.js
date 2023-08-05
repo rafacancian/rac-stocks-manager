@@ -61,6 +61,13 @@ const stocks = {
       icon: icons.ProfileOutlined
     },
     {
+      id: 'stocks-dividends',
+      title: 'Dividends',
+      type: 'item',
+      url: '/stocks/dividends',
+      icon: icons.ProfileOutlined
+    },
+    {
       id: 'stock',
       title: 'Stock',
       type: 'item',
