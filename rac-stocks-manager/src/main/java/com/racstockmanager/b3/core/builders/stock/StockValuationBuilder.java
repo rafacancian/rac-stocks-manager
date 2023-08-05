@@ -26,7 +26,8 @@ public class StockValuationBuilder {
                 .currentValue(convertStringToDouble(topInfoValues.get(0)))
                 .minValue(convertStringToDouble(topInfoValues.get(1)))
                 .maxValue(convertStringToDouble(topInfoValues.get(2)))
-                .valorization12Month(topInfoValues.get(4)) // %
+                .dividendYield(convertStringWithPercentageToDouble(topInfoValues.get(3))) // %
+                .valorization12Month(topInfoValues.get(4))  // R$
                 .dividendYield12Month(convertStringWithCoinToDouble(topInfoSubValues.get(3)))
                 .divLiquidEbitda(convertStringToDouble(htmlIndicatorsDebt.get(2)))
                 .dy(convertStringWithPercentageToDouble(htmlIndicators.get(0)))

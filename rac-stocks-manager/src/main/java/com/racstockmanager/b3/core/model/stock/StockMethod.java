@@ -7,6 +7,7 @@ import java.util.List;
 
 @Builder
 public record StockMethod(Boolean isValid,
+                          Integer score,
                           String maximumPrice,
                           String upsideFormatted,
                           Double upside,

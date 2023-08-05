@@ -24,7 +24,7 @@ public class CheaperService {
         return stockShorts.stream()
                 //.filter(stock -> stock.barsi().isValid())
                 .map(this::stockShortCheaperBuild)
-                .sorted(Comparator.comparing(StockShortDto::status))
+                .sorted(Comparator.comparing(StockShortDto::score).reversed())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
@@ -40,6 +40,7 @@ public class CheaperService {
                 .upsideFormatted(stockShort.cheaper().upsideFormatted())
                 .description(stockShort.cheaper().description())
                 .errors(stockShort.cheaper().errors())
+                .score(stockShort.cheaper().score())
                 .status(stockShort.cheaper().isValid() ? "Buy" : "Wait").build();
     }
 }

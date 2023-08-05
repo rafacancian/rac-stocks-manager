@@ -17,6 +17,7 @@ public record StockShortDto(String code,
                             Double upside,
                             String status,
                             String description,
+                            Integer score,
                             List<ValidateError> errors) implements Comparator<StockShortDto> {
     @Override
     public int compare(StockShortDto o1, StockShortDto o2) {

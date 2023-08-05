@@ -25,7 +25,7 @@ public class StockBuilder {
         return StockShort.builder()
                 .name(stock.getName())
                 .code(stock.getCode())
-                .dividendYield(CalculatorUtils.convertDoubleToPercentage(stock.getIndicators().getIndicatorsValuations().dividendYield12Month()))
+                .dividendYield(CalculatorUtils.convertDoubleToPercentage(stock.getIndicators().getIndicatorsValuations().dividendYield()))
                 .valorization12M(stock.getIndicators().getIndicatorsValuations().valorization12Month())
                 .currentValue(CurrencyUtils.convertDoubleToBRL(stock.getIndicators().getIndicatorsValuations().currentValue()))
                 .graham(stock.getIndicators().getGraham())
