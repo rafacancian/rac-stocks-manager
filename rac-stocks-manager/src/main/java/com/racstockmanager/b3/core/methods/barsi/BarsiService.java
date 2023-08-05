@@ -33,6 +33,8 @@ public class BarsiService {
                 .code(stockShort.code())
                 .name(stockShort.name())
                 .currentPrice(stockShort.currentValue())
+                .dividendYield(stockShort.dividendYield())
+                .valorization12M(stockShort.valorization12M())
                 .maximumPrice(stockShort.barsi().maximumPrice())
                 .upsideFormatted(stockShort.barsi().upsideFormatted())
                 .upside(stockShort.barsi().upside())
