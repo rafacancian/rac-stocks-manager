@@ -9,6 +9,7 @@ import StocksCheaper from '../pages/Stocks/Cheaper';
 import StocksDividends from '../pages/Stocks/Dividends';
 import StocksGraham from '../pages/Stocks/Graham';
 import GridStocks from '../pages/Stocks/GridStocks';
+import StocksPersonal from '../pages/Stocks/Personal';
 import StocksWacc from '../pages/Stocks/Wacc';
 
 
@@ -45,6 +46,10 @@ const MainRoutes = {
     {
       path: '/stocks/Dividends',
       element: <StocksDividends />
+    },
+    {
+      path: '/stocks/Personal',
+      element: <StocksPersonal />
     },
     {
       path: '/stock/select',

@@ -68,6 +68,13 @@ const stocks = {
       icon: icons.ProfileOutlined
     },
     {
+      id: 'stocks-personal',
+      title: 'Personal',
+      type: 'item',
+      url: '/stocks/personal',
+      icon: icons.ProfileOutlined
+    },
+    {
       id: 'stock',
       title: 'Stock',
       type: 'item',
