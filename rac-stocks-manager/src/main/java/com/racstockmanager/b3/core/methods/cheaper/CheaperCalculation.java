@@ -151,7 +151,7 @@ public class CheaperCalculation extends CalculatorUtils {
             reduceScore(1);
             errors.add(new ValidateError(
                     "Stock with low dividend yield",
-                    "The dividend yield shoul be great then 5%. DY: " + indicatorsValuations.dividendYield12Month(),
+                    "The dividend yield should be great then 5%. DY: " + indicatorsValuations.dividendYield(),
                     "more details"));
 
         }
@@ -163,7 +163,7 @@ public class CheaperCalculation extends CalculatorUtils {
             reduceScore(1);
             errors.add(new ValidateError(
                     "Stock with low ROE",
-                    "The dividend yield shoul be great then 10 or Selic. ROE: " + indicatorsProfitability.roe(),
+                    "The dividend yield should be great then 10 or Selic. ROE: " + indicatorsProfitability.roe(),
                     "more details"));
         }
     }

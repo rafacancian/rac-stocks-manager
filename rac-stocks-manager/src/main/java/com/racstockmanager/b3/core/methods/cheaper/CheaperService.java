@@ -41,6 +41,6 @@ public class CheaperService {
                 .description(stockShort.cheaper().description())
                 .errors(stockShort.cheaper().errors())
                 .score(stockShort.cheaper().score())
-                .status(stockShort.cheaper().isValid() ? "Buy" : "Wait").build();
+                .status(stockShort.cheaper().score() > 8 ? "Buy" : "Wait").build();
     }
 }
