@@ -50,6 +50,7 @@ const StockTable = (item: StockProps) => {
     debugger
   };
 
+
   return (
 
 
@@ -71,12 +72,18 @@ const StockTable = (item: StockProps) => {
                     <thead>
                       <tr>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7">Rank</th>
+                        <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Code</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ativo</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço Atual</th>
+                        {item != null && item.stocks != null && item.stocks[0].upside != null && 
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Upsite</th>
+                        }
+                        {item != null && item.stocks != null && item.stocks[0].maximumPrice != null && 
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço Teto</th>
+                        }
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Dividend Yield</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valorização 12M</th>
+                        <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Score</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Details</th>
                         <th></th>
@@ -91,6 +98,11 @@ const StockTable = (item: StockProps) => {
                             <td>
                               <p className="text-ms text-center font-weight-bold mb-0">{index + 1}</p>
                             </td>
+
+                            <td>
+                              <p className="text-sm font-weight-bold mb-0 ms-2">{stock.code}</p>
+                            </td>
+
                             <td>
                               <div className="d-flex px-2">
                                 <div>
@@ -105,7 +117,7 @@ const StockTable = (item: StockProps) => {
                               <p className="text-sm font-weight-bold mb-0">{stock.currentPrice}</p>
                             </td>
 
-
+                            {stock.upside != null && 
                             <td className="align-middle">
                               <div className="d-flex align-items-center justify-content-center">
                                 <span className="me-2 text-xs font-weight-bold">{stock.upsideFormatted}</span>
@@ -125,15 +137,20 @@ const StockTable = (item: StockProps) => {
                                 </div>
                               </div>
                             </td>
-
+                            }
+                            {stock.maximumPrice != null && 
                             <td>
                               <p className="text-sm font-weight-bold mb-0 ms-2">{stock.maximumPrice}</p>
                             </td>
+                            }
                             <td>
                               <p className="text-sm font-weight-bold mb-0 ms-4">{stock.dividendYield}</p>
                             </td>
                             <td>
                               <p className="text-sm font-weight-bold mb-0 ms-4">{stock.valorization12M}</p>
+                            </td>
+                            <td>
+                              <p className="text-sm font-weight-bold mb-0 ms-2">{stock.score}</p>
                             </td>
                             <td>
                               {stock.status == "Buy" && <div>

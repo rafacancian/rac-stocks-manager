@@ -13,6 +13,7 @@ export default interface IStock {
   upside: number
   upsideFormatted: string
   status: string
+  score: number
   description: string
   errors: IValidationError[]
 }
