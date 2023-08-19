@@ -9,6 +9,8 @@ export default interface IStock {
   currentPrice: number
   dividendYield: string
   valorization12M: string
+  earningYield: string
+  roe: string
   maximumPrice: string
   upside: number
   upsideFormatted: string
@@ -16,4 +18,5 @@ export default interface IStock {
   score: number
   description: string
   errors: IValidationError[]
+  showErrors: boolean
 }

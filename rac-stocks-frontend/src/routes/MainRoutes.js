@@ -9,6 +9,7 @@ import StocksCheaper from '../pages/Stocks/Cheaper';
 import StocksDividends from '../pages/Stocks/Dividends';
 import StocksGraham from '../pages/Stocks/Graham';
 import GridStocks from '../pages/Stocks/GridStocks';
+import StocksMagicFormula from '../pages/Stocks/MagicFormula';
 import StocksPersonal from '../pages/Stocks/Personal';
 import StocksWacc from '../pages/Stocks/Wacc';
 
@@ -42,6 +43,10 @@ const MainRoutes = {
     {
       path: '/stocks/Cheaper',
       element: <StocksCheaper />
+    },
+    {
+      path: '/stocks/MagicFormula',
+      element: <StocksMagicFormula />
     },
     {
       path: '/stocks/Dividends',

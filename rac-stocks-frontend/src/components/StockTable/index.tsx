@@ -72,14 +72,24 @@ const StockTable = (item: StockProps) => {
                         }
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Dividend Yield</th>
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valorização 12M</th>
+                        
+                        {item != null && item.stocks != null && item.stocks[0].earningYield != null &&
+                          <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Earning Yeild</th>
+                        }
+                        {item != null && item.stocks != null && item.stocks[0].roe != null &&
+                          <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">ROE</th>
+                        }
+
                         {item != null && item.stocks != null && item.stocks[0].score != null &&
                           <th className="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Score</th>
                         }
                         {item != null && item.stocks != null && item.stocks[0].status != null &&
                           <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                         }
+                         {item != null && item.stocks != null && item.stocks[0].showErrors != false &&
                         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Details</th>
-                      </tr>
+                         }
+                        </tr>
                     </thead>
                     <tbody>
 
@@ -141,6 +151,18 @@ const StockTable = (item: StockProps) => {
                             <td>
                               <p className="text-sm font-weight-bold mb-0 ms-4">{stock.valorization12M}</p>
                             </td>
+                            {stock.earningYield != null &&
+                              <td>
+                                <p className="text-sm font-weight-bold mb-0 ms-2">{stock.earningYield}</p>
+                              </td>
+                            }
+                            {stock.roe != null &&
+                              <td>
+                                <p className="text-sm font-weight-bold mb-0 ms-2">{stock.roe}</p>
+                              </td>
+                            }
+
+
                             {stock.score != null &&
                               <td>
                                 <p className="text-sm font-weight-bold mb-0 ms-2">{stock.score}</p>
@@ -164,7 +186,7 @@ const StockTable = (item: StockProps) => {
                               </td>
                             }
                             <td>
-                              {stock.errors != null && stock.errors.length > 0 &&
+                              {stock.errors != null && stock.errors.length > 0 && stock.showErrors != false &&
                                 <div style={{ display: "flex" }} >
                                   <Tooltip title={
                                     <>

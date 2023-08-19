@@ -61,6 +61,13 @@ const stocks = {
       icon: icons.ProfileOutlined
     },
     {
+      id: 'stocks-magic-formula',
+      title: 'Magic Formula',
+      type: 'item',
+      url: '/stocks/magicformula',
+      icon: icons.ProfileOutlined
+    },
+    {
       id: 'stocks-dividends',
       title: 'Dividends',
       type: 'item',
