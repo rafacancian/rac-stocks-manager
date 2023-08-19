@@ -15,14 +15,13 @@ public class NoCyclicConsumption {
 
     public static final String BEBIDAS = "Bebidas";
     public static final String PRODUTO_USO_PESSOAL = "Produtos de uso pessoal";
-    public static final String CERVEJAS_E_REFRIGERANTES = "Cervejas e refrigerantes";
     public static final String CARNES_E_DERIVADOS = "Carnes e derivados";
     public static final String ACUCAR_E_ALCOOL = "Açucar e alcool";
     public static final String ALIMENTOS_DIVERSO = "Alimentos diversos";
     public static final String ALIMENTOS = "Alimentos";
     public static final String AGRICULTURA = "Agricultura";
 
-    private static final Stock ABEV3 = new Stock("Ambev", "ABEV3", CONSUMO_NAO_CICLICO, CERVEJAS_E_REFRIGERANTES, true);
+    private static final Stock ABEV3 = new Stock("Ambev", "ABEV3", CONSUMO_NAO_CICLICO, BEBIDAS, true);
     private static final Stock AGRO3 = new Stock("Brasil agro", "AGRO3", CONSUMO_NAO_CICLICO, AGRICULTURA, true);
     private static final Stock AGXY3 = new Stock("Agrogalaxy participações", "AGXY3", CONSUMO_NAO_CICLICO, AGRICULTURA);
     private static final Stock APTI3 = new Stock("Siderurgica J.L aliperti", "APTI3", CONSUMO_NAO_CICLICO, AGRICULTURA);
@@ -34,8 +33,8 @@ public class NoCyclicConsumption {
     private static final Stock BOBR4 = new Stock("Bombril", "BOBR4", CONSUMO_NAO_CICLICO, CARNES_E_DERIVADOS);
     private static final Stock BRSF3 = new Stock("BRF", "BRSF3", CONSUMO_NAO_CICLICO, CARNES_E_DERIVADOS);
     private static final Stock BSEV3 = new Stock("Biosev", "BSEV3", CONSUMO_NAO_CICLICO, CARNES_E_DERIVADOS);
-    private static final Stock CAML3 = new Stock("Camil", "CAML3", CONSUMO_NAO_CICLICO, ACUCAR_E_ALCOOL);
-    private static final Stock CRFB3 = new Stock("Atacadao", "CRFB3", CONSUMO_NAO_CICLICO, ALIMENTOS_DIVERSO);
+    private static final Stock CAML3 = new Stock("Camil", "CAML3", CONSUMO_NAO_CICLICO, ACUCAR_E_ALCOOL, true);
+    private static final Stock CRFB3 = new Stock("Atacadao", "CRFB3", CONSUMO_NAO_CICLICO, ALIMENTOS_DIVERSO, true);
     private static final Stock CTCA3 = new Stock("CTC centro de tecnologia canavieira", "CTCA3", CONSUMO_NAO_CICLICO, ALIMENTOS_DIVERSO);
     private static final Stock ESPA3 = new Stock("MPM corporeos", "ESPA3", CONSUMO_NAO_CICLICO, ALIMENTOS);
     private static final Stock FRTA3 = new Stock("Pomifrutas", "FRTA3", CONSUMO_NAO_CICLICO, AGRICULTURA);
@@ -49,9 +48,9 @@ public class NoCyclicConsumption {
     private static final Stock MDIA3 = new Stock("M dias branco", "MDIA3", CONSUMO_NAO_CICLICO, ALIMENTOS_DIVERSO);
     private static final Stock MNPR3 = new Stock("Minupar", "MNPR3", CONSUMO_NAO_CICLICO, CARNES_E_DERIVADOS);
     private static final Stock MRFG3 = new Stock("Marfrig", "MRFG3", CONSUMO_NAO_CICLICO, CARNES_E_DERIVADOS, true);
-    private static final Stock NTCO3 = new Stock("Natura hoolding", "NTCO3", CONSUMO_NAO_CICLICO, PRODUTO_USO_PESSOAL);
+    private static final Stock NTCO3 = new Stock("Natura hoolding", "NTCO3", CONSUMO_NAO_CICLICO, PRODUTO_USO_PESSOAL, true);
     private static final Stock ODER4 = new Stock("Conservas oderich", "ODER4", CONSUMO_NAO_CICLICO, ALIMENTOS_DIVERSO);
-    private static final Stock PCAR3 = new Stock("Cia brasileira de distribuição", "PCAR3", CONSUMO_NAO_CICLICO, ALIMENTOS);
+    private static final Stock PCAR3 = new Stock("Cia brasileira de distribuição", "PCAR3", CONSUMO_NAO_CICLICO, ALIMENTOS, true);
     private static final Stock PCAR4 = new Stock("Cia brasileira de distribuição", "PCAR4", CONSUMO_NAO_CICLICO, ALIMENTOS);
     private static final Stock SLCE3 = new Stock("SLC agricola", "SLCE3", CONSUMO_NAO_CICLICO, AGRICULTURA);
     private static final Stock SMTO3 = new Stock("São martinho", "SMTO3", CONSUMO_NAO_CICLICO, ACUCAR_E_ALCOOL, true);

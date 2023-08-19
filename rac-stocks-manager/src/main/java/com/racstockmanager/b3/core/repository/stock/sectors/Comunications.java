@@ -20,8 +20,8 @@ public class Comunications {
     private static final Stock DESK3 = new Stock("Desktop sigmanet comunicação", "DESK3", COMUNICACOES, TELECOMUNICACOES);
     private static final Stock ELMD3 = new Stock("Eletromidia S.A", "ELMD3", COMUNICACOES, PUBLICIDADE);
     private static final Stock FIQE3 = new Stock("Unifique telecomunicações S.A", "FIQE3", COMUNICACOES, TELECOMUNICACOES);
-    private static final Stock OIBR3 = new Stock("OI", "OIBR3", COMUNICACOES, TELECOMUNICACOES, true);
-    private static final Stock OIBR4 = new Stock("OI", "OIBR4", COMUNICACOES, TELECOMUNICACOES);
+    private static final Stock OIBR3 = new Stock("OI", "OIBR3", COMUNICACOES, TELECOMUNICACOES);
+    private static final Stock OIBR4 = new Stock("OI", "OIBR4", COMUNICACOES, TELECOMUNICACOES, true);
     private static final Stock TELB3 = new Stock("Telec brasileiras S.A telebras", "TELB3", COMUNICACOES, TELECOMUNICACOES);
     private static final Stock TELB4 = new Stock("Telec brasileiras S.A telebras", "TELB4", COMUNICACOES, TELECOMUNICACOES);
     private static final Stock TIMS3 = new Stock("TIM participações S.A", "TIMS3", COMUNICACOES, TELECOMUNICACOES, true);

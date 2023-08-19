@@ -96,8 +96,8 @@ public class FinancialAndOthers {
     private static final Stock IRBR3 = new Stock("IRB", "IRBR3", FINANCEIRO_E_OUTROS, SEGURADORAS, true);
     private static final Stock ITSA3 = new Stock("Itausa", "ITSA3", FINANCEIRO_E_OUTROS, null);
     private static final Stock ITSA4 = new Stock("Itausa", "ITSA4", FINANCEIRO_E_OUTROS, BANCOS, true);
-    private static final Stock ITUB3 = new Stock("Banco itau unibanco", "ITUB3", FINANCEIRO_E_OUTROS, null, true);
-    private static final Stock ITUB4 = new Stock("Banco itau unibanco", "ITUB4", FINANCEIRO_E_OUTROS, null);
+    private static final Stock ITUB3 = new Stock("Banco itau unibanco", "ITUB3", FINANCEIRO_E_OUTROS, null);
+    private static final Stock ITUB4 = new Stock("Banco itau unibanco", "ITUB4", FINANCEIRO_E_OUTROS, null, true);
     private static final Stock LHER3 = new Stock("Lojas hering", "LHER3", FINANCEIRO_E_OUTROS, null);
     private static final Stock LHER4 = new Stock("Lojas hering", "LHER4", FINANCEIRO_E_OUTROS, null);
     private static final Stock LOGG3 = new Stock("Log commercial properties", "LOGG3", FINANCEIRO_E_OUTROS, null);

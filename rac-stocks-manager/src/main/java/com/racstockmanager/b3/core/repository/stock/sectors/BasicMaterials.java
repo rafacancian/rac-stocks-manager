@@ -47,12 +47,12 @@ public class BasicMaterials {
     private static final Stock FBMC3 = new Stock("Fibam", "FBMC3", MATERIAIS_BASICOS, ARTEFATOS_FERRO_ACO);
     private static final Stock FBMC4 = new Stock("Fibam", "FBMC4", MATERIAIS_BASICOS, ARTEFATOS_FERRO_ACO);
     private static final Stock FESA3 = new Stock("Ferbasa", "FESA3", MATERIAIS_BASICOS, SIDERURGIA);
-    private static final Stock FESA4 = new Stock("Ferbasa", "FESA4", MATERIAIS_BASICOS, SIDERURGIA);
-    private static final Stock FHER3 = new Stock("Fertilizantes heringer", "FHER3", MATERIAIS_BASICOS, FERTILIZANTES_DEFENSIVOS);
+    private static final Stock FESA4 = new Stock("Ferbasa", "FESA4", MATERIAIS_BASICOS, SIDERURGIA, true);
+    private static final Stock FHER3 = new Stock("Fertilizantes heringer", "FHER3", MATERIAIS_BASICOS, FERTILIZANTES_DEFENSIVOS, true);
     private static final Stock GGBR3 = new Stock("Gerdau", "GGBR3", MATERIAIS_BASICOS, SIDERURGIA, true);
     private static final Stock GGBR4 = new Stock("Gerdau", "GGBR4", MATERIAIS_BASICOS, SIDERURGIA);
     private static final Stock GOAU3 = new Stock("Metalurgica gerdau", "GOAU3", MATERIAIS_BASICOS, SIDERURGIA);
-    private static final Stock GOAU4 = new Stock("Metalurgica gerdau", "GOAU4", MATERIAIS_BASICOS, SIDERURGIA);
+    private static final Stock GOAU4 = new Stock("Metalurgica gerdau", "GOAU4", MATERIAIS_BASICOS, SIDERURGIA, true);
     private static final Stock KLBN11 = new Stock("Klabin", "KLBN11", MATERIAIS_BASICOS, PAPEL_E_CELULOSE, true);
     private static final Stock KLBN3 = new Stock("Klabin", "KLBN3", MATERIAIS_BASICOS, PAPEL_E_CELULOSE);
     private static final Stock KLBN4 = new Stock("Klabin", "KLBN4", MATERIAIS_BASICOS, PAPEL_E_CELULOSE);

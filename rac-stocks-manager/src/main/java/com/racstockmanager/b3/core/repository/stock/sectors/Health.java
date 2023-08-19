@@ -13,8 +13,8 @@ import static com.racstockmanager.b3.core.model.stock.Sector.SAUDE;
 
 public class Health {
 
-    public static final String SERVICO_MEDICO_HOSPITALAR_AND_DIAGNOSTICOS = "Serv.Méd.Hospit..Análises e Diagnósticos";
-    public static final String MEDICAMENTOS_E_OUTROS_PRODUTOS = "Medicamentos e Outros Produtos";
+    public static final String SERVICO_MEDICO_HOSPITALAR_AND_DIAGNOSTICOS = "Serviços médicos";
+    public static final String MEDICAMENTOS_E_OUTROS_PRODUTOS = "Medicamentos e outros produtos";
     public static final String EQUIPAMENTOS = "Equipamentos";
 
     private static final Stock AALR3 = new Stock("Alliança saúde e participações", "AALR3", SAUDE, SERVICO_MEDICO_HOSPITALAR_AND_DIAGNOSTICOS);

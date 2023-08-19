@@ -20,7 +20,7 @@ public class OilGasFuels {
     private static final Stock CSAN3 = new Stock("Cosan", "CSAN3", PETROLEO_GAS_BIOCOMBUSTIVEIS, EXPLORACAO_REFINO_E_DISTRIBUICAO, true);
     private static final Stock DMM011 = new Stock("Dommo energia", "DMM011", PETROLEO_GAS_BIOCOMBUSTIVEIS, EXPLORACAO_REFINO_E_DISTRIBUICAO);
     private static final Stock DMMO3 = new Stock("Dommo energia", "DMM03", PETROLEO_GAS_BIOCOMBUSTIVEIS, EXPLORACAO_REFINO_E_DISTRIBUICAO);
-    private static final Stock ENAT3 = new Stock("Enauta participações", "ENAT3", PETROLEO_GAS_BIOCOMBUSTIVEIS, EXPLORACAO_REFINO_E_DISTRIBUICAO);
+    private static final Stock ENAT3 = new Stock("Enauta participações", "ENAT3", PETROLEO_GAS_BIOCOMBUSTIVEIS, EXPLORACAO_REFINO_E_DISTRIBUICAO, true);
     private static final Stock LUPA3 = new Stock("Lupatech", "LUPA3", PETROLEO_GAS_BIOCOMBUSTIVEIS, EQUIPAMENTOS_E_SERVICOS);
     private static final Stock OGXP3 = new Stock("Oleo e gás participações", "OGXP3", PETROLEO_GAS_BIOCOMBUSTIVEIS, EXPLORACAO_REFINO_E_DISTRIBUICAO);
     private static final Stock OSXB3 = new Stock("Osx brasil", "OSXB3", PETROLEO_GAS_BIOCOMBUSTIVEIS, EQUIPAMENTOS_E_SERVICOS);

@@ -1,6 +1,8 @@
 package com.racstockmanager.b3.core.repository.stock.sectors;
 
+import com.racstockmanager.b3.core.exceptions.StockNotFoundException;
 import com.racstockmanager.b3.core.model.stock.Stock;
+import lombok.SneakyThrows;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -53,5 +55,13 @@ public class Technologies {
 
     public static Set<Stock> getRelevents() {
         return getStocks().stream().filter(Stock::getIsRelevant).collect(Collectors.toSet());
+    }
+
+    @SneakyThrows
+    public static Stock getStockByCode(String code) {
+        return getStocks().stream()
+                .filter(stock -> stock.getCode().equalsIgnoreCase(code))
+                .findFirst()
+                .orElseThrow(() -> new StockNotFoundException(code));
     }
 }
