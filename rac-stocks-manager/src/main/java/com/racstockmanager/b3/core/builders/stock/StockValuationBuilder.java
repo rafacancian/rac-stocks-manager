@@ -44,6 +44,7 @@ public class StockValuationBuilder {
                 .pSr(convertStringToDouble(htmlIndicators.get(11)))
                 .pCapGiro(convertStringToDouble(htmlIndicators.get(12)))
                 .pAtivoCircLiq(convertStringToDouble(htmlIndicators.get(13)))
+                .earningYield(1 / convertStringToDouble(htmlIndicators.get(5)) * 100)
 
                 // TODO refactor to a new class
                 .patrimonioLiquido(convertStringToDoubleRegex(topInfoPatrimonios.get(0)))

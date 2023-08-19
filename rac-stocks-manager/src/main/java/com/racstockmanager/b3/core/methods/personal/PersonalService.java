@@ -40,6 +40,7 @@ public class PersonalService {
                 .upsideFormatted(stockShort.cheaper().upsideFormatted())
                 .description(stockShort.cheaper().description())
                 .errors(stockShort.cheaper().errors())
+                .showErrors(true)
                 .score(stockShort.cheaper().score())
                 .status(stockShort.cheaper().score() > 8 ? "Buy" : "Wait").build();
     }

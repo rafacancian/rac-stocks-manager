@@ -9,6 +9,9 @@ import lombok.*;
 @Builder
 public class Indicators {
     IndicatorsValuations indicatorsValuations;
+    IndicatorsEfficiency indicatorsEfficiency;
+    IndicatorsProfitability indicatorsProfitability;
+    IndicatorsGrowth indicatorsGrowth;
     Boolean isJuridicalRecovery;
     StockMethod graham;
     StockMethod bazin;

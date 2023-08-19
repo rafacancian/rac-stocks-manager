@@ -15,6 +15,7 @@ public class Stock implements B3 {
     private String segment;
     private Indicators indicators;
     private Boolean isRelevant;
+    private Ranking ranking;
 
     public Stock() {
     }
@@ -26,6 +27,7 @@ public class Stock implements B3 {
         this.segment = segment;
         this.indicators = indicators;
         this.isRelevant = false;
+        this.ranking = new Ranking();
     }
 
     public Stock(String name, String code, Sector sector, String segment, Indicators indicators, Boolean isRelevant) {
@@ -35,6 +37,17 @@ public class Stock implements B3 {
         this.segment = segment;
         this.indicators = indicators;
         this.isRelevant = isRelevant;
+        this.ranking = new Ranking();
+    }
+
+    public Stock(String name, String code, Sector sector, String segment, Indicators indicators, Boolean isRelevant, Ranking ranking) {
+        this.name = name;
+        this.code = code;
+        this.sector = sector;
+        this.segment = segment;
+        this.indicators = indicators;
+        this.isRelevant = isRelevant;
+        this.ranking = ranking;
     }
 
     public Stock(String name, String code, Sector sector, String segment) {
@@ -43,6 +56,7 @@ public class Stock implements B3 {
         this.sector = sector;
         this.segment = segment;
         this.isRelevant = false;
+        this.ranking = new Ranking();
     }
 
     public Stock(String name, String code, Sector sector, String segment, Boolean isRelevant) {
@@ -51,6 +65,7 @@ public class Stock implements B3 {
         this.sector = sector;
         this.segment = segment;
         this.isRelevant = isRelevant;
+        this.ranking = new Ranking();
     }
 
 }

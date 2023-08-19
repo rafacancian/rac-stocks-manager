@@ -61,10 +61,7 @@ public class StockCalculator {
             IndicatorsEfficiency indicatorsEfficiency = StockEfficiencyBuilder.build(htmlIndicatorsEfficiency);
             IndicatorsProfitability indicatorsProfitability = StockProfitabilityBuilder.build(htmlIndicatorsProfitability);
             IndicatorsGrowth indicatorsGrowth = StockGrowthBuilder.build(htmlIndicatorsGrowth);
-
             boolean isJudicialRecovery = !document.getElementsContainingText("RECUPERAÇÃO JUDICIAL").isEmpty();
-
-            // TODO refactor
 
             StockMethod barsiValue = barsiCalculation.execute(stock, indicatorsValuations);
             StockMethod bazinValue = bazinCalculation.execute(stock, indicatorsValuations);
@@ -73,7 +70,7 @@ public class StockCalculator {
             StockMethod cheaper = cheaperCalculation.execute(stock, indicatorsValuations, indicatorsEfficiency,
                     indicatorsProfitability, indicatorsGrowth, isJudicialRecovery);
 
-            return StockIndicatorsBuilder.build(indicatorsValuations, isJudicialRecovery, barsiValue, bazinValue, grahamValue, waccValue, cheaper);
+            return StockIndicatorsBuilder.build(indicatorsValuations, indicatorsEfficiency, indicatorsProfitability, indicatorsGrowth, isJudicialRecovery, barsiValue, bazinValue, grahamValue, waccValue, cheaper);
 
         } catch (IOException e) {
             log.error("[Stock Calculator] Unexpected error for " + stock.getCode() + " | Error: " + e.getMessage());

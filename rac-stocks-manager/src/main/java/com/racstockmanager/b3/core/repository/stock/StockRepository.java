@@ -23,4 +23,8 @@ public class StockRepository {
     public Set<Stock> getTopsSunoDividends() {
         return StockRepositoryData.getTopsSunoDividends();
     }
+
+    public Set<Stock> getPersonal() {
+        return StockRepositoryData.getPersonal();
+    }
 }

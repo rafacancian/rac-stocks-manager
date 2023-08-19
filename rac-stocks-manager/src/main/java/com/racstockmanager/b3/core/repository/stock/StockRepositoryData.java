@@ -102,4 +102,42 @@ public class StockRepositoryData {
                 NoCyclicConsumption.getStockByCode("AGRO3"),
                 EGIE3, ELET3, ENBR3, ALUP11, CPLE6);
     }
+
+    public static Set<Stock> getPersonal() {
+
+        return Set.of(
+                FinancialAndOthers.getStockByCode("ALSO3"),
+                CyclicConsumption.getStockByCode("AMAR3"),
+                BasicMaterials.getStockByCode("AURA33"),
+                FinancialAndOthers.getStockByCode("BBAS3"),
+                FinancialAndOthers.getStockByCode("BBDC4"),
+                FinancialAndOthers.getStockByCode("BBSE3"),
+                Health.getStockByCode("BLAU3"),
+                BRKM5,
+                CyclicConsumption.getStockByCode("COGN3"),
+                CyclicConsumption.getStockByCode("CVCB3"),
+                EGIE3,
+                ELET3,
+                CyclicConsumption.getStockByCode("EZTC3"),
+                Health.getStockByCode("FLRY3"),
+                NoCyclicConsumption.getStockByCode("GMAT3"),
+                FinancialAndOthers.getStockByCode("IGTI11"),
+                FinancialAndOthers.getStockByCode("IRBR3"),
+                FinancialAndOthers.getStockByCode("ITSA4"),
+                BasicMaterials.getStockByCode("KLBN11"),
+                CyclicConsumption.getStockByCode("LREN3"),
+                CyclicConsumption.getStockByCode("MGLU3"),
+                Technologies.getStockByCode("NGRD3"),
+                Comunications.getStockByCode("OIBR4"),
+                Health.getStockByCode("PNVL3"),
+                SAPR4,
+                TAEE11,
+                BasicMaterials.getStockByCode("USIM5"),
+                BasicMaterials.getStockByCode("VALE3"),
+                CyclicConsumption.getStockByCode("VIIA3"),
+                Comunications.getStockByCode("VIVT3"),
+                IndustrialGoods.getStockByCode("WEGE3"),
+                FinancialAndOthers.getStockByCode("WIZC3")
+        );
+    }
 }

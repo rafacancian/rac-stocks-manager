@@ -45,6 +45,11 @@ public class StockService {
         return stockBuilder.parseToShortInformation(stocks.getStocks());
     }
 
+    public Stocks getAllRelevantFull() {
+        log.debug("[B3 Service] Get all relevant stocks");
+        return processStocks(true);
+    }
+
     public Optional<StockShort> getStockByCode(String code) {
         log.debug("[B3 Service] Get stock by code");
         final Stocks stocks = processStocks(true);
@@ -79,6 +84,18 @@ public class StockService {
                 .collect(Collectors.toSet());
     }
 
+    public Set<StockShort> getPersonal() {
+        log.debug("[B3 Service] Get personal stocks");
+        final Stocks stocks = processStocks(true);
+        final Set<Stock> personalStocks = repository.getPersonal();
+
+        return stocks.getStocks().stream()
+                .filter(stock -> personalStocks.stream()
+                        .anyMatch(personal -> personal.getCode().equalsIgnoreCase(stock.getCode())))
+                .map(stockBuilder::parseToShortInformation)
+                .collect(Collectors.toSet());
+    }
+
     private Stocks processStocks(boolean relevantStocks) {
         final Stocks stocks = redisRepository.get(LocalDate.now().toString());
         if (stocks == null || stocks.getLastCalculation().isBefore(LocalDate.now())) {
@@ -99,7 +116,7 @@ public class StockService {
         ShowPercentageProgress.execute(stocksDB, stocksResult);
         try {
             stocksDB.forEach(s -> {
-                //log.info("[Stock Service calculating] code: " + s.getCode());
+                log.info("[Stock Service calculating] code: " + s.getCode());
                 Indicators indicators = stockCalculator.execute(s);
                 s.setIndicators(indicators);
                 stocksResult.add(s);

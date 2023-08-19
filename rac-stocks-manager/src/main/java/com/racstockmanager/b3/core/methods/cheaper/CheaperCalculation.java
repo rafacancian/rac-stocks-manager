@@ -41,6 +41,12 @@ public class CheaperCalculation extends CalculatorUtils {
         //final String maximumPriceFormatted = CurrencyUtils.convertDoubleToBRL(maximumPrice);
         //double upside = calculateUpside(valuations.currentValue(), maximumPrice);
 
+        // magic formula joel greenblatt
+        // https://www.youtube.com/watch?v=GRte8PaBj60&t=15s
+        // https://quantbrasil.com.br/magic-formula/
+        // Ev/Ebit
+
+
         resetScore();
         System.out.print("Score: " + score);
         final List<ValidateError> validationErrors = validation(stock, indicatorsValuations, indicatorsEfficiency,

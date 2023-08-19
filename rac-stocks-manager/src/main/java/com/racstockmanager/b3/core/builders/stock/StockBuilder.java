@@ -27,6 +27,8 @@ public class StockBuilder {
                 .code(stock.getCode())
                 .dividendYield(CalculatorUtils.convertDoubleToPercentage(stock.getIndicators().getIndicatorsValuations().dividendYield()))
                 .valorization12M(stock.getIndicators().getIndicatorsValuations().valorization12Month())
+                .earningYield(CalculatorUtils.convertDoubleToPercentage(stock.getIndicators().getIndicatorsValuations().earningYield()))
+                .roe(CalculatorUtils.convertDoubleToPercentage(stock.getIndicators().getIndicatorsProfitability().roe()))
                 .currentValue(CurrencyUtils.convertDoubleToBRL(stock.getIndicators().getIndicatorsValuations().currentValue()))
                 .graham(stock.getIndicators().getGraham())
                 .bazin(stock.getIndicators().getBazin())

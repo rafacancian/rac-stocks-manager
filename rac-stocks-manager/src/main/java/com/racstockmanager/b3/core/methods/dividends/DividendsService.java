@@ -35,7 +35,10 @@ public class DividendsService {
                 .name(stockShort.name())
                 .currentPrice(stockShort.currentValue())
                 .dividendYield(stockShort.dividendYield())
+                .earningYield(stockShort.earningYield())
+                .roe(stockShort.roe())
                 .valorization12M(stockShort.valorization12M())
+                .showErrors(false)
                 .build();
     }
 
