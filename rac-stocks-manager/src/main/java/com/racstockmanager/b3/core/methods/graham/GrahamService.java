@@ -40,6 +40,8 @@ public class GrahamService {
                 .upside(stockShort.graham().upside())
                 .description(stockShort.graham().description())
                 .status(stockShort.graham().isValid() ? "Buy" : "Wait")
-                .errors(stockShort.graham().errors()).build();
+                .errors(stockShort.graham().errors())
+                .showErrors(true)
+                .build();
     }
 }

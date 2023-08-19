@@ -39,6 +39,7 @@ public class BazinService {
                 .upside(stockShort.bazin().upside())
                 .description(stockShort.bazin().description())
                 .errors(stockShort.bazin().errors())
+                .showErrors(true)
                 .status(stockShort.bazin().isValid() ? "Buy" : "Wait").build();
     }
 }

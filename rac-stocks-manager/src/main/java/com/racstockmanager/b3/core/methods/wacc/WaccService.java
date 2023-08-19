@@ -40,6 +40,7 @@ public class WaccService {
                 .upsideFormatted(stockShort.wacc().upsideFormatted())
                 .description(stockShort.wacc().description())
                 .errors(stockShort.wacc().errors())
+                .showErrors(true)
                 .status(stockShort.wacc().isValid() ? "Buy" : "Wait").build();
     }
 }

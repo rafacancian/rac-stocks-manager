@@ -39,6 +39,9 @@ public class BarsiService {
                 .upsideFormatted(stockShort.barsi().upsideFormatted())
                 .upside(stockShort.barsi().upside())
                 .description(stockShort.barsi().description())
-                .status(stockShort.barsi().isValid() ? "Buy" : "Wait").build();
+                .errors(stockShort.barsi().errors())
+                .showErrors(true)
+                .status(stockShort.barsi().isValid() ? "Buy" : "Wait")
+                .build();
     }
 }
